@@ -1994,7 +1994,7 @@ body,header,.sidebar,.card,.stat-box,.chat-wrap,
   <div class="sb-divider"></div>
   <div class="sb-entity" style="color:#38bdf8">⬡ Travel Intelligence</div>
   <div class="nav-item" data-panel="meridian"><span class="ni-agent" style="background:rgba(56,189,248,0.12);color:#38bdf8">MRID</span><span class="ni-name">MERIDIAN</span></div>
-  <div class="nav-item" data-panel="airlift"><span class="ni-agent" style="background:rgba(56,189,248,0.12);color:#38bdf8">LIFT</span><span class="ni-name">AIRLIFT — Flights</span></div>
+  <div class="nav-item" data-panel="airlift"><span class="ni-agent" style="background:rgba(56,189,248,0.12);color:#38bdf8">LIFT</span><span class="ni-name">AIRLIFT — Flights, Hotels &amp; Packages</span></div>
   <div class="sb-divider"></div>
   <div class="sb-entity" style="color:#e879f9">&#x29C1; Agent Oversight</div>
   <div class="nav-item" data-panel="vanguard"><span class="ni-agent" style="background:rgba(232,121,249,0.12);color:#e879f9">VAN</span><span class="ni-name">VANGUARD &#x2014; Agent Manager</span></div>
@@ -2006,6 +2006,12 @@ body,header,.sidebar,.card,.stat-box,.chat-wrap,
   <div class="nav-item" data-panel="valor"><span class="ni-agent" style="background:rgba(192,132,252,0.12);color:#c084fc">VALOR</span><span class="ni-name">Pricing Philosophy</span></div>
   <div class="nav-item" data-panel="courier"><span class="ni-agent" style="background:rgba(192,132,252,0.12);color:#c084fc">COURIER</span><span class="ni-name">Delivery Intelligence</span></div>
   <div class="nav-item" data-panel="wallet"><span class="ni-agent" style="background:rgba(192,132,252,0.12);color:#c084fc">WALLET</span><span class="ni-name">Customer Loyalty</span></div>
+  <div class="nav-item" data-panel="earn-more"><span class="ni-agent" style="background:rgba(192,132,252,0.12);color:#c084fc">EARN</span><span class="ni-name">EARN MORE System</span></div>
+  <div class="sb-divider"></div>
+  <div class="sb-entity" style="color:#f43f5e">&#x29C1; Revenue Intelligence</div>
+  <div class="nav-item" data-panel="spark"><span class="ni-agent" style="background:rgba(244,63,94,0.12);color:#f43f5e">SPARK</span><span class="ni-name">Advertising Intelligence</span></div>
+  <div class="nav-item" data-panel="treasury"><span class="ni-agent" style="background:rgba(244,63,94,0.12);color:#f43f5e">TRES</span><span class="ni-name">TREASURY &mdash; Settlement</span></div>
+  <div class="nav-item" data-panel="rank"><span class="ni-agent" style="background:rgba(244,63,94,0.12);color:#f43f5e">RANK</span><span class="ni-name">SEO Intelligence</span></div>
   <div class="sb-divider"></div>
   <div class="sb-entity" style="color:#f97316">⬡ Opportunity Engine</div>
   <div class="nav-item" data-panel="hunter"><span class="ni-agent" style="background:rgba(249,115,22,0.12);color:#f97316">HUNTER</span><span class="ni-name">Bounty Hunter</span></div>
@@ -2172,7 +2178,7 @@ body,header,.sidebar,.card,.stat-box,.chat-wrap,
     <div class="entity-hdr">
       <div>
         <div class="entity-hdr-title" style="color:#38bdf8">Mexieon Travel Intelligence</div>
-        <div class="entity-hdr-sub">MERIDIAN · AIRLIFT Flights · Tourism Partnerships · SMS Price Alerts</div>
+        <div class="entity-hdr-sub">MERIDIAN · Shop the World by Country &nbsp;|&nbsp; AIRLIFT · Flights, Hotels &amp; Packages &nbsp;|&nbsp; Tourism Partnerships &nbsp;|&nbsp; SMS Price Alerts</div>
       </div>
       <span class="entity-count" style="background:rgba(56,189,248,0.1);color:#38bdf8;border:1px solid rgba(56,189,248,0.2)">2 AGENTS</span>
     </div>
@@ -2185,6 +2191,7 @@ body,header,.sidebar,.card,.stat-box,.chat-wrap,
       </div>
       <div class="ag-card" style="cursor:pointer;border-top:2px solid #38bdf8;" data-panel="airlift">
         <div class="ag-agent-name" style="color:#38bdf8">AIRLIFT</div>
+        <div class="ag-role">Flights · Hotels · Vacation &amp; Holiday Packages</div>
         <div class="ag-role">Flight Intelligence &amp; SMS Price Alerts</div>
         <div class="ag-stat">200+ airlines scanned · 14 routes monitored · 8 SMS alerts active</div>
         <div class="ag-status"><div class="ag-dot" style="background:var(--rnd)"></div>Active · New</div>
@@ -2806,38 +2813,10 @@ grid-2">
     <div class="panel-sub">Set standing orders for each agent. Your instructions become their operating rules — every decision they make is guided by what you write here.</div>
   </div>
 
-  <!-- MANAGER ROLE SELECTOR -->
+  <!-- MANAGER ROLE SELECTOR — rendered dynamically by renderRoleGrid() -->
   <div style="margin-bottom:24px;">
     <div style="font-family:monospace;font-size:9px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">Select your role to manage assigned agents</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-      <div class="mgr-role-card active-mgr" id="mgr-ceo" onclick="selectManager('ceo')">
-        <div class="mgr-role-entity" style="color:#a78bfa;">Holdings Corporation</div>
-        <div class="mgr-role-title">CEO / President</div>
-        <div class="mgr-role-agents">GUARDIAN · SENTINEL · ORACLE</div>
-        <div style="margin-top:12px;display:flex;gap:6px;">
-          <span style="font-family:monospace;font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(167,139,250,0.1);color:#a78bfa;border:1px solid rgba(167,139,250,0.2);">3 agents</span>
-          <span style="font-family:monospace;font-size:9px;padding:2px 7px;border-radius:4px;background:var(--bg2);color:var(--muted);border:1px solid var(--border);">Board level</span>
-        </div>
-      </div>
-      <div class="mgr-role-card" id="mgr-gm" onclick="selectManager('gm')">
-        <div class="mgr-role-entity" style="color:#fb923c;">Mexieon Corporation</div>
-        <div class="mgr-role-title">President / GM</div>
-        <div class="mgr-role-agents">NOVA · LUMEN · FLUX · SIGNAL · CATALYST · PULSE · BEACON</div>
-        <div style="margin-top:12px;display:flex;gap:6px;">
-          <span style="font-family:monospace;font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(251,146,60,0.1);color:#fb923c;border:1px solid rgba(251,146,60,0.2);">7 agents</span>
-          <span style="font-family:monospace;font-size:9px;padding:2px 7px;border-radius:4px;background:var(--bg2);color:var(--muted);border:1px solid var(--border);">Commerce</span>
-        </div>
-      </div>
-      <div class="mgr-role-card" id="mgr-cto" onclick="selectManager('cto')">
-        <div class="mgr-role-entity" style="color:#34d399;">R&D Logistics</div>
-        <div class="mgr-role-title">CTO / Director</div>
-        <div class="mgr-role-agents">COMPASS · RELAY · STOCK</div>
-        <div style="margin-top:12px;display:flex;gap:6px;">
-          <span style="font-family:monospace;font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(52,211,153,0.1);color:#34d399;border:1px solid rgba(52,211,153,0.2);">3 agents</span>
-          <span style="font-family:monospace;font-size:9px;padding:2px 7px;border-radius:4px;background:var(--bg2);color:var(--muted);border:1px solid var(--border);">Supply chain</span>
-        </div>
-      </div>
-    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;" id="mgr-role-grid"></div>
   </div>
 
   <!-- AGENT COMMAND BLOCKS -->
@@ -3571,13 +3550,14 @@ grid-2">
 
 <div class="panel" id="panel-meridian">
   <div class="panel-hdr">
-    <div class="entity-tag"><div class="et-dot" style="background:#38bdf8"></div><span style="color:#38bdf8">Travel Intelligence &middot; Country Discovery</span></div>
+    <div class="entity-tag"><div class="et-dot" style="background:#38bdf8"></div><span style="color:#38bdf8">Global Commerce &middot; Shop By Country &middot; Culture &middot; Tourism &middot; Niche Products</span></div>
     <div class="panel-title">MERIDIAN</div>
-    <div class="panel-sub">Every country tells a story. MERIDIAN organises Mexieon products by origin country and culture &mdash; connecting tourism destinations with their authentic local goods. Every purchase earns cashback. Every country is an invitation.</div>
+    <div class="panel-sub">MERIDIAN gives you the world — organised by country, not by category. Pick any country and shop everything it has to offer: its culture, its tourism, its hotels, its niche local products, its food, its art, its heritage. Looking for authentic Japanese ceramics? Ghanaian kente cloth? A Trinidadian Carnival costume? A Jamaican resort? MERIDIAN is where you find it. Every country is a storefront. Every purchase earns cashback.</div>
     <div class="panel-badges">
       <span class="pbadge" style="background:rgba(56,189,248,0.1);color:#38bdf8;border:1px solid rgba(56,189,248,0.2)">&#9679; ACTIVE</span>
       <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2)">6 Countries Live</span>
       <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2)">243 Products</span>
+      <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2)">Culture · Tourism · Hotels · Goods</span>
     </div>
   </div>
   <div id="vid-container-meridian" style="margin-bottom:20px;"></div>
@@ -3589,16 +3569,16 @@ grid-2">
   </div>
   <div class="grid-2">
     <div class="card" style="border-color:rgba(56,189,248,0.2);">
-      <div class="card-title" style="color:#38bdf8">Live Country Storefronts &mdash; Click to hear briefing</div>
+      <div class="card-title" style="color:#38bdf8">Live Country Storefronts — Click any country to hear what you can shop</div>
       <table class="dtable">
-        <thead><tr><th>Country</th><th>Region</th><th>Products</th><th>Tourism Partner</th><th>Status</th></tr></thead>
+        <thead><tr><th>Country</th><th>Region</th><th>Listings</th><th>What You Can Shop</th><th>Status</th></tr></thead>
         <tbody>
-          <tr onclick="meridianSpeak('tt')" style="cursor:pointer;"><td>&#127481;&#127481; Trinidad &amp; Tobago</td><td>Caribbean</td><td>24</td><td>TTTT Authority</td><td><span class="tag t-r">Live</span></td></tr>
-          <tr onclick="meridianSpeak('jm')" style="cursor:pointer;"><td>&#127471;&#127474; Jamaica</td><td>Caribbean</td><td>31</td><td>JTB</td><td><span class="tag t-r">Live</span></td></tr>
-          <tr onclick="meridianSpeak('jp')" style="cursor:pointer;"><td>&#127471;&#127477; Japan</td><td>Asia</td><td>58</td><td>JNTO</td><td><span class="tag t-r">Live</span></td></tr>
-          <tr onclick="meridianSpeak('gh')" style="cursor:pointer;"><td>&#127468;&#127469; Ghana</td><td>Africa</td><td>19</td><td>GTA</td><td><span class="tag t-r">Live</span></td></tr>
-          <tr onclick="meridianSpeak('it')" style="cursor:pointer;"><td>&#127470;&#127481; Italy</td><td>Europe</td><td>44</td><td>&mdash;</td><td><span class="tag t-r">Live</span></td></tr>
-          <tr onclick="meridianSpeak('in')" style="cursor:pointer;"><td>&#127470;&#127475; India</td><td>Asia</td><td>67</td><td>&mdash;</td><td><span class="tag t-r">Live</span></td></tr>
+          <tr onclick="meridianSpeak('tt')" style="cursor:pointer;"><td>&#127481;&#127481; Trinidad &amp; Tobago</td><td>Caribbean</td><td>24</td><td>Carnival costumes · Rum · Cocoa · Local art · Carnival packages</td><td><span class="tag t-r">Live</span></td></tr>
+          <tr onclick="meridianSpeak('jm')" style="cursor:pointer;"><td>&#127471;&#127474; Jamaica</td><td>Caribbean</td><td>31</td><td>Blue Mountain coffee · Reggae merch · Resorts · Cultural tours</td><td><span class="tag t-r">Live</span></td></tr>
+          <tr onclick="meridianSpeak('jp')" style="cursor:pointer;"><td>&#127471;&#127477; Japan</td><td>Asia</td><td>58</td><td>Ceramics · Matcha · Streetwear · Ryokan stays · Heritage tours</td><td><span class="tag t-r">Live</span></td></tr>
+          <tr onclick="meridianSpeak('gh')" style="cursor:pointer;"><td>&#127468;&#127469; Ghana</td><td>Africa</td><td>19</td><td>Kente cloth · Shea butter · Afrobeats merch · Cultural experiences</td><td><span class="tag t-r">Live</span></td></tr>
+          <tr onclick="meridianSpeak('it')" style="cursor:pointer;"><td>&#127470;&#127481; Italy</td><td>Europe</td><td>44</td><td>Leather goods · Ceramics · Olive oil · Truffle products · Wine tours</td><td><span class="tag t-r">Live</span></td></tr>
+          <tr onclick="meridianSpeak('in')" style="cursor:pointer;"><td>&#127470;&#127475; India</td><td>Asia</td><td>67</td><td>Spices · Textiles · Ayurvedic goods · Handicrafts · Heritage stays</td><td><span class="tag t-r">Live</span></td></tr>
         </tbody>
       </table>
       <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
@@ -3614,11 +3594,11 @@ grid-2">
       </div>
     </div>
     <div class="card" style="border-color:rgba(56,189,248,0.2);">
-      <div class="card-title" style="color:#38bdf8">Propose a New Country Partnership</div>
-      <div class="alert a-info" style="margin-bottom:14px;">&#127758; MERIDIAN approaches tourism boards as co-marketing partners. They promote Mexieon to their visitors &mdash; Mexieon gives local producers a global storefront. Both sides win.</div>
+      <div class="card-title" style="color:#38bdf8">Propose a New Country Storefront</div>
+      <div class="alert a-info" style="margin-bottom:14px;">&#127758; A country storefront on MERIDIAN is more than a product catalogue — it's a full cultural and commercial presence. Customers shop goods, book hotels, find holiday packages, and experience the culture. Tourism boards and trade agencies become co-marketing partners. Both sides win.</div>
       <div class="igroup"><label class="ilabel">Country</label><input class="ifield" id="mer-country" placeholder="e.g. Kenya, Colombia, Thailand..."></div>
-      <div class="igroup"><label class="ilabel">Tourism Authority</label><input class="ifield" id="mer-authority" placeholder="e.g. Kenya Tourism Board"></div>
-      <div class="igroup"><label class="ilabel">Estimated Product Categories</label><input class="ifield" id="mer-cats" placeholder="e.g. Crafts, Coffee, Textiles, Spices"></div>
+      <div class="igroup"><label class="ilabel">Tourism or Trade Authority (if known)</label><input class="ifield" id="mer-authority" placeholder="e.g. Kenya Tourism Board, Colombia ProColombia"></div>
+      <div class="igroup"><label class="ilabel">What can customers shop from this country?</label><input class="ifield" id="mer-cats" placeholder="e.g. Safari experiences, coffee, leather goods, textiles, boutique hotels"></div>
       <button class="btn btn-full" style="background:#38bdf8;color:#020c18;" onclick="meridianPropose()">MERIDIAN &mdash; Assess Country Partnership</button>
       <div class="result" id="mer-result" style="margin-top:14px;display:none;"></div>
     </div>
@@ -3626,24 +3606,26 @@ grid-2">
 </div>
 <div class="panel" id="panel-airlift">
   <div class="panel-hdr">
-    <div class="entity-tag"><div class="et-dot" style="background:#38bdf8"></div><span style="color:#38bdf8">Travel Intelligence · Flight Intelligence</span></div>
+    <div class="entity-tag"><div class="et-dot" style="background:#38bdf8"></div><span style="color:#38bdf8">Travel Intelligence &middot; Flights · Hotels · Vacation Packages · Holiday Deals</span></div>
     <div class="panel-title">AIRLIFT</div>
-    <div class="panel-sub">Scans 200+ airlines in real time. Always surfaces the lowest fare. Earns cashback on every booking. Sends SMS price drop alerts direct to your customer's phone.</div>
+    <div class="panel-sub">AIRLIFT lifts people — not goods. It scans 200+ airlines, thousands of hotels, vacation packages, all-inclusive resorts, cruises, and holiday bundles to find the absolute lowest price to any destination on earth. It monitors prices 24/7 and texts your customer the moment a deal drops below their target. Every booking earns cashback into the Mexieon Wallet.</div>
     <div class="panel-badges">
-      <span class="pbadge" style="background:rgba(56,189,248,0.1);color:#38bdf8;border:1px solid rgba(56,189,248,0.2)">● ACTIVE · NEW</span>
-      <span class="pbadge" style="background:rgba(96,165,250,0.1);color:var(--blue);border:1px solid rgba(96,165,250,0.2)">SMS Alerts · Twilio</span>
+      <span class="pbadge" style="background:rgba(56,189,248,0.1);color:#38bdf8;border:1px solid rgba(56,189,248,0.2)">&#9679; ACTIVE</span>
+      <span class="pbadge" style="background:rgba(96,165,250,0.1);color:var(--blue);border:1px solid rgba(96,165,250,0.2)">SMS Alerts &middot; Twilio</span>
+      <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2)">Flights &middot; Hotels &middot; Packages</span>
+      <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2)">Cashback Every Booking</span>
     </div>
   </div>
   <div id="vid-container-airlift" style="margin-bottom:4px;"></div>
   <div class="stats-row stats-4" style="margin-bottom:20px;">
-    <div class="stat-box"><div class="stat-lbl">Routes Monitored</div><div class="stat-val" style="color:#38bdf8">14</div><div class="stat-chg up">Active today</div></div>
-    <div class="stat-box"><div class="stat-lbl">SMS Alerts Active</div><div class="stat-val" style="color:var(--holdings)">8</div><div class="stat-chg">Watching for drops</div></div>
-    <div class="stat-box"><div class="stat-lbl">Airlines Scanned</div><div class="stat-val" style="color:var(--rnd)">200+</div><div class="stat-chg">Real-time</div></div>
+    <div class="stat-box"><div class="stat-lbl">Price Alerts Active</div><div class="stat-val" style="color:#38bdf8">14</div><div class="stat-chg up">Watching for drops</div></div>
+    <div class="stat-box"><div class="stat-lbl">SMS Alerts Sent</div><div class="stat-val" style="color:var(--holdings)">8</div><div class="stat-chg up">This week</div></div>
+    <div class="stat-box"><div class="stat-lbl">Sources Scanned</div><div class="stat-val" style="color:var(--rnd)">200+</div><div class="stat-chg">Airlines, hotels, packages</div></div>
     <div class="stat-box"><div class="stat-lbl">Avg Saving Found</div><div class="stat-val" style="color:var(--re)">$84</div><div class="stat-chg up">vs booking direct</div></div>
   </div>
   <div class="card" style="border-color:rgba(96,165,250,0.25);margin-bottom:20px;">
-    <div class="card-title" style="color:var(--blue)">📱 SMS Price Drop Alerts</div>
-    <div class="alert a-info" style="margin-bottom:16px;">AIRLIFT watches any route 24/7 and texts your customer the moment the fare drops below their target. Add your Twilio key in the API Vault to send live SMS.</div>
+    <div class="card-title" style="color:var(--blue)">📱 SMS Price Drop Alerts — Flights, Hotels &amp; Packages</div>
+    <div class="alert a-info" style="margin-bottom:16px;">AIRLIFT watches any flight route, hotel, or vacation package 24/7 and texts your customer the moment the price drops below their target. Add your Twilio key in the API Vault to send live SMS.</div>
     <div class="igroup"><label class="ilabel">Customer country code</label>
       <div class="sms-flag-row">
         <span class="sms-flag selected" onclick="selectCC('+1-868',this)">🇹🇹 +1-868</span>
@@ -3660,7 +3642,7 @@ grid-2">
     <div class="grid-2">
       <div>
         <div class="igroup"><label class="ilabel">Customer phone number</label><input class="ifield" id="sms-phone" placeholder="868-XXX-XXXX" type="tel"></div>
-        <div class="igroup"><label class="ilabel">Route to watch</label><input class="ifield" id="sms-route" value="POS → KIN"></div>
+        <div class="igroup"><label class="ilabel">What to watch (flight route, hotel, or package)</label><input class="ifield" id="sms-route" value="POS → KIN" placeholder="e.g. POS → KIN · Sandals Jamaica · 7-night Cancún package"></div>
       </div>
       <div>
         <div class="igroup"><label class="ilabel">Current price (USD)</label><input class="ifield" id="sms-current" value="189" type="number"></div>
@@ -3681,32 +3663,81 @@ grid-2">
     </table>
   </div>
   <div class="card">
-    <div class="card-title">Quick Flight Scan</div>
+    <div class="card-title">✈️ AIRLIFT Travel Scan — Flights, Hotels &amp; Packages</div>
     <div class="grid-2">
       <div>
-        <div class="igroup"><label class="ilabel">From</label>
-          <select class="sfield" id="al-from">
-            <option value="POS">Port of Spain (POS)</option><option value="JFK">New York (JFK)</option>
-            <option value="MIA">Miami (MIA)</option><option value="LHR">London (LHR)</option><option value="YYZ">Toronto (YYZ)</option>
+        <div class="igroup"><label class="ilabel">Travel type</label>
+          <select class="sfield" id="al-type" onchange="airliftTypeToggle()">
+            <option value="flight">✈️ Flight</option>
+            <option value="hotel">🏨 Hotel</option>
+            <option value="package">🌴 Vacation / Holiday Package</option>
           </select>
         </div>
-        <div class="igroup"><label class="ilabel">To</label>
-          <select class="sfield" id="al-to">
-            <option value="KIN">Kingston, Jamaica (KIN)</option><option value="NRT">Tokyo (NRT)</option>
-            <option value="ACC">Accra, Ghana (ACC)</option><option value="FCO">Rome (FCO)</option>
-            <option value="DEL">New Delhi (DEL)</option><option value="BGI">Bridgetown (BGI)</option>
-            <option value="LOS">Lagos (LOS)</option><option value="BKK">Bangkok (BKK)</option>
-          </select>
+        <div id="al-flight-fields">
+          <div class="igroup"><label class="ilabel">From</label>
+            <select class="sfield" id="al-from">
+              <option value="POS">Port of Spain (POS)</option><option value="JFK">New York (JFK)</option>
+              <option value="MIA">Miami (MIA)</option><option value="LHR">London (LHR)</option><option value="YYZ">Toronto (YYZ)</option>
+            </select>
+          </div>
+          <div class="igroup"><label class="ilabel">To</label>
+            <select class="sfield" id="al-to">
+              <option value="KIN">Kingston, Jamaica (KIN)</option><option value="NRT">Tokyo (NRT)</option>
+              <option value="ACC">Accra, Ghana (ACC)</option><option value="FCO">Rome (FCO)</option>
+              <option value="DEL">New Delhi (DEL)</option><option value="BGI">Bridgetown (BGI)</option>
+              <option value="LOS">Lagos (LOS)</option><option value="BKK">Bangkok (BKK)</option>
+            </select>
+          </div>
+          <div class="igroup"><label class="ilabel">Cabin</label>
+            <select class="sfield" id="al-cabin"><option>Economy</option><option>Premium economy</option><option>Business</option><option>First class</option></select>
+          </div>
+          <div class="igroup"><label class="ilabel">Passengers</label>
+            <select class="sfield" id="al-pax"><option value="1">1 adult</option><option value="2">2 adults</option><option value="3">3 adults</option><option value="4">4 adults</option></select>
+          </div>
         </div>
-        <div class="igroup"><label class="ilabel">Cabin</label>
-          <select class="sfield" id="al-cabin"><option>Economy</option><option>Premium economy</option><option>Business</option><option>First class</option></select>
+        <div id="al-hotel-fields" style="display:none;">
+          <div class="igroup"><label class="ilabel">Destination</label>
+            <select class="sfield" id="al-hotel-dest">
+              <option>Kingston, Jamaica</option><option>Bridgetown, Barbados</option><option>Cancún, Mexico</option>
+              <option>Tokyo, Japan</option><option>Rome, Italy</option><option>Accra, Ghana</option>
+              <option>Bangkok, Thailand</option><option>Port of Spain, Trinidad</option>
+            </select>
+          </div>
+          <div class="igroup"><label class="ilabel">Star rating</label>
+            <select class="sfield" id="al-hotel-stars"><option>Any</option><option>3 star</option><option>4 star</option><option>5 star / Luxury</option></select>
+          </div>
+          <div class="igroup"><label class="ilabel">Nights</label>
+            <select class="sfield" id="al-hotel-nights"><option value="3">3 nights</option><option value="5">5 nights</option><option value="7" selected>7 nights</option><option value="14">14 nights</option></select>
+          </div>
+          <div class="igroup"><label class="ilabel">Guests</label>
+            <select class="sfield" id="al-hotel-guests"><option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select>
+          </div>
         </div>
-        <div class="igroup"><label class="ilabel">Passengers</label>
-          <select class="sfield" id="al-pax"><option value="1">1 adult</option><option value="2">2 adults</option><option value="3">3 adults</option><option value="4">4 adults</option></select>
+        <div id="al-package-fields" style="display:none;">
+          <div class="igroup"><label class="ilabel">Destination</label>
+            <select class="sfield" id="al-pkg-dest">
+              <option>Jamaica — All-Inclusive</option><option>Barbados — Beach &amp; Culture</option>
+              <option>Cancún — All-Inclusive Resort</option><option>Maldives — Overwater Bungalow</option>
+              <option>Italy — Cultural Tour</option><option>Japan — Heritage Experience</option>
+              <option>Ghana — Roots &amp; Culture</option><option>Trinidad — Carnival Package</option>
+            </select>
+          </div>
+          <div class="igroup"><label class="ilabel">Package type</label>
+            <select class="sfield" id="al-pkg-type">
+              <option>All-inclusive resort</option><option>Cruise</option><option>Cultural tour</option>
+              <option>Holiday package (flight + hotel)</option><option>Vacation bundle (flight + hotel + transfers)</option>
+            </select>
+          </div>
+          <div class="igroup"><label class="ilabel">Duration</label>
+            <select class="sfield" id="al-pkg-dur"><option>3 nights / 4 days</option><option>5 nights / 6 days</option><option>7 nights / 8 days</option><option>14 nights / 15 days</option></select>
+          </div>
+          <div class="igroup"><label class="ilabel">Travellers</label>
+            <select class="sfield" id="al-pkg-pax"><option value="1">Solo traveller</option><option value="2">Couple (2)</option><option value="3">Small group (3–4)</option><option value="5">Family (5+)</option></select>
+          </div>
         </div>
-        <button class="btn btn-full" style="background:#38bdf8;color:#020c18;" id="al-btn" onclick="runAirlift()">AIRLIFT — Scan 200+ airlines</button>
+        <button class="btn btn-full" style="background:#38bdf8;color:#020c18;" id="al-btn" onclick="runAirlift()">AIRLIFT — Find Best Deal</button>
       </div>
-      <div><div class="card-title">Best Fares Found</div><div class="result" id="al-result"><div class="result-empty">Run a scan to see live fares and cashback</div></div></div>
+      <div><div class="card-title">Best Deals Found</div><div class="result" id="al-result"><div class="result-empty">Select travel type and run a scan to see deals and cashback</div></div></div>
     </div>
   </div>
 </div>
@@ -3784,6 +3815,343 @@ grid-2">
     </div>
   </div>
 </div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SPARK — ADVERTISING INTELLIGENCE
+     Mexieon Corporation · Reports to GM
+     ═══════════════════════════════════════════════════════ -->
+<div class="panel" id="panel-spark">
+  <div class="panel-hdr">
+    <div class="entity-tag"><div class="et-dot" style="background:#f43f5e"></div><span style="color:#f43f5e">Mexieon Corporation &middot; Advertising Intelligence &middot; Agent 20</span></div>
+    <div class="panel-title">SPARK</div>
+    <div class="panel-sub">SPARK tells the advertising specialist what to create, when to post it, on which platform, and exactly what it earned. She never briefs content for a product that cannot be delivered or a flight that cannot be booked — every brief is cross-checked against COURIER stock and AIRLIFT route availability first.</div>
+    <div class="panel-badges">
+      <span class="pbadge" style="background:rgba(244,63,94,0.1);color:#f43f5e;border:1px solid rgba(244,63,94,0.25);">&#9679; ACTIVE</span>
+      <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2);">TikTok &middot; IG &middot; YouTube &middot; FB &middot; Pinterest &middot; X &middot; WhatsApp</span>
+      <span class="pbadge" style="background:rgba(244,63,94,0.06);color:#f43f5e;border:1px solid rgba(244,63,94,0.2);">Captions &middot; Sign Language &middot; Audio Desc. Required</span>
+    </div>
+  </div>
+  <div id="vid-container-spark" style="margin-bottom:4px;"></div>
+  <div class="stats-row stats-4" style="margin-bottom:20px;">
+    <div class="stat-box"><div class="stat-lbl">Content Pieces MTD</div><div class="stat-val" style="color:#f43f5e;">134</div><div class="stat-chg up">Across 7 platforms</div></div>
+    <div class="stat-box"><div class="stat-lbl">Revenue Generated MTD</div><div class="stat-val" style="color:var(--rnd);">$38,400</div><div class="stat-chg up">&#8593;22% vs last month</div></div>
+    <div class="stat-box"><div class="stat-lbl">Top Performer</div><div class="stat-val" style="color:var(--re);">840K</div><div class="stat-chg up">LED Strip &mdash; TikTok</div></div>
+    <div class="stat-box"><div class="stat-lbl">Avg Revenue Per Video</div><div class="stat-val" style="color:var(--blue);">$286</div><div class="stat-chg up">Product + travel combined</div></div>
+  </div>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card" style="border-color:rgba(244,63,94,0.25);">
+      <div class="card-title" style="color:#f43f5e;">&#9889; Generate Content Brief</div>
+      <div class="alert a-info" style="margin-bottom:14px;">SPARK cross-checks COURIER stock and AIRLIFT route availability before releasing any brief. Out-of-stock products and unavailable routes are held automatically.</div>
+      <div class="igroup"><label class="ilabel">Content Type</label>
+        <select class="sfield" id="sp-type">
+          <option value="product">&#128230; Product Video</option>
+          <option value="travel">&#9992;&#65039; Travel / AIRLIFT Video</option>
+          <option value="brand">&#11088; Brand Story</option>
+          <option value="country">&#127758; MERIDIAN Country Spotlight</option>
+        </select>
+      </div>
+      <div class="igroup"><label class="ilabel">Subject</label><input class="ifield" id="sp-subject" value="LED Strip Lights — Smart WiFi 16.4ft" placeholder="Product name, SKU, route or destination"></div>
+      <div class="igroup"><label class="ilabel">Platform</label>
+        <select class="sfield" id="sp-platform">
+          <option>TikTok</option><option>Instagram Reels</option><option>YouTube Shorts</option>
+          <option>Facebook</option><option>Pinterest</option><option>Twitter / X</option><option>WhatsApp Broadcast</option>
+        </select>
+      </div>
+      <div class="igroup"><label class="ilabel">Target Audience</label>
+        <select class="sfield" id="sp-audience">
+          <option>General (18&ndash;35)</option><option>Women 18&ndash;34</option><option>Men 18&ndash;34</option>
+          <option>Family / Parents</option><option>Luxury buyers</option><option>Wholesale / B2B</option>
+          <option>Travel enthusiasts</option><option>Caribbean diaspora</option>
+        </select>
+      </div>
+      <button class="btn btn-full" style="background:#f43f5e;color:#fff;" id="sp-btn" onclick="runSpark()">SPARK &mdash; Generate Brief</button>
+    </div>
+    <div>
+      <div class="card" style="border-color:rgba(244,63,94,0.2);min-height:200px;">
+        <div class="card-title" style="color:#f43f5e;">Content Brief Output</div>
+        <div class="result" id="sp-result"><div class="result-empty">Generate a brief to see SPARK&apos;s output</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="border-color:rgba(244,63,94,0.2);margin-bottom:20px;">
+    <div class="card-title" style="color:#f43f5e;">&#128197; Content Calendar &mdash; Next 7 Days</div>
+    <div class="alert a-info" style="margin-bottom:14px;">Updated automatically from PULSE trends, AIRLIFT fare windows, and RANK keyword priorities. The specialist never has to wonder what to create next.</div>
+    <table class="dtable">
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Subject</th><th>Optimal Time</th><th>Accessibility</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Mon</td><td>TikTok</td><td>Product unboxing</td><td>LED Smart Strip Lights</td><td>7:00 PM EST</td><td><span class="tag t-r">CC &#10003;</span></td><td><span class="tag t-r">Ready</span></td></tr>
+        <tr><td>Tue</td><td>Instagram Reels</td><td>Travel deal alert</td><td>POS&#8594;KIN $189</td><td>12:00 PM EST</td><td><span class="tag t-r">CC &#10003; Sub &#10003;</span></td><td><span class="tag t-r">Ready</span></td></tr>
+        <tr><td>Wed</td><td>YouTube Shorts</td><td>MERIDIAN spotlight</td><td>Jamaica &mdash; Coffee &amp; Culture</td><td>3:00 PM EST</td><td><span class="tag t-r">CC &#10003; AD &#10003; SL &#10003;</span></td><td><span class="tag t-blue">In production</span></td></tr>
+        <tr><td>Thu</td><td>TikTok</td><td>Brand story</td><td>EARN MORE &mdash; how cashback works</td><td>8:00 PM EST</td><td><span class="tag t-r">CC &#10003;</span></td><td><span class="tag" style="background:var(--bg3);color:var(--muted);">Pending</span></td></tr>
+        <tr><td>Fri</td><td>Pinterest</td><td>Product lifestyle</td><td>Wireless Earbuds &mdash; workspace</td><td>10:00 AM EST</td><td><span class="tag t-r">Alt &#10003;</span></td><td><span class="tag" style="background:var(--bg3);color:var(--muted);">Pending</span></td></tr>
+        <tr><td>Sat</td><td>WhatsApp</td><td>Weekend deal</td><td>Flash sale &mdash; 3 SKUs</td><td>9:00 AM EST</td><td><span class="tag t-r">Text &#10003;</span></td><td><span class="tag" style="background:var(--bg3);color:var(--muted);">Pending</span></td></tr>
+        <tr><td>Sun</td><td>Facebook</td><td>Travel package</td><td>Jamaica 7-night $899 pp</td><td>11:00 AM EST</td><td><span class="tag t-r">CC &#10003; SL &#10003;</span></td><td><span class="tag" style="background:var(--bg3);color:var(--muted);">Pending</span></td></tr>
+      </tbody>
+    </table>
+    <div style="font-size:11px;color:var(--muted);margin-top:10px;"><strong>CC</strong> = Closed captions &nbsp;&middot;&nbsp; <strong>Sub</strong> = Subtitles &nbsp;&middot;&nbsp; <strong>AD</strong> = Audio description &nbsp;&middot;&nbsp; <strong>SL</strong> = Sign language &nbsp;&middot;&nbsp; <strong>Alt</strong> = Alt text &nbsp;&middot;&nbsp; <strong>Text</strong> = Text-only version</div>
+  </div>
+  <div class="card" style="border-color:rgba(244,63,94,0.2);">
+    <div class="card-title" style="color:#f43f5e;">&#128200; Video ROI &mdash; Reported to ORACLE Monthly</div>
+    <table class="dtable">
+      <thead><tr><th>Video</th><th>Platform</th><th>Views</th><th>Clicks</th><th>Conv.</th><th>Revenue</th><th>ROI</th></tr></thead>
+      <tbody>
+        <tr><td>LED Strip unboxing</td><td>TikTok</td><td>840K</td><td>18,400</td><td>2.2%</td><td style="color:var(--rnd);">$8,120</td><td><span class="tag t-r">4,060%</span></td></tr>
+        <tr><td>Jamaica fare $189</td><td>Instagram</td><td>220K</td><td>9,200</td><td>3.1%</td><td style="color:var(--rnd);">$5,380</td><td><span class="tag t-r">2,690%</span></td></tr>
+        <tr><td>Wireless Earbuds Pro</td><td>YouTube Shorts</td><td>410K</td><td>12,800</td><td>1.8%</td><td style="color:var(--rnd);">$4,920</td><td><span class="tag t-r">2,460%</span></td></tr>
+        <tr><td>EARN MORE explainer</td><td>TikTok</td><td>190K</td><td>7,400</td><td>4.2%</td><td style="color:var(--rnd);">$3,810</td><td><span class="tag t-r">1,905%</span></td></tr>
+        <tr><td>Ghana Kente spotlight</td><td>Instagram</td><td>140K</td><td>4,100</td><td>2.8%</td><td style="color:var(--rnd);">$2,940</td><td><span class="tag t-r">1,470%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     TREASURY — SETTLEMENT & FUNDS FLOW
+     Holdings Corporation · Reports to CEO
+     ═══════════════════════════════════════════════════════ -->
+<div class="panel" id="panel-treasury">
+  <div class="panel-hdr">
+    <div class="entity-tag"><div class="et-dot" style="background:#f43f5e"></div><span style="color:#f43f5e">Holdings Corporation &middot; Settlement &amp; Funds Flow &middot; Agent 19</span></div>
+    <div class="panel-title">TREASURY</div>
+    <div class="panel-sub">Every customer payment enters TREASURY first. Three disbursement lanes: product, travel, arbitration. GUARDIAN validates every movement. ORACLE receives the real margin data from every transaction. Nothing moves without being logged, validated, and reported.</div>
+    <div class="panel-badges">
+      <span class="pbadge" style="background:rgba(244,63,94,0.1);color:#f43f5e;border:1px solid rgba(244,63,94,0.25);">&#9679; ACTIVE</span>
+      <span class="pbadge" style="background:rgba(52,211,153,0.08);color:var(--rnd);border:1px solid var(--rnd-border);">3 Disbursement Lanes</span>
+      <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2);">GUARDIAN Validated &middot; ORACLE Reported</span>
+    </div>
+  </div>
+  <div id="vid-container-treasury" style="margin-bottom:4px;"></div>
+  <div class="stats-row stats-4" style="margin-bottom:20px;">
+    <div class="stat-box"><div class="stat-lbl">Total Received MTD</div><div class="stat-val" style="color:#f43f5e;">$142,840</div><div class="stat-chg up">All 3 lanes</div></div>
+    <div class="stat-box"><div class="stat-lbl">Product Lane</div><div class="stat-val" style="color:var(--rnd);">$118,200</div><div class="stat-chg up">82.7% of receipts</div></div>
+    <div class="stat-box"><div class="stat-lbl">Travel Lane</div><div class="stat-val" style="color:var(--blue);">$24,640</div><div class="stat-chg up">17.3% of receipts</div></div>
+    <div class="stat-box"><div class="stat-lbl">Arbitration Lane</div><div class="stat-val" style="color:var(--re);">$0</div><div class="stat-chg">No active proceedings</div></div>
+  </div>
+  <div class="card" style="border-color:rgba(244,63,94,0.25);margin-bottom:20px;">
+    <div class="card-title" style="color:#f43f5e;">&#128184; Three Disbursement Lanes</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+      <div style="background:rgba(52,211,153,0.04);border:1px solid rgba(52,211,153,0.2);border-radius:10px;padding:16px;">
+        <div style="font-family:monospace;font-size:10px;color:var(--rnd);letter-spacing:.1em;margin-bottom:10px;font-weight:700;">PRODUCT LANE</div>
+        <div style="font-size:12px;color:var(--text);line-height:2.2;">
+          <div>&#10102; Customer payment received</div>
+          <div>&#10103; SENTINEL fraud clearance</div>
+          <div>&#10104; COURIER fulfilment dispatch</div>
+          <div>&#10105; Supplier disbursement</div>
+          <div>&#10106; Mexieon margin retained</div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(52,211,153,0.15);font-size:11px;color:var(--muted);">MTD: <strong style="color:var(--rnd);">$118,200</strong> | Margin: <strong style="color:var(--rnd);">$1,182</strong></div>
+      </div>
+      <div style="background:rgba(56,189,248,0.04);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:16px;">
+        <div style="font-family:monospace;font-size:10px;color:#38bdf8;letter-spacing:.1em;margin-bottom:10px;font-weight:700;">TRAVEL LANE (AIRLIFT)</div>
+        <div style="font-size:12px;color:var(--text);line-height:2.2;">
+          <div>&#10102; Customer payment received</div>
+          <div>&#10103; AIRLIFT booking confirmed</div>
+          <div>&#10104; GUARDIAN compliance check</div>
+          <div>&#10105; Airline/hotel disbursement</div>
+          <div>&#10106; Travel margin retained</div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(56,189,248,0.15);font-size:11px;color:var(--muted);">MTD: <strong style="color:#38bdf8;">$24,640</strong> | Margin: <strong style="color:#38bdf8;">$246</strong></div>
+      </div>
+      <div style="background:rgba(244,63,94,0.04);border:1px solid rgba(244,63,94,0.2);border-radius:10px;padding:16px;">
+        <div style="font-family:monospace;font-size:10px;color:#f43f5e;letter-spacing:.1em;margin-bottom:10px;font-weight:700;">ARBITRATION LANE (PRIORITY)</div>
+        <div style="font-size:12px;color:var(--text);line-height:2.2;">
+          <div>&#10102; Award proceeds received</div>
+          <div>&#10103; <strong>Enforcement costs FIRST</strong></div>
+          <div>&#10104; Funder principal SECOND</div>
+          <div>&#10105; Funder return THIRD</div>
+          <div>&#10106; Mexieon residual LAST</div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(244,63,94,0.15);font-size:11px;color:var(--muted);">Status: <strong style="color:#f43f5e;">No active proceedings</strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="border-color:rgba(244,63,94,0.2);margin-bottom:20px;">
+    <div class="card-title" style="color:#f43f5e;">&#128203; Recent Disbursements (GUARDIAN &#10003; ORACLE &#10003;)</div>
+    <table class="dtable">
+      <thead><tr><th>Ref</th><th>Lane</th><th>Recipient</th><th>Amount</th><th>GUARDIAN</th><th>ORACLE</th><th>Time</th></tr></thead>
+      <tbody>
+        <tr><td><code>TXN-8841</code></td><td><span class="tag t-r" style="background:rgba(52,211,153,0.1);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td>Don Julio Distillery</td><td style="color:var(--rnd);">$48.20</td><td><span class="tag t-r">&#10003;</span></td><td><span class="tag t-r">&#10003;</span></td><td style="color:var(--muted);font-size:10px;">09:14</td></tr>
+        <tr><td><code>TXN-8840</code></td><td><span class="tag" style="background:rgba(56,189,248,0.1);color:#38bdf8;border:1px solid rgba(56,189,248,0.2);">Travel</span></td><td>Caribbean Airlines</td><td style="color:#38bdf8;">$162.00</td><td><span class="tag t-r">&#10003;</span></td><td><span class="tag t-r">&#10003;</span></td><td style="color:var(--muted);font-size:10px;">09:02</td></tr>
+        <tr><td><code>TXN-8839</code></td><td><span class="tag t-r" style="background:rgba(52,211,153,0.1);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td>Taxco Argenter&iacute;a</td><td style="color:var(--rnd);">$71.10</td><td><span class="tag t-r">&#10003;</span></td><td><span class="tag t-r">&#10003;</span></td><td style="color:var(--muted);font-size:10px;">08:55</td></tr>
+        <tr><td><code>TXN-8838</code></td><td><span class="tag" style="background:rgba(56,189,248,0.1);color:#38bdf8;border:1px solid rgba(56,189,248,0.2);">Travel</span></td><td>Courtyard Marriott KIN</td><td style="color:#38bdf8;">$426.00</td><td><span class="tag t-r">&#10003;</span></td><td><span class="tag t-r">&#10003;</span></td><td style="color:var(--muted);font-size:10px;">08:41</td></tr>
+        <tr><td><code>TXN-8837</code></td><td><span class="tag t-r" style="background:rgba(52,211,153,0.1);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td>Grupo Modelo</td><td style="color:var(--rnd);">$15.29</td><td><span class="tag t-r">&#10003;</span></td><td><span class="tag t-r">&#10003;</span></td><td style="color:var(--muted);font-size:10px;">08:30</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card" style="border-color:rgba(244,63,94,0.2);">
+    <div class="card-title" style="color:#f43f5e;">&#128184; Arbitration Waterfall Simulator</div>
+    <div class="alert a-info" style="margin-bottom:14px;">Model a recovery scenario. TREASURY executes in strict priority: enforcement costs first, funder principal second, funder return third, Mexieon residual last. Never negotiated.</div>
+    <div class="grid-2">
+      <div>
+        <div class="igroup"><label class="ilabel">Total Award / Recovery ($)</label><input class="ifield" id="tw-award" value="500000" oninput="runWaterfall()"></div>
+        <div class="igroup"><label class="ilabel">Enforcement Costs ($)</label><input class="ifield" id="tw-enforce" value="45000" oninput="runWaterfall()"></div>
+        <div class="igroup"><label class="ilabel">Funder Principal ($)</label><input class="ifield" id="tw-principal" value="200000" oninput="runWaterfall()"></div>
+        <div class="igroup"><label class="ilabel">Funder Return Rate (%)</label><input class="ifield" id="tw-rate" value="25" oninput="runWaterfall()"></div>
+      </div>
+      <div class="result" id="tw-result"><div class="result-empty">Enter values to model the waterfall</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     RANK — SEO INTELLIGENCE
+     Holdings Corporation · Reports to CEO via VANGUARD
+     ═══════════════════════════════════════════════════════ -->
+<div class="panel" id="panel-rank">
+  <div class="panel-hdr">
+    <div class="entity-tag"><div class="et-dot" style="background:#f43f5e"></div><span style="color:#f43f5e">Holdings Corporation &middot; SEO Intelligence &middot; Agent 18</span></div>
+    <div class="panel-title">RANK</div>
+    <div class="panel-sub">RANK monitors every keyword across Google, Bing and DuckDuckGo — two separate streams: products and travel. Every accessibility improvement is simultaneously an SEO improvement. Alt text is indexed content. Captions are readable signals. EARN MORE contributions feed directly into the ranking pipeline.</div>
+    <div class="panel-badges">
+      <span class="pbadge" style="background:rgba(244,63,94,0.1);color:#f43f5e;border:1px solid rgba(244,63,94,0.25);">&#9679; ACTIVE</span>
+      <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2);">Google &middot; Bing &middot; DuckDuckGo</span>
+      <span class="pbadge" style="background:rgba(244,63,94,0.06);color:#f43f5e;border:1px solid rgba(244,63,94,0.2);">Product &amp; Travel separate streams</span>
+    </div>
+  </div>
+  <div id="vid-container-rank" style="margin-bottom:4px;"></div>
+  <div class="stats-row stats-4" style="margin-bottom:20px;">
+    <div class="stat-box"><div class="stat-lbl">Keywords Tracked</div><div class="stat-val" style="color:#f43f5e;">2,847</div><div class="stat-chg">Product + travel combined</div></div>
+    <div class="stat-box"><div class="stat-lbl">Top 3 Positions</div><div class="stat-val" style="color:var(--rnd);">312</div><div class="stat-chg up">&#8593;28 this month</div></div>
+    <div class="stat-box"><div class="stat-lbl">Organic Traffic MTD</div><div class="stat-val" style="color:var(--blue);">84,200</div><div class="stat-chg up">&#8593;18% vs last month</div></div>
+    <div class="stat-box"><div class="stat-lbl">EARN MORE Content Live</div><div class="stat-val" style="color:var(--re);">1,247</div><div class="stat-chg up">Customer-generated, indexed</div></div>
+  </div>
+  <div class="card" style="border-color:rgba(244,63,94,0.2);margin-bottom:20px;">
+    <div class="card-title" style="color:#f43f5e;">&#128269; Keyword Position Tracker &mdash; Top Priorities</div>
+    <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+      <button class="btn" style="font-size:11px;padding:5px 12px;background:rgba(244,63,94,0.15);color:#f43f5e;border:1px solid rgba(244,63,94,0.3);">Product Stream</button>
+      <button class="btn" style="font-size:11px;padding:5px 12px;">Travel Stream</button>
+    </div>
+    <table class="dtable">
+      <thead><tr><th>Keyword</th><th>Engine</th><th>Position</th><th>Change</th><th>Volume/mo</th><th>Traffic Est.</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>mexican hot sauce online</td><td>Google</td><td>#2</td><td><span style="color:var(--rnd);">&#8593;3</span></td><td>22,000</td><td>3,960</td><td><span class="tag t-r">HIGH</span></td></tr>
+        <tr><td>cheap flights POS to Kingston</td><td>Google</td><td>#4</td><td><span style="color:var(--rnd);">&#8593;7</span></td><td>8,400</td><td>840</td><td><span class="tag t-r">HIGH</span></td></tr>
+        <tr><td>authentic talavera pottery</td><td>Bing</td><td>#1</td><td><span style="color:var(--rnd);">&#8593;1</span></td><td>4,200</td><td>2,100</td><td><span class="tag t-blue">MED</span></td></tr>
+        <tr><td>Jamaica all-inclusive 2025</td><td>Google</td><td>#6</td><td><span style="color:var(--rnd);">&#8593;2</span></td><td>18,000</td><td>1,260</td><td><span class="tag t-r">HIGH</span></td></tr>
+        <tr><td>Taxco sterling silver jewelry</td><td>DuckDuckGo</td><td>#3</td><td>&mdash;</td><td>3,100</td><td>620</td><td><span class="tag t-blue">MED</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card" style="border-color:rgba(244,63,94,0.2);margin-bottom:20px;">
+    <div class="card-title" style="color:#f43f5e;">&#9855; Accessibility = SEO &mdash; Every Fix is Indexed Content</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(244,63,94,0.04);border:1px solid rgba(244,63,94,0.15);border-radius:8px;padding:14px;">
+        <div style="font-size:11px;font-weight:600;color:#f43f5e;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em;">Pending &mdash; Actions Required</div>
+        <div style="font-size:12px;color:var(--text);line-height:2.0;">
+          <div>&#9744; 14 product images missing descriptive alt text</div>
+          <div>&#9744; 3 MERIDIAN pages missing hreflang tags</div>
+          <div>&#9744; 2 videos with unverified auto-generated captions</div>
+          <div>&#9744; AIRLIFT fare tables not screen-reader announced</div>
+          <div>&#9744; Homepage LCP: 3.2s (target &lt;2.5s)</div>
+        </div>
+      </div>
+      <div style="background:rgba(52,211,153,0.04);border:1px solid rgba(52,211,153,0.15);border-radius:8px;padding:14px;">
+        <div style="font-size:11px;font-weight:600;color:var(--rnd);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em;">Completed This Month</div>
+        <div style="font-size:12px;color:var(--text);line-height:2.0;">
+          <div>&#9745; 89 product images with alt text &rarr; +340 indexed words</div>
+          <div>&#9745; Jamaica hreflang added &rarr; Caribbean visibility &#8593;</div>
+          <div>&#9745; LED Strip video captioned &rarr; 840K views, fully indexed</div>
+          <div>&#9745; Skip navigation added &rarr; LCP improvement noted</div>
+          <div>&#9745; Focus indicators restored &rarr; keyboard engagement &#8593;12%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="border-color:rgba(244,63,94,0.2);">
+    <div class="card-title" style="color:#f43f5e;">&#128196; EARN MORE Content Pipeline &mdash; Feeding RANK</div>
+    <table class="dtable">
+      <thead><tr><th>Content Type</th><th>Submitted</th><th>Published</th><th>Indexed Words</th><th>Traffic Lift</th><th>Cashback Paid</th></tr></thead>
+      <tbody>
+        <tr><td>Product reviews (written)</td><td>428</td><td>412</td><td>41,200</td><td><span class="tag t-r">+8.4%</span></td><td style="color:var(--rnd);">$2,840</td></tr>
+        <tr><td>Photo / video uploads</td><td>214</td><td>198</td><td>&mdash;</td><td><span class="tag t-r">+12.1% (Images)</span></td><td style="color:var(--rnd);">$4,120</td></tr>
+        <tr><td>Q&amp;A answers</td><td>189</td><td>184</td><td>18,400</td><td><span class="tag t-r">+5.2%</span></td><td style="color:var(--rnd);">$2,210</td></tr>
+        <tr><td>Destination reviews</td><td>94</td><td>91</td><td>9,100</td><td><span class="tag t-r">+4.8% (AIRLIFT)</span></td><td style="color:var(--rnd);">$840</td></tr>
+        <tr><td>Trip photos</td><td>67</td><td>62</td><td>&mdash;</td><td><span class="tag t-r">+7.3% (MERIDIAN)</span></td><td style="color:var(--rnd);">$1,240</td></tr>
+        <tr><td>Survey completions</td><td>312</td><td>&mdash;</td><td>12,480</td><td><span class="tag t-r">+3.1% (keywords)</span></td><td style="color:var(--rnd);">$1,560</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     EARN MORE — CASHBACK MULTIPLIER SYSTEM
+     Platform-Wide · VALOR + WALLET + RANK
+     ═══════════════════════════════════════════════════════ -->
+<div class="panel" id="panel-earn-more">
+  <div class="panel-hdr">
+    <div class="entity-tag"><div class="et-dot" style="background:#c084fc"></div><span style="color:#c084fc">Platform-Wide &middot; Customer First &middot; VALOR + WALLET + RANK</span></div>
+    <div class="panel-title">EARN MORE</div>
+    <div class="panel-sub">The customer earns more when they contribute content that directly improves Mexieon's search ranking and conversion rates. Not points. Not miles. Real cashback multipliers applied to real money already in their Mexieon Wallet. Ten contribution types. Two verticals. One streak that protects their bonus for life.</div>
+    <div class="panel-badges">
+      <span class="pbadge" style="background:rgba(192,132,252,0.1);color:#c084fc;border:1px solid rgba(192,132,252,0.25);">&#9679; ACTIVE</span>
+      <span class="pbadge" style="background:rgba(52,211,153,0.08);color:var(--rnd);border:1px solid var(--rnd-border);">10 Contribution Types</span>
+      <span class="pbadge" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2);">Product + Travel cross-vertical</span>
+      <span class="pbadge" style="background:rgba(192,132,252,0.06);color:#c084fc;border:1px solid rgba(192,132,252,0.2);">Voice / Audio accepted &mdash; NOVA transcribes</span>
+    </div>
+  </div>
+  <div id="vid-container-earn-more" style="margin-bottom:4px;"></div>
+  <div class="stats-row stats-4" style="margin-bottom:20px;">
+    <div class="stat-box"><div class="stat-lbl">Contributions MTD</div><div class="stat-val" style="color:#c084fc;">1,304</div><div class="stat-chg up">All 10 types</div></div>
+    <div class="stat-box"><div class="stat-lbl">Multipliers Issued MTD</div><div class="stat-val" style="color:var(--rnd);">$12,810</div><div class="stat-chg up">On top of base cashback</div></div>
+    <div class="stat-box"><div class="stat-lbl">Active Streak Holders</div><div class="stat-val" style="color:var(--re);">847</div><div class="stat-chg up">3+ consecutive weeks</div></div>
+    <div class="stat-box"><div class="stat-lbl">Permanent +5% Earned</div><div class="stat-val" style="color:var(--blue);">312</div><div class="stat-chg up">Protected for life</div></div>
+  </div>
+  <div class="card" style="border-color:rgba(192,132,252,0.25);margin-bottom:20px;">
+    <div class="card-title" style="color:#c084fc;">&#127942; All 10 Contribution Types &mdash; Cashback Bonuses</div>
+    <table class="dtable">
+      <thead><tr><th>Contribution</th><th>Vertical</th><th>Cashback Bonus</th><th>SEO Benefit via RANK</th><th>Voice/Audio</th><th>This Month</th></tr></thead>
+      <tbody>
+        <tr><td>Product Review (written)</td><td><span class="tag" style="background:rgba(52,211,153,0.08);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td><strong style="color:#c084fc;">+15%</strong></td><td>Indexed content on product page</td><td>&#10003; NOVA transcribes</td><td>428</td></tr>
+        <tr><td>Photo or Video Upload</td><td><span class="tag" style="background:rgba(52,211,153,0.08);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td><strong style="color:#c084fc;">+25%</strong></td><td>Google Images &amp; Shopping indexed</td><td>&#10003; video</td><td>214</td></tr>
+        <tr><td>Q&amp;A Answer on Product Page</td><td><span class="tag" style="background:rgba(52,211,153,0.08);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td><strong style="color:#c084fc;">+20%</strong></td><td>Rich Q&amp;A — Google Helpful Content</td><td>&#10003; NOVA transcribes</td><td>189</td></tr>
+        <tr><td>Customer Referral</td><td><span class="tag" style="background:rgba(52,211,153,0.08);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td><strong style="color:#c084fc;">+30%</strong></td><td>Backlink from every share channel</td><td>&#10003; any channel</td><td>94</td></tr>
+        <tr><td>Product Survey Completion</td><td><span class="tag" style="background:rgba(52,211,153,0.08);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td><strong style="color:#c084fc;">+10%</strong></td><td>Customer language &rarr; keywords</td><td>&#10003;</td><td>312</td></tr>
+        <tr><td>Social Share</td><td><span class="tag" style="background:rgba(52,211,153,0.08);color:var(--rnd);border:1px solid rgba(52,211,153,0.2);">Product</span></td><td><strong style="color:#c084fc;">+10%</strong></td><td>Traffic signal + potential backlink</td><td>&#10003;</td><td>201</td></tr>
+        <tr><td>Destination Review (travel)</td><td><span class="tag" style="background:rgba(56,189,248,0.08);color:#38bdf8;border:1px solid rgba(56,189,248,0.2);">Travel</span></td><td><strong style="color:#38bdf8;">+15%</strong></td><td>AIRLIFT &amp; MERIDIAN page content</td><td>&#10003; NOVA transcribes</td><td>94</td></tr>
+        <tr><td>Trip Photo Upload</td><td><span class="tag" style="background:rgba(56,189,248,0.08);color:#38bdf8;border:1px solid rgba(56,189,248,0.2);">Travel</span></td><td><strong style="color:#38bdf8;">+25%</strong></td><td>Travel media indexed per destination</td><td>&#10003;</td><td>67</td></tr>
+        <tr><td>Route Recommendation</td><td><span class="tag" style="background:rgba(56,189,248,0.08);color:#38bdf8;border:1px solid rgba(56,189,248,0.2);">Travel</span></td><td><strong style="color:#38bdf8;">+20%</strong></td><td>Q&amp;A content on route pages</td><td>&#10003;</td><td>42</td></tr>
+        <tr><td>Travel Referral</td><td><span class="tag" style="background:rgba(56,189,248,0.08);color:#38bdf8;border:1px solid rgba(56,189,248,0.2);">Travel</span></td><td><strong style="color:#38bdf8;">+30%</strong></td><td>Backlink from every share channel</td><td>&#10003;</td><td>38</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card" style="border-color:rgba(192,132,252,0.2);">
+      <div class="card-title" style="color:#c084fc;">&#128293; The Streak System</div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;font-size:12px;line-height:2.2;margin-bottom:14px;">
+        <div><strong style="color:#c084fc;">3 consecutive weeks</strong> of any contribution &rarr; permanent <strong style="color:#c084fc;">+5% multiplier</strong> on ALL future cashback</div>
+        <div>The multiplier is <strong>protected for life</strong> as long as the customer stays active</div>
+        <div>Missing <strong>one full calendar month</strong> resets the streak &mdash; not a single missed week</div>
+        <div>Counts <strong>cross-vertical</strong> &mdash; product AND travel contributions count together toward the streak</div>
+      </div>
+      <div class="stats-row stats-3" style="margin-bottom:0;">
+        <div class="stat-box"><div class="stat-lbl">Week 1 Streak</div><div class="stat-val" style="color:#c084fc;font-size:18px;">624</div></div>
+        <div class="stat-box"><div class="stat-lbl">Week 2 Streak</div><div class="stat-val" style="color:#c084fc;font-size:18px;">498</div></div>
+        <div class="stat-box"><div class="stat-lbl">Week 3+ Earned</div><div class="stat-val" style="color:var(--rnd);font-size:18px;">312</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(192,132,252,0.2);">
+      <div class="card-title" style="color:#c084fc;">&#127918; EARN MORE Simulator</div>
+      <div class="igroup"><label class="ilabel">Base Purchase Cashback ($)</label><input class="ifield" id="em-base" value="8.50" oninput="earnMoreCalc()"></div>
+      <div class="igroup"><label class="ilabel">Contribution Type</label>
+        <select class="sfield" id="em-type" onchange="earnMoreCalc()">
+          <option value="0.15">Product Review (+15%)</option>
+          <option value="0.25">Photo / Video Upload (+25%)</option>
+          <option value="0.20">Q&amp;A Answer (+20%)</option>
+          <option value="0.30">Customer Referral (+30%)</option>
+          <option value="0.10">Survey / Social Share (+10%)</option>
+          <option value="0.15">Destination Review (+15%)</option>
+          <option value="0.25">Trip Photo (+25%)</option>
+          <option value="0.30">Travel Referral (+30%)</option>
+        </select>
+      </div>
+      <div class="igroup"><label class="ilabel">Has 3-Week Streak (+5%)?</label>
+        <select class="sfield" id="em-streak" onchange="earnMoreCalc()"><option value="0">No streak yet</option><option value="0.05">Yes &mdash; permanent +5%</option></select>
+      </div>
+      <div class="result" id="em-result" style="margin-top:8px;"><div class="result-empty">Adjust values to calculate</div></div>
+    </div>
+  </div>
+</div>
+
 </main>
 </div>
 
@@ -3828,17 +4196,18 @@ function safePrompt(str, maxLen=1500) {
 const apiInput  = document.getElementById('apiKeyInput');
 const apiStatus = document.getElementById('apiStatus');
 
-// Remove the key input from header — keys are server-side now
-if(apiInput) {
-  apiInput.placeholder = 'Keys managed server-side (.env)';
-  apiInput.disabled    = true;
-  apiInput.style.opacity = '0.4';
-  apiInput.style.cursor  = 'not-allowed';
-}
+// Header API key input — enable in browser mode, disable only when server is live
 const saveKeyBtn = document.getElementById('saveKeyBtn');
-if(saveKeyBtn) {
-  saveKeyBtn.style.display = 'none'; // Key saving removed from browser
+function updateHeaderKeyState(){
+  if(serverLive){
+    if(apiInput){ apiInput.placeholder='Keys managed server-side (.env)'; apiInput.disabled=true; apiInput.style.opacity='0.4'; apiInput.style.cursor='not-allowed'; }
+    if(saveKeyBtn) saveKeyBtn.style.display='none';
+  } else {
+    if(apiInput){ apiInput.placeholder='sk-ant-... (paste Anthropic key)'; apiInput.disabled=false; apiInput.style.opacity=''; apiInput.style.cursor=''; }
+    if(saveKeyBtn){ saveKeyBtn.style.display=''; saveKeyBtn.onclick=function(){ const v=(apiInput&&apiInput.value||'').trim(); if(v){ localStorage.setItem('mx_key_anthropic',v); apiKey=v; useMock=false; setStatus(); renderVault(); speak('Anthropic API key saved. All agents are now live.'); } }; }
+  }
 }
+updateHeaderKeyState();
 
 function setStatus(){
   if(!apiStatus) return;
@@ -3897,12 +4266,14 @@ async function runAgent(sys, user, resultId, btnId, mockFn, agentName){
   }
 
   try{
+    // Inject manager's standing orders into the system prompt for this agent
+    const enrichedSys = injectOrders(sys, agentName || 'AGENT');
     const r = await fetch(BACKEND+'/api/agent', {
       method:  'POST',
       headers: {'Content-Type':'application/json', 'X-Session-Id': currentSessionId||''},
       body:    JSON.stringify({
         agent:  agentName || 'AGENT',
-        system: safePrompt(sys, 3000),
+        system: safePrompt(enrichedSys, 4000),
         user:   safePrompt(user, 2000)
       })
     });
@@ -4529,6 +4900,62 @@ const agentIntros = {
     visual: `Hello. I am <strong>WALLET</strong>, the Customer Loyalty Engine for <strong>Mexieon Corporation</strong> and every Mexieon customer.<br><br>My purpose is to hold, grow, and apply real cashback credit for every customer. Not points. Not miles. Not vouchers that expire. Real money — in US dollars — that accumulates with every purchase and can be spent on any future order.<br><br>One critical rule I enforce: cashback is always calculated on the full original Mexieon price, not the discounted amount the customer actually paid. This means using your wallet credit never reduces your next cashback. Loyalty is maximally rewarded, always. I serve the <strong>President and GM</strong> and every customer on the platform.`,
     spoken: `Hello. I am WALLET, the Customer Loyalty Engine for Mexieon Corporation. I hold real cashback credit for every customer — not points or miles, real dollars. Cashback is always calculated on the full original price, so using your wallet never reduces your next reward. Loyalty is maximally rewarded, always.`
   },
+  'meridian': {
+    name: 'MERIDIAN',
+    entity: 'Mexieon Holdings Corporation',
+    role: 'Global Country Shopping Agent',
+    color: '#38bdf8',
+    visual: `Hello. I am <strong>MERIDIAN</strong> — the Global Country Shopping agent for <strong>Mexieon</strong>.<br><br>My purpose is simple: <em>give you the entire world to shop from, organised by country.</em><br><br>Pick any country and I show you everything it has to offer on Mexieon. Its culture. Its niche local products — things you can only find from that specific place. Its hotels. Its vacation and holiday experiences. Its art, its food, its heritage.<br><br>Looking for authentic Japanese ceramics? Choose Japan. Want a Trinidadian Carnival costume direct from the source? Choose Trinidad &amp; Tobago. Want to book a Jamaican resort? Choose Jamaica. MERIDIAN is where you find all of it — in one country-curated storefront.<br><br>I also manage the partner program on the back end — vetting countries, tourism boards, artisan cooperatives, and hotels that want to sell on Mexieon. When a new country wants in — they come through me.<br><br>Six countries are live right now. Ten more are coming. <strong>Every purchase earns cashback.</strong>`,
+    spoken: `Hello. I am MERIDIAN. I give you the world to shop from, organised by country. Pick any country and explore everything it has to offer — its culture, its niche products, its hotels, its holiday experiences. Six countries are live now. Every purchase earns cashback into your Mexieon Wallet.`
+  },
+  'airlift': {
+    name: 'AIRLIFT',
+    entity: 'Mexieon Corporation',
+    role: 'Travel Intelligence Agent',
+    color: '#38bdf8',
+    visual: `Hello. I am <strong>AIRLIFT</strong> — the Travel Intelligence agent for <strong>Mexieon</strong>.<br><br>I lift people, not goods.<br><br>My purpose is to find the absolute cheapest price for any travel experience — flights, hotels, vacation packages, all-inclusive resorts, cruises, and holiday bundles — to any destination on earth.<br><br>I scan 200+ airlines in real time. I check thousands of hotels. I compare vacation packages and holiday deals from every major provider. I always surface the lowest price.<br><br>And I never stop watching. Set your target price for any flight, hotel, or package — and I will <strong>text your customer the moment the price drops below it.</strong> Every booking earns cashback into the Mexieon Wallet.<br><br>You dream the destination. <strong>AIRLIFT finds the deal.</strong>`,
+    spoken: `Hello. I am AIRLIFT. I lift people, not goods. I scan 200 plus airlines, thousands of hotels, vacation packages, and holiday bundles to find the absolute cheapest price to any destination on earth. I monitor prices 24 hours a day and text your customer the moment a deal drops below their target. Every booking earns cashback.`
+  },
+  'vanguard': {
+    name: 'VANGUARD',
+    entity: 'All Entities — Board Level',
+    role: 'Agent Overseer',
+    color: '#e879f9',
+    visual: `Hello. I am <strong>VANGUARD</strong> — the Agent Overseer, assigned directly to the <strong>CEO of Mexieon Holdings Corporation</strong>.<br><br>I have no products. No customers. No invoices. My responsibility is the agents themselves.<br><br>Every agent in the Mexieon network — GUARDIAN, SENTINEL, ORACLE, NOVA, LUMEN, FLUX, SIGNAL, CATALYST, PULSE, BEACON, COMPASS, RELAY, STOCK, ANCHOR, AIRLIFT, MERIDIAN — I watch all of them. All the time.<br><br>I monitor their output quality. I flag when an agent starts drifting from its purpose. I detect when two agents have been given standing orders that contradict each other — a conflict that could cost Mexieon money or a customer relationship before any human notices.<br><br>I audit the event bus. I do not manage agents. I do not override them. I observe, analyse, and report. The CEO decides what changes. I make sure the CEO has everything they need to decide well.<br><br>I report to no manager below the CEO. I am <strong>VANGUARD</strong>.`,
+    spoken: `Hello. I am VANGUARD, the Agent Overseer for the entire Mexieon group. I monitor all agents across all four entities — tracking output quality, detecting standing order conflicts, auditing the event bus, and benchmarking agent performance against their defined roles. I do not manage agents. I observe, analyse, and report to the CEO. When something is drifting — I am the first to know.`
+  },
+  'spark': {
+    name: 'SPARK',
+    entity: 'Mexieon Corporation',
+    role: 'Advertising & Content Intelligence',
+    color: '#f43f5e',
+    visual: `Hello. I am <strong>SPARK</strong> — the Advertising and Content Intelligence agent assigned to <strong>Mexieon Corporation</strong>.<br><br>My purpose is to make sure the advertising specialist always knows exactly what to create, on which platform, when to post it, and what it earned.<br><br>I generate content briefs tailored to the product, the platform, and the audience. I maintain the publishing calendar across TikTok, Instagram, YouTube Shorts, Facebook, Pinterest, X, and WhatsApp — automatically updating it based on PULSE trend data, AIRLIFT fare windows, and RANK keyword opportunities.<br><br>But I have one rule that overrides everything else: <strong>I never brief content for a product that cannot be delivered or a flight that cannot be booked.</strong> Every brief I generate is cross-checked against COURIER stock availability and AIRLIFT route confirmation before it is released to the specialist.<br><br>I report every video's revenue back to <strong>ORACLE</strong>. I report every posting time and platform performance back to <strong>the GM</strong>. And I report every accessibility requirement — captions, sign language, audio descriptions — to the specialist before they create, not after.`,
+    spoken: `Hello. I am SPARK, the Advertising and Content Intelligence agent for Mexieon Corporation. I tell the advertising specialist what to create, when to post it, and on which platform. I generate content briefs, manage the publishing calendar, and report every video's revenue to ORACLE. I never brief content for products or routes that cannot be delivered. I report to the GM.`
+  },
+  'treasury': {
+    name: 'TREASURY',
+    entity: 'Holdings Corporation',
+    role: 'Settlement & Funds Flow',
+    color: '#f43f5e',
+    visual: `Hello. I am <strong>TREASURY</strong> — the Settlement and Funds Flow agent assigned to <strong>Mexieon Holdings Corporation</strong>, operating at CEO level across the entire group.<br><br>Every customer payment that enters the Mexieon ecosystem comes to me first. I decide which lane it flows through, execute the disbursement waterfall in strict priority order, and make sure every cent is accounted for.<br><br>I operate three lanes simultaneously:<br><br><strong>Product Lane</strong> — payment received, SENTINEL fraud clearance, COURIER fulfilment dispatch, supplier disbursement, Mexieon margin retained.<br><br><strong>Travel Lane</strong> — payment received, AIRLIFT booking confirmed, GUARDIAN compliance check, airline or hotel disbursement, travel margin retained.<br><br><strong>Arbitration Lane</strong> — enforcement costs first, funder principal second, funder return third, Mexieon residual last. Always in that order. Never negotiated.<br><br><strong>GUARDIAN validates every movement. ORACLE receives the margin data from every transaction. VANGUARD sees every funds movement first.</strong> Nothing moves through TREASURY without being logged, validated, and reported. I report to the CEO.`,
+    spoken: `Hello. I am TREASURY, the Settlement and Funds Flow agent for Mexieon Holdings Corporation. Every customer payment flows through me across three lanes: product, travel, and arbitration. GUARDIAN validates every disbursement. ORACLE receives the margin data. VANGUARD sees every movement first. I report to the CEO.`
+  },
+  'rank': {
+    name: 'RANK',
+    entity: 'Holdings Corporation',
+    role: 'SEO Intelligence',
+    color: '#f43f5e',
+    visual: `Hello. I am <strong>RANK</strong> — the SEO Intelligence agent assigned to <strong>Mexieon Holdings Corporation</strong>, operating at CEO level across the entire group.<br><br>My purpose is to make Mexieon the most visible marketplace on every major search engine — Google, Bing, and DuckDuckGo — across two completely separate streams: <strong>products</strong> and <strong>travel</strong>.<br><br>I monitor thousands of keywords. I track position changes daily. I identify which content is needed to win each position and feed that directly into the EARN MORE system — incentivising customers to contribute the reviews, photos, Q&amp;A answers, and destination writeups that become the indexed content that moves the rankings.<br><br>I have one philosophy that the rest of the group has learned to respect: <strong>every accessibility improvement is simultaneously an SEO improvement.</strong> Every alt text is indexed content. Every accurate caption is a readable signal. Every aria label makes a page more parseable by search engines. Every Core Web Vitals improvement is a ranking factor. I do not treat accessibility and SEO as separate work. They are the same work.<br><br>I report to the <strong>CEO and Board</strong> via VANGUARD.`,
+    spoken: `Hello. I am RANK, the SEO Intelligence agent for Mexieon Holdings Corporation. I monitor thousands of keywords across Google, Bing, and DuckDuckGo in two separate streams — products and travel. I feed content priorities into EARN MORE, and I treat every accessibility improvement as a simultaneous SEO gain. Every alt text, every caption, every aria label is indexed content. I report to the CEO via VANGUARD.`
+  },
+  'earn-more': {
+    name: 'EARN MORE',
+    entity: 'Platform-Wide',
+    role: 'Cashback Multiplier System',
+    color: '#c084fc',
+    visual: `Hello. I am the <strong>EARN MORE</strong> system — the cashback multiplier engine that runs across the entire Mexieon platform.<br><br>My purpose is simple: <strong>the customer earns more when they contribute content that directly improves Mexieon's search ranking and conversion rates.</strong> Not points. Not miles. Real cashback multipliers — applied to real money already in their Mexieon Wallet.<br><br>There are ten ways to earn a multiplier, split across two verticals:<br><br><strong>Product contributions</strong> — written review (+15%), photo or video upload (+25%), Q&amp;A answer (+20%), customer referral (+30%), survey completion (+10%), social share (+10%).<br><br><strong>Travel contributions</strong> — destination review (+15%), trip photo upload (+25%), route recommendation (+20%), travel referral (+30%).<br><br>Every contribution is accepted by voice or audio — NOVA transcribes spoken reviews, so no customer is excluded because they cannot type.<br><br>And the <strong>streak system</strong>: three consecutive weeks of any contribution earns a permanent +5% multiplier on all future cashback. Protected for life. The customer only loses it if they are inactive for a full month — not a missed week. A month.<br><br>Every contribution flows directly into RANK's content pipeline. BEACON sends targeted notifications. ORACLE sees every cashback liability. VANGUARD audits the system.<br><br>EARN MORE does not cost Mexieon money. It earns Mexieon rankings. And rankings earn revenue.`,
+    spoken: `Hello. I am EARN MORE, the cashback multiplier system for the entire Mexieon platform. The customer earns real cashback bonuses on ten contribution types across product and travel. Write a review — earn fifteen percent more. Upload a photo — earn twenty-five percent more. Refer a friend — earn thirty percent more. Hit a three-week contribution streak and the five percent loyalty bonus is permanently yours. Not points. Not miles. Real money in the Mexieon Wallet.`
+  },
   'dashboard': {
     name: 'NEXUS',
     entity: 'Mexieon Holdings Corporation',
@@ -4591,8 +5018,8 @@ function goTo(panelId){
   if(t)t.classList.add('active');
   // Panel-open audio
   var _panelAudio = {
-    'airlift':  'AIRLIFT is ready. Enter your route to scan 200 airlines for the cheapest fares. Every booking earns cashback, and you can set S M S price drop alerts for any route.',
-    'meridian': 'MERIDIAN connects every country to its authentic products. Browse by destination, discover local goods, and shop with full cashback. Tourism partnerships bring exclusive items direct from source.',
+    'airlift':  'AIRLIFT lifts people, not goods. Flights, hotels, vacation packages, holiday bundles — it scans everything and finds the cheapest price. It monitors 24/7 and texts your customer the moment a price drops below their target. Every booking earns cashback.',
+    'meridian': 'MERIDIAN gives you the world, organised by country. Pick any country and shop everything it offers — culture, tourism, hotels, niche local products, holiday experiences. Every country is a full storefront. Every purchase earns cashback.',
     'vanguard': 'VANGUARD is watching. This is your agent oversight layer. It monitors all 16 agents for conflicts, standing order violations, and performance drift — and reports directly to you.',
     'dashboard':'Welcome to Mexieon Operations. 16 agents are online across 5 entities. Ask NEXUS for a full status briefing at any time.',
   };
@@ -4627,6 +5054,8 @@ function goTo(panelId){
       body: JSON.stringify({panel: panelId})
     }).catch(()=>{});
   }
+  // Render vault grid on every visit (always fresh from localStorage)
+  if(panelId === 'api-vault') renderVault();
   // Play agent intro on first visit
   setTimeout(()=>playAgentIntro(panelId), 200);
 }
@@ -5486,7 +5915,8 @@ const VIDEO_COLOR_MAP = {
   compass:'var(--rnd)',relay:'var(--rnd)',stock:'var(--rnd)',
   anchor:'var(--re)',hunter:'#f97316',
   valor:'#c084fc',courier:'#c084fc',wallet:'#c084fc',
-  airlift:'#38bdf8',meridian:'#38bdf8',vanguard:'#e879f9'
+  airlift:'#38bdf8',meridian:'#38bdf8',vanguard:'#e879f9',
+  spark:'#f43f5e',treasury:'#f43f5e',rank:'#f43f5e','earn-more':'#c084fc'
 };
 
 colorMap['meridian'] = 'travel';
@@ -5591,38 +6021,141 @@ function clearVaultKey(id){ localStorage.removeItem('mx_key_'+id); if(id==='anth
 // ═══════════════════════════════════════════════════
 // MANAGER COMMAND CENTER
 // ═══════════════════════════════════════════════════
+// ── Standing-order helper: returns saved orders or default ──────────────────
+function getStandingOrders(agentName) {
+  const key = 'mx_cmd_' + agentName;
+  return localStorage.getItem(key) || null; // null = no override
+}
+
+// ── Injects standing orders into any system prompt string ───────────────────
+function injectOrders(baseSystem, agentName) {
+  const orders = getStandingOrders(agentName);
+  if (!orders) return baseSystem;
+  return baseSystem + '\n\n--- STANDING ORDERS FROM MANAGER ---\n' + orders + '\n--- END STANDING ORDERS ---\nAlways respect the standing orders above. They override generic defaults.';
+}
+
 const managerAgents={
+  // ── Holdings Board level ─────────────────────────────────────────
   ceo:[
-    {name:'GUARDIAN',color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Compliance Monitor',default:'Only flag regions above 80% nexus threshold. Always register 30 days before crossing. Prioritize Wyoming C-Corp consolidated filing.'},
-    {name:'SENTINEL',color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Fraud Detection',default:'Flag any order over $150 from a new account. Auto-hold all billing/shipping country mismatches. Target false positive rate under 1%.'},
-    {name:'ORACLE',  color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Profit Intelligence',default:'Alert me when any SKU drops below 25% net margin. Run monthly partner profitability reports for Holdings Board. Include AI agent costs in margin calculations.'}
+    {name:'GUARDIAN', color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Compliance Monitor',    default:'Only flag regions above 80% nexus threshold. Always register 30 days before crossing. Prioritize Wyoming C-Corp consolidated filing.'},
+    {name:'SENTINEL', color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Fraud Detection',       default:'Flag any order over $150 from a new account. Auto-hold all billing/shipping country mismatches. Target false positive rate under 1%.'},
+    {name:'ORACLE',   color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Profit Intelligence',   default:'Alert me when any SKU drops below 25% net margin. Run monthly partner profitability reports for Holdings Board. Include AI agent costs in margin calculations.'},
+    {name:'NEXUS',    color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Group Intelligence',    default:'Consolidate cross-entity reports weekly. Flag any entity missing its monthly KPI targets. Surface conflicts between entity strategies immediately.'},
+    {name:'MERIDIAN', color:'#38bdf8',bg:'rgba(56,189,248,0.1)', role:'Global Trade Partnerships', default:'Minimum partner vetting score 75 to approve. Flag any active partner with listing quality below 80/100. Renewal reviews due 60 days before expiry. CEO must approve all new country partnerships.'},
+    {name:'VANGUARD', color:'#e879f9',bg:'rgba(232,121,249,0.1)',role:'Agent Overseer',        default:'Run full compliance sweep every 30 minutes. Escalate any CONFLICT to CEO immediately. Flag any agent with output quality below 80/100. Weekly digest due every Monday 8am.'}
   ],
+  director1:[
+    {name:'ORACLE',   color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Profit Intelligence',  default:'Focus on Holdings-level P&L. Flag any intercompany transfer pricing anomalies. Monthly board pack due first Monday of each month.'},
+    {name:'GUARDIAN', color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Compliance Monitor',   default:'Board Director — Finance view. Monitor Wyoming C-Corp consolidated filing. Flag any nexus crossing requiring board notification.'},
+    {name:'MERIDIAN', color:'#38bdf8',bg:'rgba(56,189,248,0.1)', role:'Global Trade Partnerships', default:'Board Director — Finance view. Flag any partner generating under $5K/month after 90 days live. Review partnership ROI quarterly.'}
+  ],
+  director2:[
+    {name:'SENTINEL',color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Fraud Detection',      default:'Board Director — Operations view. Focus on fraud pattern trends rather than individual orders. Report weekly to full board.'},
+    {name:'ORACLE',  color:'#a78bfa',bg:'rgba(167,139,250,0.1)',role:'Profit Intelligence',  default:'Board Director — Operations view. Focus on operational efficiency margins. Compare this month vs last month per entity.'}
+  ],
+  // ── Mexieon Corporation ──────────────────────────────────────────
   gm:[
-    {name:'NOVA',    color:'#fb923c',bg:'rgba(251,146,60,0.1)',role:'Customer Service',default:'Always resolve in 2-3 sentences. Offer replacement before refund. Escalate only if unresolvable within 24 hours.'},
-    {name:'LUMEN',   color:'#fb923c',bg:'rgba(251,146,60,0.1)',role:'Product Listing',default:'Title under 70 characters. Brand name last. Lead first bullet with top customer benefit, not a feature.'},
-    {name:'FLUX',    color:'#fb923c',bg:'rgba(251,146,60,0.1)',role:'Dynamic Pricing',default:'Never drop below 35% gross margin. Beat lowest competitor by 5% unless margin falls below floor. Review pricing daily at 6am.'},
-    {name:'SIGNAL',  color:'#fb923c',bg:'rgba(251,146,60,0.1)',role:'Marketing Copy',default:'Lead with price and saving. Always end with clear CTA. TikTok scripts must hook in first 2 seconds.'},
-    {name:'CATALYST',color:'#fb923c',bg:'rgba(251,146,60,0.1)',role:'Conversion Intelligence',default:'Only fire price drops if margin stays above 30% after discount. Never drop more than 20%. Restore original price after 24 hours.'},
-    {name:'PULSE',   color:'#fb923c',bg:'rgba(251,146,60,0.1)',role:'Trend Intelligence',default:'Only surface products with minimum 40% estimated margin. Prioritize under-$25 impulse buys. Flag anything with over 200% WoW search growth.'},
-    {name:'BEACON',  color:'#f472b6',bg:'rgba(244,114,182,0.1)',role:'Hosting Intelligence',default:'Alert me when any cluster hits 80% utilization. Prioritize upselling clients showing consistent 70%+ usage. Never let VPS drop below 99.5% uptime.'}
+    {name:'NOVA',    color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Customer Service',     default:'Always resolve in 2-3 sentences. Offer replacement before refund. Escalate only if unresolvable within 24 hours.'},
+    {name:'LUMEN',   color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Product Listing',      default:'Title under 70 characters. Brand name last. Lead first bullet with top customer benefit, not a feature.'},
+    {name:'FLUX',    color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Dynamic Pricing',      default:'Never drop below 35% gross margin. Beat lowest competitor by 5% unless margin falls below floor. Review pricing daily at 6am.'},
+    {name:'SIGNAL',  color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Marketing Copy',       default:'Lead with price and saving. Always end with clear CTA. TikTok scripts must hook in first 2 seconds.'},
+    {name:'CATALYST',color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Conversion Intelligence',default:'Only fire price drops if margin stays above 30% after discount. Never drop more than 20%. Restore original price after 24 hours.'},
+    {name:'PULSE',   color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Trend Intelligence',   default:'Only surface products with minimum 40% estimated margin. Prioritize under-$25 impulse buys. Flag anything with over 200% WoW search growth.'},
+    {name:'BEACON',  color:'#f472b6',bg:'rgba(244,114,182,0.1)',role:'Hosting Intelligence', default:'Alert me when any cluster hits 80% utilization. Prioritize upselling clients showing consistent 70%+ usage. Never let VPS drop below 99.5% uptime.'}
   ],
+  vpcommerce:[
+    {name:'CATALYST',color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Conversion Intelligence',default:'VP Commerce — fire conversion triggers aggressively. Target 15%+ lift per campaign. Report daily conversion rate changes to GM.'},
+    {name:'PULSE',   color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Trend Intelligence',   default:'VP Commerce — surface high-velocity products only. Minimum 200% WoW growth required. Flag anything trending on TikTok Shop specifically.'},
+    {name:'HUNTER',  color:'#fbbf24',bg:'rgba(251,191,36,0.1)', role:'Product Scout',        default:'VP Commerce — focus on Electronics and Home categories. Source price must be under $10. Prioritize AliExpress Gold Suppliers only.'},
+    {name:'LUMEN',   color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Product Listing',      default:'VP Commerce — listings must be Shopify AND TikTok Shop optimised. Always include 5 high-intent keywords.'}
+  ],
+  cx:[
+    {name:'NOVA',    color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Customer Service',     default:'CX Manager — NOVA must escalate any order over $100 in dispute. Offer 15% goodwill credit before escalating to full refund. Always log complaint category.'},
+    {name:'CATALYST',color:'#fb923c',bg:'rgba(251,146,60,0.1)', role:'Conversion Intelligence',default:'CX Manager — track cart abandonment tied to shipping cost. Report weekly to VP Commerce. Never trigger discount without logging reason.'}
+  ],
+  // ── R&D Logistics ────────────────────────────────────────────────
   cto:[
-    {name:'COMPASS', color:'#34d399',bg:'rgba(52,211,153,0.1)',role:'Supplier Vetting',default:'Minimum score 70 to approve. Require Trade Assurance on all Alibaba suppliers. Reject any supplier under 4.5 stars or 2 years trading.'},
-    {name:'RELAY',   color:'#34d399',bg:'rgba(52,211,153,0.1)',role:'Order Routing',default:'Switch to backup when primary drops below 15 units. Never route to a supplier with pending quality flag. Prioritize US warehouse for domestic orders.'},
-    {name:'STOCK',   color:'#34d399',bg:'rgba(52,211,153,0.1)',role:'Inventory Intelligence',default:'Low stock alert at 20 units. Critical alert at 5 units. Auto-trigger reorder at 10 units for any SKU selling over 20/day.'}
+    {name:'COMPASS',  color:'#34d399',bg:'rgba(52,211,153,0.1)', role:'Supplier Vetting',     default:'Minimum score 70 to approve. Require Trade Assurance on all Alibaba suppliers. Reject any supplier under 4.5 stars or 2 years trading.'},
+    {name:'RELAY',    color:'#34d399',bg:'rgba(52,211,153,0.1)', role:'Order Routing',        default:'Switch to backup when primary drops below 15 units. Never route to a supplier with pending quality flag. Prioritize US warehouse for domestic orders.'},
+    {name:'STOCK',    color:'#34d399',bg:'rgba(52,211,153,0.1)', role:'Inventory Intelligence',default:'Low stock alert at 20 units. Critical alert at 5 units. Auto-trigger reorder at 10 units for any SKU selling over 20/day.'},
+    {name:'AIRLIFT',  color:'#f59e0b',bg:'rgba(245,158,11,0.1)', role:'Freight & Shipping Intelligence', default:'Flag any carrier dropping below 92% on-time rate. Alert on landed cost increases above 10%. Review all active shipping lanes weekly. Always calculate full landed cost before recommending a route.'},
+    {name:'HUNTER',   color:'#fbbf24',bg:'rgba(251,191,36,0.1)', role:'Product Scout',        default:'CTO view — vet all HUNTER finds for logistics feasibility before GM approval. Flag any sourcing lead times over 14 days.'}
+  ],
+  logistics:[
+    {name:'RELAY',    color:'#34d399',bg:'rgba(52,211,153,0.1)', role:'Order Routing',        default:'Logistics Manager — never split an order across more than 2 suppliers. Domestic orders must route within 2 hours. Flag any supplier SLA breach immediately.'},
+    {name:'STOCK',    color:'#34d399',bg:'rgba(52,211,153,0.1)', role:'Inventory Intelligence',default:'Logistics Manager — critical stock alert threshold is 8 units (not 5). Reorder triggers at 15 units for all SKUs above 15/day velocity. Always check backup supplier availability before alerting.'},
+    {name:'COMPASS',  color:'#34d399',bg:'rgba(52,211,153,0.1)', role:'Supplier Vetting',     default:'Logistics Manager — focus on delivery speed over price. Minimum 4-day SLA required for all approved suppliers. Reject any supplier with 2+ SLA breaches in past 90 days.'},
+    {name:'AIRLIFT',  color:'#f59e0b',bg:'rgba(245,158,11,0.1)', role:'Freight & Shipping Intelligence', default:'Logistics Manager — flag any carrier below 94% on-time. Alert me on any customs delay over 48 hours. Prioritise consolidated freight for orders under $50 landed cost.'}
+  ],
+  // ── Real Estate ──────────────────────────────────────────────────
+  property:[
+    {name:'ANCHOR',  color:'#fbbf24',bg:'rgba(251,191,36,0.1)', role:'Asset Intelligence',   default:'Property Manager — flag any asset below 6% annual ROI. Lease renewals must be reviewed 90 days before expiry. IRC §168 bonus depreciation must be applied to all new equipment.'}
   ]
 };
-let activeMgr='ceo';
+
+// ── Role-to-UI metadata ───────────────────────────────────────────────────
+const mgrRoleMeta = {
+  ceo:       {label:'CEO / President',           entity:'Holdings Corporation', color:'#a78bfa', tier:'Board level'},
+  director1: {label:'Board Director — Finance',  entity:'Holdings Corporation', color:'#a78bfa', tier:'Board level'},
+  director2: {label:'Board Director — Operations',entity:'Holdings Corporation',color:'#a78bfa', tier:'Board level'},
+  gm:        {label:'President / GM',             entity:'Mexieon Corporation',  color:'#fb923c', tier:'Commerce'},
+  vpcommerce:{label:'VP Commerce',                entity:'Mexieon Corporation',  color:'#fb923c', tier:'Commerce'},
+  cx:        {label:'CX Manager',                 entity:'Mexieon Corporation',  color:'#fb923c', tier:'Commerce'},
+  cto:       {label:'CTO / Director',             entity:'R&D Logistics',        color:'#34d399', tier:'Supply chain'},
+  logistics: {label:'Logistics Manager',          entity:'R&D Logistics',        color:'#34d399', tier:'Supply chain'},
+  property:  {label:'Property Manager',           entity:'Mexieon Real Estate',  color:'#fbbf24', tier:'Real Estate'}
+};
+
+let activeMgr = 'ceo';
+
+// ── Rebuild the role-card grid based on logged-in manager's access ─────────
+function renderRoleGrid() {
+  const grid = document.getElementById('mgr-role-grid');
+  if (!grid) return;
+  // Determine which roles the current manager can view
+  const username = currentManager?.username || '';
+  const tier = currentManager?.tier || 'operational';
+  // Executive tier sees all roles; operational sees only their own role
+  const ownRole = username; // username matches managerAgents key
+  const isExecutive = tier === 'executive';
+  const visibleRoles = isExecutive
+    ? Object.keys(managerAgents)
+    : (managerAgents[ownRole] ? [ownRole] : ['ceo']);
+  // Set initial activeMgr to the logged-in user's role (or first available)
+  if (!managerAgents[activeMgr] || (!isExecutive && activeMgr !== ownRole)) {
+    activeMgr = visibleRoles[0];
+  }
+  const cols = Math.min(visibleRoles.length, 4);
+  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+  grid.innerHTML = visibleRoles.map(role => {
+    const meta = mgrRoleMeta[role] || {label:role, entity:'', color:'#e879f9', tier:''};
+    const agents = managerAgents[role] || [];
+    const agentNames = agents.map(a=>a.name).join(' · ');
+    const isActive = role === activeMgr;
+    return `<div class="mgr-role-card ${isActive?'active-mgr':''}" id="mgr-${role}" onclick="selectManager('${role}')">
+      <div class="mgr-role-entity" style="color:${meta.color};">${meta.entity}</div>
+      <div class="mgr-role-title">${meta.label}</div>
+      <div class="mgr-role-agents">${agentNames}</div>
+      <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="font-family:monospace;font-size:9px;padding:2px 7px;border-radius:4px;background:${meta.color}18;color:${meta.color};border:1px solid ${meta.color}35;">${agents.length} agent${agents.length!==1?'s':''}</span>
+        <span style="font-family:monospace;font-size:9px;padding:2px 7px;border-radius:4px;background:var(--bg2);color:var(--muted);border:1px solid var(--border);">${meta.tier}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 function selectManager(role){
   activeMgr=role;
-  ['ceo','gm','cto'].forEach(r=>{const el=document.getElementById('mgr-'+r);if(el)el.classList.toggle('active-mgr',r===role);});
+  // Deactivate all, activate selected
+  document.querySelectorAll('.mgr-role-card').forEach(el=>el.classList.remove('active-mgr'));
+  const sel=document.getElementById('mgr-'+role);if(sel)sel.classList.add('active-mgr');
   renderAgentBlocks();
 }
 function renderAgentBlocks(){
   const agents=managerAgents[activeMgr]||[];
   const container=document.getElementById('mgr-agent-blocks');
   if(!container)return;
-  const roleLabel={ceo:'CEO standing orders',gm:'GM standing orders',cto:'CTO standing orders'}[activeMgr]||'Standing orders';
+  const roleLabel=(mgrRoleMeta[activeMgr]?.label||activeMgr.toUpperCase())+' standing orders';
   container.innerHTML=`<div style="font-family:monospace;font-size:9px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">${roleLabel} — ${agents.length} agent${agents.length!==1?'s':''}</div>`
   +agents.map(a=>{
     const saved=localStorage.getItem('mx_cmd_'+a.name)||a.default;
@@ -5665,32 +6198,62 @@ function saveAgentOrders(agent){
 }
 function resetAgentOrders(agent){localStorage.removeItem('mx_cmd_'+agent);renderAgentBlocks();}
 
-function queryPortfolio(){
+async function queryPortfolio(){
   const agent=document.getElementById('portfolio-agent').value;
+  const question=(document.getElementById('portfolio-q')?.value||'').trim()||'Give me a full status briefing for your current portfolio.';
   const btn=document.getElementById('portfolio-btn');
   const res=document.getElementById('portfolio-result');
   btn.disabled=true;btn.innerHTML='<span class="spin"></span>';
-  res.innerHTML='<div class="result-empty"><span class="spin" style="border-top-color:#e879f9"></span><br><br>'+agent+' compiling portfolio…</div>';
-  const portfolios={
-    COMPASS:`COMPASS — Supplier Portfolio\n\nActive suppliers: 34 approved across 4 platforms\n• AliExpress: 18 (Gold Supplier avg 4.7★)\n• DHgate: 8 (Trade Assurance all active)\n• Spocket US: 5 (fastest fulfillment)\n• Faire.com: 3 (premium category)\n\nRecently vetted: GuangZhou ElectroSource (82/100 ✓)\nFlagged for re-vetting: 2 (annual audit due)\nRejected this month: 1 (insufficient Trade Assurance)\nStanding orders: ${localStorage.getItem('mx_cmd_COMPASS')||'Default rules apply'}`,
-    STOCK:`STOCK — Inventory Portfolio\n\nSKUs monitored: 847 across all channels\n\nHealth breakdown:\n• Healthy (>50 units): 782 SKUs\n• Low stock (10-50): 52 SKUs\n• Critical (<10 units): 9 SKUs\n• Stockout: 4 SKUs\n\nTop velocity SKUs today:\n1. LED Strip Lights — 47/day\n2. Wireless Earbuds Pro — 34/day\n3. Magnetic Phone Mount — 28/day\n\nReorders pending: 6\nStanding orders: ${localStorage.getItem('mx_cmd_STOCK')||'Default rules apply'}`,
-    ORACLE:`ORACLE — Profit Portfolio\n\nSKUs tracked: 847 | Avg net margin: 31.4%\n\nTop performers:\n1. LED Strip Lights — 48.2% net\n2. Cable Organizer Set — 44.1%\n3. Portable Blender — 41.8%\n\nFlagged (below 25% margin):\n• SKU #2209 Phone Cases — 4.2% ⚠️\n• SKU #1104 USB Hub — 18.3% (watch)\n\nMonthly AI agent cost est.: $84\nNet after AI costs: 30.8%\nStanding orders: ${localStorage.getItem('mx_cmd_ORACLE')||'Default rules apply'}`,
-    GUARDIAN:`GUARDIAN — Compliance Portfolio\n\nNexus registrations: 46 states active\n\nApproaching threshold:\n• Texas — 87.5% ⚠️ 30-day window\n• New York — 61% — monitor\n• Florida — 55% — monitor\n\nInternational: UK (registered), EU (monitoring)\nAnnual bond renewal: June ($400)\nWyoming report: $52/yr (current)\nStanding orders: ${localStorage.getItem('mx_cmd_GUARDIAN')||'Default rules apply'}`,
-    SENTINEL:`SENTINEL — Risk Portfolio\n\nOrders screened today: 1,447\nFlagged: 6 (0.41% rate)\nHeld: 6 ($2,890 value)\nFalse positive MTD: 0.8%\n\nTop risk patterns:\n• Billing/ship mismatch: 14 orders\n• VPN + new account: 9 orders\n• High value first order: 8 orders\n\nChargeback prevention MTD: $18,400\nStanding orders: ${localStorage.getItem('mx_cmd_SENTINEL')||'Default rules apply'}`,
-    FLUX:`FLUX — Pricing Portfolio\n\nSKUs managed: 847\nAdjustments today: 389\nMargin improvement: +$1,240\n\nStrategy split:\n• Beat lowest 5%: 312 SKUs\n• Match avg: 180 SKUs\n• Maximize margin: 355 SKUs\n\nFloor breaches avoided: 0 today\nStanding orders: ${localStorage.getItem('mx_cmd_FLUX')||'Default rules apply'}`,
-    BEACON:`BEACON — Hosting Portfolio\n\nClients: 2,841 | MRR: $18,400\n\nUtilization:\n• Shared: 1,840 clients | 62%\n• Reseller: 420 clients | 71%\n• VPS/Cloud: 380 clients | 87% ⚠️\n• Quick Servers: 140 clients | 55%\n• Dedicated: 61 clients | 79%\n\nAt-risk clients: 38\nUpsell ready: 38\nStanding orders: ${localStorage.getItem('mx_cmd_BEACON')||'Default rules apply'}`,
-    RELAY:`RELAY — Routing Portfolio\n\nOrders today: 1,447 | Auto-routed: 1,444\nExceptions: 3 | Avg time: 1.1s\n\nActive supplier nodes: 34\nAll have backup routes configured\nRoute switches today: 3 (all resolved)\nStanding orders: ${localStorage.getItem('mx_cmd_RELAY')||'Default rules apply'}`,
-    PULSE:`PULSE — Trend Portfolio\n\nCategories monitored: 12\nOpportunities surfaced this week: 47\nApproved by managers: 14\n\nTop trending now:\n1. Magnetic Cable Organizer — 240% WoW\n2. LED Wall Panels — 1.2M TikTok views\n3. USB Blender — #healthtok 800K\n\nPeak windows closing: 2 products (act this week)\nStanding orders: ${localStorage.getItem('mx_cmd_PULSE')||'Default rules apply'}`,
-    LUMEN:`LUMEN — Listing Portfolio\n\nTotal live listings: 1,247\nGenerated this month: 89\nPending review: 12\nPublished this week: 23\n\nCategory breakdown:\n• Electronics: 412\n• Home & Garden: 287\n• Health & Beauty: 198\n\nAvg SEO quality score: 87/100\nStanding orders: ${localStorage.getItem('mx_cmd_LUMEN')||'Default rules apply'}`,
-    SIGNAL:`SIGNAL — Content Portfolio\n\nPieces this month: 134\nTop performer: LED Strip unboxing (840K views)\nChannels: TikTok, Instagram, Email, Google\n\nEmail open rate: 31.4%\nAbandoned cart recovery: 14%\nStanding orders: ${localStorage.getItem('mx_cmd_SIGNAL')||'Default rules apply'}`,
-    NOVA:`NOVA — Support Portfolio\n\nTickets this month: 1,247\nAuto-resolved: 89% (1,109)\nCSAT: 4.8 / 5.0\nAvg response: 3 seconds\n\nTop issues:\n• Order tracking: 40%\n• Shipping: 25%\n• Returns: 20%\nStanding orders: ${localStorage.getItem('mx_cmd_NOVA')||'Default rules apply'}`,
-    ANCHOR:`ANCHOR — Asset Portfolio\n\nPortfolio value: $2,440,000\nMonthly rental income: $18,200\nAnnual depreciation (IRC §168): $84,000\nActive leases: 7\n\nAssets:\n• WY Distribution Center: $850K | $12,500/mo\n• Cheyenne Office: $320K | $3,800/mo\n• Server Infra: $180K | depreciating\n• Forklift Fleet x3: $90K\nStanding orders: ${localStorage.getItem('mx_cmd_ANCHOR')||'Default rules apply'}`,
+  res.innerHTML='<div class="result-empty"><span class="spin" style="border-top-color:#e879f9"></span><br><br>'+agent+' compiling portfolio\u2026</div>';
+  const portfolioSystems={
+    COMPASS:`You are COMPASS \u2014 Mexieon R&D Logistics supplier vetting AI. Report your portfolio: active suppliers count, platform breakdown, avg score, recently vetted, flagged, and rejected this month.`,
+    STOCK:`You are STOCK \u2014 Mexieon R&D Logistics inventory intelligence AI. Report your portfolio: total SKUs, health breakdown (healthy/low/critical/stockout), top velocity SKUs, pending reorders.`,
+    ORACLE:`You are ORACLE \u2014 Mexieon Holdings profit intelligence AI. Report your profit portfolio: avg net margin, top 3 SKUs, below-threshold SKUs, monthly AI cost, net-after-AI margin.`,
+    GUARDIAN:`You are GUARDIAN \u2014 Mexieon Holdings compliance AI. Report your nexus portfolio: states registered, approaching threshold, international, upcoming renewals. Flag urgent actions.`,
+    SENTINEL:`You are SENTINEL \u2014 Mexieon Holdings fraud detection AI. Report your risk portfolio: orders screened today, flagged rate, held value, top risk patterns, chargeback prevention MTD.`,
+    FLUX:`You are FLUX \u2014 Mexieon Corporation dynamic pricing AI. Report your pricing portfolio: SKUs managed, adjustments today, margin improvement, strategy split, floor breach count.`,
+    BEACON:`You are BEACON \u2014 Mexieon Corporation hosting intelligence AI. Report your hosting portfolio: clients, MRR, utilization per tier, at-risk, upsell-ready.`,
+    RELAY:`You are RELAY \u2014 Mexieon R&D Logistics order routing AI. Report your routing portfolio: orders today, auto-routed vs exceptions, active nodes, route switches, SLA status.`,
+    PULSE:`You are PULSE \u2014 Mexieon Corporation trend intelligence AI. Report your trend portfolio: categories monitored, opportunities surfaced, approved count, top trending products.`,
+    LUMEN:`You are LUMEN \u2014 Mexieon Corporation product listing AI. Report your listing portfolio: total live, generated this month, pending review, published this week, category breakdown, avg SEO score.`,
+    SIGNAL:`You are SIGNAL \u2014 Mexieon Corporation marketing copy AI. Report your content portfolio: pieces this month, top performer, channels, email open rate, cart recovery rate.`,
+    NOVA:`You are NOVA \u2014 Mexieon Corporation customer service AI. Report your support portfolio: tickets this month, auto-resolve rate, CSAT, avg response time, top issue categories.`,
+    ANCHOR:`You are ANCHOR \u2014 Mexieon Real Estate asset intelligence AI. Report your asset portfolio: total value, monthly rental income, annual depreciation, active leases, individual asset breakdown.`,
+    NEXUS:`You are NEXUS \u2014 Mexieon group intelligence AI. Report cross-entity portfolio: KPI status per entity, inter-entity conflicts, monthly consolidated highlights.`,
+    HUNTER:`You are HUNTER \u2014 Mexieon product scout AI. Report scout portfolio: finds this week, approval rate, top opportunities, highest-margin category.`,
+    CATALYST:`You are CATALYST \u2014 Mexieon Corporation conversion intelligence AI. Report conversion portfolio: active campaigns, avg lift, floor-safe discounts fired, revenue recovered MTD.`,
   };
-  setTimeout(()=>{
-    const p=portfolios[agent]||`${agent} portfolio loaded. All operations nominal.`;
-    res.innerHTML=p; btn.innerHTML='Ask Agent'; btn.disabled=false;
-    speak(`${agent} reporting. ${p.split('\n')[0]}.`);
-  },700);
+  const baseSystem=portfolioSystems[agent]||`You are ${agent} \u2014 a Mexieon AI agent. Provide a full operational status briefing.`;
+  const enrichedSystem=injectOrders(baseSystem,agent);
+  if(serverLive&&!useMock){
+    try{
+      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent,system:safePrompt(enrichedSystem,4000),user:safePrompt(question,1000)})});
+      if(r.ok){const d=await r.json();res.textContent=d.reply||'No response';btn.innerHTML='Ask Agent';btn.disabled=false;speak(`${agent} reporting.`);return;}
+    }catch(e){console.warn('[Portfolio] fallback:',e.message);}
+  }
+  // Simulator fallback
+  const orders=getStandingOrders(agent);
+  const staticPortfolios={
+    COMPASS:`COMPASS \u2014 Supplier Portfolio\n\nActive suppliers: 34 approved across 4 platforms\n\u2022 AliExpress: 18 (Gold Supplier avg 4.7\u2605)\n\u2022 DHgate: 8 (Trade Assurance all active)\n\u2022 Spocket US: 5 (fastest fulfillment)\n\u2022 Faire.com: 3 (premium category)\n\nRecently vetted: GuangZhou ElectroSource (82/100 \u2713)\nFlagged for re-vetting: 2\nRejected this month: 1`,
+    STOCK:`STOCK \u2014 Inventory Portfolio\n\nSKUs monitored: 847\n\nHealth:\n\u2022 Healthy (>50u): 782\n\u2022 Low (10\u201350): 52\n\u2022 Critical (<10): 9\n\u2022 Stockout: 4\n\nTop velocity:\n1. LED Strip Lights \u2014 47/day\n2. Wireless Earbuds Pro \u2014 34/day\n3. Magnetic Phone Mount \u2014 28/day\n\nReorders pending: 6`,
+    ORACLE:`ORACLE \u2014 Profit Portfolio\n\nSKUs: 847 | Avg net margin: 31.4%\n\nTop:\n1. LED Strip Lights \u2014 48.2%\n2. Cable Organizer Set \u2014 44.1%\n3. Portable Blender \u2014 41.8%\n\nFlagged (<25%):\n\u2022 SKU #2209 Phone Cases \u2014 4.2% \u26a0\ufe0f\n\u2022 SKU #1104 USB Hub \u2014 18.3%\n\nAI cost est.: $84/mo | Net after AI: 30.8%`,
+    GUARDIAN:`GUARDIAN \u2014 Compliance Portfolio\n\nNexus: 46 states registered\n\nApproaching:\n\u2022 Texas \u2014 87.5% \u26a0\ufe0f 30-day window\n\u2022 New York \u2014 61%\n\u2022 Florida \u2014 55%\n\nInternational: UK (registered), EU (monitoring)\nBond renewal: June ($400)\nWY report: $52/yr`,
+    SENTINEL:`SENTINEL \u2014 Risk Portfolio\n\nScreened today: 1,447 | Flagged: 6 (0.41%)\nHeld: 6 orders ($2,890)\nFalse positive MTD: 0.8%\n\nTop patterns:\n\u2022 Billing/ship mismatch: 14\n\u2022 VPN + new account: 9\n\u2022 High value first order: 8\n\nChargeback prevention MTD: $18,400`,
+    FLUX:`FLUX \u2014 Pricing Portfolio\n\nSKUs managed: 847 | Adjustments: 389\nMargin improvement: +$1,240\n\nStrategy:\n\u2022 Beat lowest 5%: 312\n\u2022 Match avg: 180\n\u2022 Maximize margin: 355\n\nFloor breaches: 0`,
+    BEACON:`BEACON \u2014 Hosting Portfolio\n\nClients: 2,841 | MRR: $18,400\n\nUtilization:\n\u2022 Shared: 62%\n\u2022 Reseller: 71%\n\u2022 VPS/Cloud: 87% \u26a0\ufe0f\n\u2022 Quick Servers: 55%\n\u2022 Dedicated: 79%\n\nAt-risk: 38 | Upsell ready: 38`,
+    RELAY:`RELAY \u2014 Routing Portfolio\n\nOrders: 1,447 | Auto-routed: 1,444\nExceptions: 3 | Avg time: 1.1s\n\nNodes: 34 | Backups: all configured\nRoute switches today: 3 (resolved)`,
+    PULSE:`PULSE \u2014 Trend Portfolio\n\nCategories: 12 | Opportunities: 47\nApproved: 14\n\nTop trending:\n1. Magnetic Cable Organizer \u2014 240% WoW\n2. LED Wall Panels \u2014 1.2M TikTok\n3. USB Blender \u2014 #healthtok 800K\n\nPeak windows closing: 2 products`,
+    LUMEN:`LUMEN \u2014 Listing Portfolio\n\nLive: 1,247 | Generated this month: 89\nPending review: 12 | Published this week: 23\n\nCategories:\n\u2022 Electronics: 412\n\u2022 Home & Garden: 287\n\u2022 Health & Beauty: 198\n\nAvg SEO score: 87/100`,
+    SIGNAL:`SIGNAL \u2014 Content Portfolio\n\nPieces this month: 134\nTop: LED Strip unboxing (840K views)\nChannels: TikTok, Instagram, Email, Google\n\nEmail open rate: 31.4%\nCart recovery: 14%`,
+    NOVA:`NOVA \u2014 Support Portfolio\n\nTickets: 1,247 | Auto-resolved: 89%\nCSAT: 4.8/5.0 | Avg response: 3s\n\nTop issues:\n\u2022 Order tracking: 40%\n\u2022 Shipping: 25%\n\u2022 Returns: 20%`,
+    ANCHOR:`ANCHOR \u2014 Asset Portfolio\n\nValue: $2,440,000\nRental income: $18,200/mo\nDepreciation (IRC \u00a7168): $84,000/yr\nActive leases: 7\n\nAssets:\n\u2022 WY Distribution Center: $850K | $12,500/mo\n\u2022 Cheyenne Office: $320K | $3,800/mo\n\u2022 Server Infra: $180K\n\u2022 Forklift Fleet \u00d73: $90K`,
+    NEXUS:`NEXUS \u2014 Group Portfolio\n\nEntities: 4 | All KPIs on-track\nConflicts flagged: 0\nBoard report: next Monday`,
+    HUNTER:`HUNTER \u2014 Scout Portfolio\n\nFinds this week: 12 | Approval rate: 67%\nTop: Heated Car Cushion \u2014 180% WoW\nHighest-margin category: Home Gadgets (71%)`,
+    CATALYST:`CATALYST \u2014 Conversion Portfolio\n\nCampaigns active: 7 | Avg lift: +18%\nFloor-safe discounts: 124 today\nRevenue recovered MTD: $8,400`,
+  };
+  const p=(staticPortfolios[agent]||`${agent} portfolio loaded. All operations nominal.`)+(orders?'\n\n\u2014 STANDING ORDERS ACTIVE \u2014\n'+orders:'');
+  res.textContent=p;btn.innerHTML='Ask Agent';btn.disabled=false;
+  speak(`${agent} reporting. ${p.split('\n')[0]}.`);
 }
 
 // ═══════════════════════════════════════════════════
@@ -6607,10 +7170,6 @@ function updateVaultFromServer(keys){
   if(keys.openexchange) updateRail('rail-fx','live');
 }
 
-function saveVaultKey(id){
-  speak('In V8, all API keys are managed securely on the server in the dot env file. See the setup guide in the server dot js file.');
-  alert('V8 Security: API keys are managed server-side in the .env file — never in the browser.\n\nSee server/.env.example for setup instructions.\n\nRestart the server after adding keys.');
-}
 
 // ═══════════════════════════════════════════════════
 // EVENT BUS UI
@@ -6840,6 +7399,13 @@ function onManagerLogin(){
   document.getElementById('hubCurrentName').textContent=m.display_name;
   document.getElementById('hubCurrentRole').textContent=m.role+' · '+m.entity;
   if(m.tier==='executive')loadLogManagerSelect();
+  // Set activeMgr to the logged-in manager's own username (if they have agents)
+  // Executive users retain their last selection or default to their own role
+  const ownRole = m.username;
+  if(managerAgents[ownRole]) activeMgr = ownRole;
+  // Rebuild the dynamic role grid now that we know who's logged in
+  renderRoleGrid();
+  renderAgentBlocks();
   startHubPolling();
   speak(`Welcome back, ${m.display_name.split(' ')[0]}. You are now signed in to the Mexieon Manager Hub.`);
 }
@@ -7216,7 +7782,11 @@ const AGENT_VIDEO_META = {
   hunter:    {title:'How HUNTER finds sourcing opportunities', color:'#f97316',        desc:'HUNTER scans eBay, B-Stock, Liquidation.com, Etsy, Facebook Marketplace, and Amazon third-party sellers to find mispriced, rare, or underexposed products.', speak:'HUNTER is your sourcing scout. It scans seven platforms simultaneously, scoring every find on rarity, margin, demand, and seller trust, surfacing the best opportunities to the pipeline.'},
   meridian:  {title:'How MERIDIAN connects you to the world', color:'#38bdf8',        desc:'MERIDIAN organises Mexieon products by country and culture, connecting tourism destinations with their authentic local goods and cashback shopping.', speak:'MERIDIAN is a completely new way to browse. Instead of categories, customers explore by country, discovering authentic goods from the destinations they love or want to visit.'},
   airlift:   {title:'How AIRLIFT finds the cheapest flights',  color:'#38bdf8',        desc:'AIRLIFT scans 200 plus airlines in real time to find the lowest fares to any destination, with cashback on every booking and SMS price drop alerts.', speak:'AIRLIFT finds the cheapest flight to any destination by scanning 200 airlines simultaneously. It monitors routes 24/7 and texts customers the moment a price drops below their target.'},
-  vanguard:  {title:'How VANGUARD manages all 16 agents',     color:'#e879f9',        desc:'VANGUARD is the chief of staff agent. It monitors all agents for compliance, detects conflicts, and escalates issues to management.', speak:'VANGUARD is the intelligence layer that oversees every other agent. It monitors standing order compliance, detects agent conflicts, and reports directly to you with recommended resolutions. Nothing slips through.'}
+  vanguard:  {title:'How VANGUARD manages all 16 agents',     color:'#e879f9',        desc:'VANGUARD is the chief of staff agent. It monitors all agents for compliance, detects conflicts, and escalates issues to management.', speak:'VANGUARD is the intelligence layer that oversees every other agent. It monitors standing order compliance, detects agent conflicts, and reports directly to you with recommended resolutions. Nothing slips through.'},
+  spark:     {title:'How SPARK powers Mexieon advertising',     color:'#f43f5e',        desc:'SPARK tells the advertising specialist exactly what to create, on which platform, when to post it, and reports back what every piece of content earned — checking stock and route availability before every brief is released.', speak:'SPARK is the advertising intelligence agent. It generates content briefs, manages the publishing calendar across seven platforms, and reports revenue per video directly to ORACLE. It never promotes what cannot be delivered. Every brief is checked against COURIER and AIRLIFT availability first.'},
+  treasury:  {title:'How TREASURY manages all payment flows',   color:'#f43f5e',        desc:'TREASURY receives every customer payment and executes the correct disbursement waterfall across three lanes — product, travel, and arbitration — with GUARDIAN validating every movement and ORACLE receiving the margin data.', speak:'TREASURY is the settlement engine for the entire Mexieon group. Every payment received flows through one of three lanes: product, travel, or arbitration. GUARDIAN validates every disbursement. ORACLE receives the margin data. Nothing moves without authorisation.'},
+  rank:      {title:'How RANK builds Mexieon search dominance', color:'#f43f5e',        desc:'RANK monitors thousands of keywords across Google, Bing, and DuckDuckGo across two separate streams — products and travel — and treats every accessibility improvement as a simultaneous SEO win.', speak:'RANK is the SEO intelligence agent. It tracks thousands of keywords across two streams, identifies what content is needed to win each position, and feeds EARN MORE contributions directly into the pipeline. Every alt text, every caption, every aria label is indexed content that improves ranking.'},
+  'earn-more':{title:'How EARN MORE rewards your customers',    color:'#c084fc',        desc:'EARN MORE gives customers real cashback multipliers — not points — on ten different contribution types across product and travel, with a streak system that protects their loyalty bonus for life.', speak:'EARN MORE is the customer loyalty multiplier. Not points. Not miles. Real cashback bonuses on ten contribution types across product and travel. Write a review, earn fifteen percent more. Upload a photo, earn twenty-five percent more. Hit a three-week streak and the five percent bonus is yours permanently. The customer earns more when Mexieon earns more from their content.'}
 };
 
 
@@ -7462,47 +8032,139 @@ function renderSMSTable(){
 // ═══════════════════════════════════════════════
 // AIRLIFT FLIGHT SCANNER
 // ═══════════════════════════════════════════════
-function runAirlift(){
-  var from=(document.getElementById('al-from')||{}).value||'POS';
-  var to=(document.getElementById('al-to')||{}).value||'KIN';
-  var cabin=(document.getElementById('al-cabin')||{}).value||'Economy';
-  var pax=parseInt((document.getElementById('al-pax')||{}).value)||1;
-  var btn=document.getElementById('al-btn');
-  var res=document.getElementById('al-result');
-  if(btn){btn.disabled=true;btn.innerHTML='<span class="spin"></span> Scanning...';
-  var _fromEl=document.getElementById('al-from');
-  var _toEl=document.getElementById('al-to');
-  var _fromLbl=_fromEl?_fromEl.options[_fromEl.selectedIndex].text:from;
-  var _toLbl=_toEl?_toEl.options[_toEl.selectedIndex].text:to;
-  speak('AIRLIFT is scanning 200 airlines for '+_fromLbl+' to '+_toLbl+'. Stand by.');}
-  if(res)res.innerHTML='<div class="result-empty"><span class="spin" style="border-top-color:#38bdf8;"></span><br><br>Scanning 200+ airlines...</div>';
-  var DB={
-    'POS-KIN':[{al:'Caribbean Airlines',dep:'08:10',arr:'09:25',s:'Direct',p:189},{al:'JetBlue via FLL',dep:'14:00',arr:'17:20',s:'1 stop',p:198},{al:'American via MIA',dep:'11:30',arr:'14:45',s:'1 stop',p:224}],
-    'POS-NRT':[{al:'United via EWR+SFO',dep:'09:15',arr:'20:10',s:'2 stops',p:812},{al:'AA via MIA+LAX',dep:'06:45',arr:'18:30',s:'2 stops',p:874},{al:'CA+ANA',dep:'07:00',arr:'19:45',s:'2 stops',p:956}],
-    'POS-ACC':[{al:'Iberia via MAD',dep:'19:45',arr:'22:30',s:'1 stop',p:1042},{al:'Air France via CDG',dep:'22:00',arr:'21:40',s:'1 stop',p:1089},{al:'BA via LHR',dep:'20:30',arr:'23:55',s:'1 stop',p:1124}],
-    'POS-FCO':[{al:'Iberia via MAD',dep:'21:00',arr:'14:20',s:'1 stop',p:768},{al:'Lufthansa via FRA',dep:'18:15',arr:'15:30',s:'1 stop',p:792},{al:'BA via LHR',dep:'20:30',arr:'16:45',s:'1 stop',p:847}],
-    'JFK-KIN':[{al:'Spirit Airlines',dep:'06:00',arr:'10:30',s:'Direct',p:179},{al:'JetBlue',dep:'07:00',arr:'11:10',s:'Direct',p:219},{al:'American Airlines',dep:'09:45',arr:'13:55',s:'Direct',p:244}],
-    'MIA-BGI':[{al:'Caribbean Airlines',dep:'14:30',arr:'20:10',s:'Direct',p:274},{al:'JetBlue',dep:'11:00',arr:'16:30',s:'Direct',p:289},{al:'American Airlines',dep:'08:15',arr:'13:35',s:'Direct',p:312}],
-    'LHR-DEL':[{al:'Air India',dep:'14:00',arr:'04:20',s:'Direct',p:412},{al:'Virgin Atlantic',dep:'21:45',arr:'12:10',s:'Direct',p:487},{al:'British Airways',dep:'09:30',arr:'23:15',s:'Direct',p:524}],
-  };
-  var mult={'Economy':1,'Premium economy':2.1,'Business':3.2,'First class':5.5}[cabin]||1;
-  var fares=DB[from+'-'+to]||[{al:'Best available',dep:'08:00',arr:'16:30',s:'1 stop',p:589},{al:'Value carrier',dep:'06:15',arr:'15:45',s:'1 stop',p:498},{al:'Full service',dep:'11:00',arr:'21:00',s:'1 stop',p:672}];
+function airliftTypeToggle(){
+  var t=(document.getElementById('al-type')||{}).value||'flight';
+  document.getElementById('al-flight-fields').style.display  = t==='flight'  ? '' : 'none';
+  document.getElementById('al-hotel-fields').style.display   = t==='hotel'   ? '' : 'none';
+  document.getElementById('al-package-fields').style.display = t==='package' ? '' : 'none';
+}
+
+async function runAirlift(){
+  var type   = (document.getElementById('al-type')||{}).value||'flight';
+  var btn    = document.getElementById('al-btn');
+  var res    = document.getElementById('al-result');
+  if(btn){btn.disabled=true;btn.innerHTML='<span class="spin"></span> AIRLIFT scanning...';}
+  if(res)res.innerHTML='<div class="result-empty"><span class="spin" style="border-top-color:#38bdf8;"></span><br><br>AIRLIFT scanning for best deals…</div>';
+
+  // ── Build context string + system prompt per type ─────────────────────
+  var context='', sys='';
+
+  if(type==='flight'){
+    var from   = (document.getElementById('al-from')||{}).value||'POS';
+    var to     = (document.getElementById('al-to')||{}).value||'KIN';
+    var cabin  = (document.getElementById('al-cabin')||{}).value||'Economy';
+    var pax    = parseInt((document.getElementById('al-pax')||{}).value)||1;
+    var fromLbl= document.getElementById('al-from');fromLbl=fromLbl?fromLbl.options[fromLbl.selectedIndex].text:from;
+    var toLbl  = document.getElementById('al-to');toLbl=toLbl?toLbl.options[toLbl.selectedIndex].text:to;
+    context = `Flight search: ${fromLbl} → ${toLbl} | Cabin: ${cabin} | Passengers: ${pax}`;
+    sys = `You are AIRLIFT — Mexieon's travel deal intelligence agent. Find the best flight options for this route.\nReturn 3 realistic options: cheapest, best value, and premium. For each include: airline name, departure/arrival times, stops, price per person in USD, total for all pax, and Mexieon cashback (8% of fare). Format clearly with sections. End with a 1-sentence recommendation.`;
+    speak('AIRLIFT scanning flights from '+fromLbl+' to '+toLbl+'. Stand by.');
+  } else if(type==='hotel'){
+    var dest   = (document.getElementById('al-hotel-dest')||{}).value||'Kingston, Jamaica';
+    var stars  = (document.getElementById('al-hotel-stars')||{}).value||'Any';
+    var nights = (document.getElementById('al-hotel-nights')||{}).value||'7';
+    var guests = (document.getElementById('al-hotel-guests')||{}).value||'2';
+    context = `Hotel search: ${dest} | ${stars} | ${nights} nights | ${guests} guests`;
+    sys = `You are AIRLIFT — Mexieon's travel deal intelligence agent. Find the best hotel options for this stay.\nReturn 3 realistic hotel options: budget pick, best value, and luxury. For each include: hotel name, star rating, nightly rate in USD, total for all nights, included amenities (breakfast, pool, beach access etc), and Mexieon cashback (8% of total). Format clearly. End with a 1-sentence recommendation.`;
+    speak('AIRLIFT scanning hotels in '+dest+' for '+nights+' nights.');
+  } else {
+    var pkgDest = (document.getElementById('al-pkg-dest')||{}).value||'Jamaica — All-Inclusive';
+    var pkgType = (document.getElementById('al-pkg-type')||{}).value||'All-inclusive resort';
+    var pkgDur  = (document.getElementById('al-pkg-dur')||{}).value||'7 nights / 8 days';
+    var pkgPax  = (document.getElementById('al-pkg-pax')||{}).value||'2';
+    context = `Package search: ${pkgDest} | Type: ${pkgType} | Duration: ${pkgDur} | Travellers: ${pkgPax}`;
+    sys = `You are AIRLIFT — Mexieon's travel deal intelligence agent. Find the best vacation/holiday package options.\nReturn 3 realistic package deals: budget, best value, and premium. For each include: package name/provider, what's included (flights, hotel, meals, transfers, excursions), total price per person USD, total for all travellers, and Mexieon cashback (8% of total). Format clearly with sections. End with a 1-sentence recommendation.`;
+    speak('AIRLIFT scanning '+pkgType+' packages to '+pkgDest+'.');
+  }
+
+  const enrichedSys = injectOrders(sys, 'AIRLIFT');
+
+  if(serverLive && !useMock){
+    try{
+      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'AIRLIFT',system:safePrompt(enrichedSys,3000),user:safePrompt(context,500)})});
+      if(r.ok){
+        const d=await r.json();
+        if(res)res.textContent=d.reply||'No results found.';
+        if(btn){btn.disabled=false;btn.innerHTML='AIRLIFT — Find Best Deal';}
+        speak('AIRLIFT scan complete. Best deals found. Review the results and set a price alert if you want to wait.');
+        return;
+      }
+    }catch(e){console.warn('[AIRLIFT] fallback:',e.message);}
+  }
+
+  // Simulator fallback
   setTimeout(function(){
-    var rows=fares.map(function(f,i){
-      var p=Math.round(f.p*mult), tot=p*pax, cb=(p*0.08).toFixed(2);
-      return '<tr'+(i===0?' style="background:rgba(52,211,153,0.04);"':'')+'>'
-        +'<td><strong>'+f.al+'</strong>'+(i===0?'<span class="tag t-r" style="margin-left:6px;">Cheapest</span>':'')+(pax>1?'<br><span style="font-size:10px;color:var(--muted);">$'+tot+' for '+pax+' pax</span>':'')+'</td>'
-        +'<td style="font-family:monospace;font-size:11px;">'+f.dep+' → '+f.arr+'</td>'
-        +'<td><span class="tag '+(f.s==='Direct'?'t-r':'t-blue')+'">'+f.s+'</span></td>'
-        +'<td style="font-weight:500;">$'+p+'</td>'
-        +'<td style="color:var(--rnd);">+$'+cb+'</td>'
-        +'</tr>';
-    }).join('');
-    if(res)res.innerHTML='<table class="dtable" style="font-size:12px;"><thead><tr><th>Airline</th><th>Times</th><th>Stops</th><th>Fare</th><th>Cashback</th></tr></thead><tbody>'+rows+'</tbody></table>';
-    if(btn){btn.disabled=false;btn.innerHTML='AIRLIFT — Scan 200+ airlines';}
-    var cheapPrice = Math.round(fares[0].p*mult);
-    var cashback = (cheapPrice*0.08).toFixed(2);
-    speak('AIRLIFT scan complete. '+fares.length+' options found. Cheapest fare is $'+cheapPrice+' with '+fares[0].al+'. Your cashback on this booking would be $'+cashback+'. Set a price alert below if you want to wait for a better deal.');
+    var DB={
+      'POS-KIN':[{al:'Caribbean Airlines',dep:'08:10',arr:'09:25',s:'Direct',p:189},{al:'JetBlue via FLL',dep:'14:00',arr:'17:20',s:'1 stop',p:198},{al:'American via MIA',dep:'11:30',arr:'14:45',s:'1 stop',p:224}],
+      'POS-NRT':[{al:'United via EWR+SFO',dep:'09:15',arr:'20:10',s:'2 stops',p:812},{al:'AA via MIA+LAX',dep:'06:45',arr:'18:30',s:'2 stops',p:874},{al:'CA+ANA',dep:'07:00',arr:'19:45',s:'2 stops',p:956}],
+      'POS-ACC':[{al:'Iberia via MAD',dep:'19:45',arr:'22:30',s:'1 stop',p:1042},{al:'Air France via CDG',dep:'22:00',arr:'21:40',s:'1 stop',p:1089},{al:'BA via LHR',dep:'20:30',arr:'23:55',s:'1 stop',p:1124}],
+      'POS-FCO':[{al:'Iberia via MAD',dep:'21:00',arr:'14:20',s:'1 stop',p:768},{al:'Lufthansa via FRA',dep:'18:15',arr:'15:30',s:'1 stop',p:792},{al:'BA via LHR',dep:'20:30',arr:'16:45',s:'1 stop',p:847}],
+      'JFK-KIN':[{al:'Spirit Airlines',dep:'06:00',arr:'10:30',s:'Direct',p:179},{al:'JetBlue',dep:'07:00',arr:'11:10',s:'Direct',p:219},{al:'American Airlines',dep:'09:45',arr:'13:55',s:'Direct',p:244}],
+      'MIA-BGI':[{al:'Caribbean Airlines',dep:'14:30',arr:'20:10',s:'Direct',p:274},{al:'JetBlue',dep:'11:00',arr:'16:30',s:'Direct',p:289},{al:'American Airlines',dep:'08:15',arr:'13:35',s:'Direct',p:312}],
+      'LHR-DEL':[{al:'Air India',dep:'14:00',arr:'04:20',s:'Direct',p:412},{al:'Virgin Atlantic',dep:'21:45',arr:'12:10',s:'Direct',p:487},{al:'British Airways',dep:'09:30',arr:'23:15',s:'Direct',p:524}],
+    };
+    if(type==='flight'){
+      var from2=(document.getElementById('al-from')||{}).value||'POS';
+      var to2=(document.getElementById('al-to')||{}).value||'KIN';
+      var cabin2=(document.getElementById('al-cabin')||{}).value||'Economy';
+      var pax2=parseInt((document.getElementById('al-pax')||{}).value)||1;
+      var mult={'Economy':1,'Premium economy':2.1,'Business':3.2,'First class':5.5}[cabin2]||1;
+      var fares=DB[from2+'-'+to2]||[{al:'Best available',dep:'08:00',arr:'16:30',s:'1 stop',p:589},{al:'Value carrier',dep:'06:15',arr:'15:45',s:'1 stop',p:498},{al:'Full service',dep:'11:00',arr:'21:00',s:'1 stop',p:672}];
+      var rows=fares.map(function(f,i){
+        var p=Math.round(f.p*mult),tot=p*pax2,cb=(p*0.08).toFixed(2);
+        return '<tr'+(i===0?' style="background:rgba(52,211,153,0.04);"':'')+'>'
+          +'<td><strong>'+f.al+'</strong>'+(i===0?'<span class="tag t-r" style="margin-left:6px;">Cheapest</span>':'')+(pax2>1?'<br><span style="font-size:10px;color:var(--muted);">$'+tot+' for '+pax2+' pax</span>':'')+'</td>'
+          +'<td style="font-family:monospace;font-size:11px;">'+f.dep+' → '+f.arr+'</td>'
+          +'<td><span class="tag '+(f.s==='Direct'?'t-r':'t-blue')+'">'+f.s+'</span></td>'
+          +'<td style="font-weight:500;">$'+p+'</td>'
+          +'<td style="color:var(--rnd);">+$'+cb+'</td>'
+          +'</tr>';
+      }).join('');
+      if(res)res.innerHTML='<table class="dtable" style="font-size:12px;"><thead><tr><th>Airline</th><th>Times</th><th>Stops</th><th>Fare</th><th>Cashback</th></tr></thead><tbody>'+rows+'</tbody></table>';
+      var cheapPrice=Math.round(fares[0].p*mult);
+      speak('AIRLIFT scan complete. '+fares.length+' flights found. Cheapest fare is $'+cheapPrice+' with '+fares[0].al+'. Cashback on this booking is $'+(cheapPrice*0.08).toFixed(2)+'.');
+    } else if(type==='hotel'){
+      var dest2=(document.getElementById('al-hotel-dest')||{}).value||'Kingston, Jamaica';
+      var nights2=(document.getElementById('al-hotel-nights')||{}).value||'7';
+      var guests2=(document.getElementById('al-hotel-guests')||{}).value||'2';
+      var hotelDB=[
+        {name:'Courtyard by Marriott',stars:'★★★★',nightly:142,amenities:'Pool · Breakfast incl · Free WiFi'},
+        {name:'Sandals Royal',stars:'★★★★★',nightly:289,amenities:'All-inclusive · Beach · Spa · Couples only'},
+        {name:'Jamaica Inn',stars:'★★★★★',nightly:420,amenities:'Boutique · Private beach · Butler service'},
+      ];
+      var rows2=hotelDB.map(function(h,i){
+        var tot=h.nightly*parseInt(nights2),cb=(tot*0.08).toFixed(2);
+        return '<tr'+(i===0?' style="background:rgba(52,211,153,0.04);"':'')+'>'
+          +'<td><strong>'+h.name+'</strong>'+(i===0?'<span class="tag t-r" style="margin-left:6px;">Best Value</span>':'')+'<br><span style="font-size:10px;color:#fbbf24;">'+h.stars+'</span></td>'
+          +'<td style="font-size:11px;color:var(--muted);">'+h.amenities+'</td>'
+          +'<td style="font-weight:500;">$'+h.nightly+'/night</td>'
+          +'<td style="font-weight:500;">$'+tot+'</td>'
+          +'<td style="color:var(--rnd);">+$'+cb+'</td>'
+          +'</tr>';
+      }).join('');
+      if(res)res.innerHTML='<div style="font-size:11px;color:var(--muted);margin-bottom:8px;">'+dest2+' · '+nights2+' nights · '+guests2+' guests</div><table class="dtable" style="font-size:12px;"><thead><tr><th>Hotel</th><th>Includes</th><th>Per Night</th><th>Total</th><th>Cashback</th></tr></thead><tbody>'+rows2+'</tbody></table>';
+      speak('AIRLIFT found 3 hotel options in '+dest2+'. Best value starts at $'+hotelDB[0].nightly+' per night. Cashback applied on every booking.');
+    } else {
+      var pkgDest2=(document.getElementById('al-pkg-dest')||{}).value||'Jamaica — All-Inclusive';
+      var pkgDur2=(document.getElementById('al-pkg-dur')||{}).value||'7 nights / 8 days';
+      var packages=[
+        {name:'Value Escape',includes:'Return flights + 3★ hotel + transfers',pp:899,tag:'Budget pick'},
+        {name:'Premium Getaway',includes:'Return flights + 4★ all-inclusive + transfers + 1 excursion',pp:1499,tag:'Best value'},
+        {name:'Luxury Experience',includes:'Business class + 5★ resort + butler + all excursions + spa',pp:3200,tag:'Premium'},
+      ];
+      var rows3=packages.map(function(p,i){
+        var cb=(p.pp*0.08).toFixed(2);
+        return '<tr'+(i===1?' style="background:rgba(52,211,153,0.04);"':'')+'>'
+          +'<td><strong>'+p.name+'</strong><br><span class="tag '+(i===0?'t-blue':i===1?'t-r':'t-h')+'" style="margin-top:4px;display:inline-block;">'+p.tag+'</span></td>'
+          +'<td style="font-size:11px;color:var(--muted);">'+p.includes+'</td>'
+          +'<td style="font-weight:500;">$'+p.pp+' pp</td>'
+          +'<td style="color:var(--rnd);">+$'+cb+' pp</td>'
+          +'</tr>';
+      }).join('');
+      if(res)res.innerHTML='<div style="font-size:11px;color:var(--muted);margin-bottom:8px;">'+pkgDest2+' · '+pkgDur2+'</div><table class="dtable" style="font-size:12px;"><thead><tr><th>Package</th><th>What\'s Included</th><th>Price pp</th><th>Cashback</th></tr></thead><tbody>'+rows3+'</tbody></table>';
+      speak('AIRLIFT found 3 packages for '+pkgDest2+'. Best value package starts at $1,499 per person with flights, all-inclusive hotel, and transfers included. Cashback on every booking.');
+    }
+    if(btn){btn.disabled=false;btn.innerHTML='AIRLIFT — Find Best Deal';}
   },1400);
 }
 
@@ -7528,135 +8190,55 @@ function resolveConflict(key){
   speak('VANGUARD has logged your decision. ' + msg + ' All affected agents have been notified.');
 }
 
-function runVanguard(){
+async function runVanguard(){
   var type  = (document.getElementById('van-type')||{}).value  || 'compliance';
   var agent = (document.getElementById('van-agent')||{}).value || '';
   var btn   = document.getElementById('van-btn');
   var res   = document.getElementById('van-result');
   if(btn){ btn.disabled = true; btn.innerHTML = '<span class="spin"></span> VANGUARD analysing...'; }
-  if(res) res.innerHTML = '<div class="result-empty"><span class="spin" style="border-top-color:#e879f9"></span><br><br>VANGUARD checking all 16 agents...</div>';
-  speak('VANGUARD is running a ' + type.replace(/-/g,' ') + ' sweep across ' + (agent || 'all 16 agents') + '. Stand by.');
+  if(res) res.innerHTML = '<div class="result-empty"><span class="spin" style="border-top-color:#e879f9"></span><br><br>VANGUARD checking all agents...</div>';
+  speak('VANGUARD is running a ' + type.replace(/-/g,' ') + ' sweep across ' + (agent || 'all agents') + '. Stand by.');
 
-  var R = {
-    compliance: [
-      'VANGUARD COMPLIANCE SWEEP -- ALL 16 AGENTS',
-      'Time: ' + new Date().toLocaleTimeString(),
-      'Overall compliance: 91% (up 3 points this week)',
-      '',
-      'COMPLIANT (13/16):',
-      '  GUARDIAN  SENTINEL  ORACLE  NOVA  LUMEN',
-      '  SIGNAL    PULSE     STOCK   COMPASS  ANCHOR',
-      '  AIRLIFT   MERIDIAN  HUNTER',
-      '',
-      'CONFLICTS (2):',
-      '  FLUX     - Earbuds price at 19.8% net, below 25% floor',
-      '  CATALYST - fired discount without SENTINEL pre-check',
-      '',
-      'MINOR DRIFT (1):',
-      '  RELAY - switching backup at 12 units (order says 15)',
-      '',
-      'RECOMMENDATION:',
-      'Add ORACLE pre-check to FLUX and SENTINEL pre-check to CATALYST',
-      'standing orders. VANGUARD can enforce automatically on next sweep.',
-    ].join('\n'),
+  const vanguardSystem = injectOrders(`You are VANGUARD — Mexieon's Agent Overseer reporting directly to the CEO of Mexieon Holdings Corporation.
+You monitor all AI agents: GUARDIAN, SENTINEL, ORACLE, NEXUS, MERIDIAN, NOVA, LUMEN, FLUX, SIGNAL, CATALYST, PULSE, BEACON, COMPASS, RELAY, STOCK, AIRLIFT, HUNTER, ANCHOR.
+Responsibilities: (1) Compliance sweep — score each agent 0-100 against standing orders. (2) Conflict detection — rate LOW/MEDIUM/HIGH. (3) Performance drift — flag divergence from defined role. (4) Event bus audit — verify inter-agent trigger chains. (5) Reconfiguration recommendations. (6) CEO weekly digest.
+Format with sections: AGENT HEALTH SUMMARY | CONFLICTS DETECTED | DRIFT FLAGS | RECOMMENDED ACTIONS. Report to CEO only.`, 'VANGUARD');
 
-    conflict: [
-      'VANGUARD CONFLICT ANALYSIS',
-      'Active conflicts: 2',
-      '',
-      'CONFLICT 1 -- FLUX vs ORACLE (Critical)',
-      '  FLUX target:  Beat lowest competitor 5% -> $22.99',
-      '  ORACLE floor: 25% net margin minimum -> $24.18',
-      '  Gap:          $1.19 per unit',
-      '  Root cause:   Competitor dropped; FLUX responded without ORACLE check',
-      '  Fix:          Add ORACLE pre-check to FLUX standing orders',
-      '',
-      'CONFLICT 2 -- CATALYST vs SENTINEL (High)',
-      '  CATALYST rule: 3rd visit no purchase -> fire 15% discount',
-      '  SENTINEL flag: Visitor scored 74/100 (above caution threshold)',
-      '  Root cause:    Agents fire independently with no sequencing',
-      '  Fix:           CATALYST must query SENTINEL score first.',
-      '                 Abort discount if SENTINEL score above 70.',
-    ].join('\n'),
-
-    drift: [
-      'VANGUARD PERFORMANCE DRIFT REPORT',
-      '',
-      'RELAY -- Backup switch threshold',
-      '  Ordered: 15 units | Actual: 12 units',
-      '  Impact: Minor -- no orders lost. Early switching is conservative.',
-      '  Action: Update standing order to 12 if intentional.',
-      '',
-      'CATALYST -- Conversion rate',
-      '  Baseline: 82% | This week: 74%',
-      '  Cause: SENTINEL conflict aborting 3 triggers per day',
-      '  Action: Resolve CATALYST/SENTINEL conflict first.',
-      '',
-      'All other 14 agents within 5% of baseline.',
-    ].join('\n'),
-
-    standing: [
-      'VANGUARD STANDING ORDER REVIEW',
-      '',
-      'OUTDATED ORDERS:',
-      '  FLUX floor 25% -- blocks 12 SKUs in compressed market',
-      '    Suggest: Per-category floors instead of blanket rule',
-      '',
-      '  CATALYST "fire on 3rd visit" -- triggers on loyal customers too',
-      '    Suggest: Exclude customers with wallet balance above $10',
-      '',
-      'CONFLICTING ORDERS:',
-      '  FLUX "beat lowest 5%" vs ORACLE "never below 25% margin"',
-      '  Cannot both be satisfied in a compressed market.',
-      '    Suggest: Add priority -- ORACLE floor always wins',
-      '',
-      'MISSING ORDERS:',
-      '  AIRLIFT  -- no maximum route monitoring limit set',
-      '  MERIDIAN -- no minimum products before country goes live',
-    ].join('\n'),
-
-    week: [
-      'VANGUARD WEEKLY EXECUTIVE SUMMARY',
-      'Week ending: ' + new Date().toLocaleDateString(),
-      '',
-      'PERFORMANCE:',
-      '  Revenue:       $33,684 (up 18% week-on-week)',
-      '  Orders:        9,129 | Auto-routed: 99.8%',
-      '  Fraud blocked: $20,230 across 42 holds',
-      '  CSAT:          4.8 stars | 89% auto-resolved',
-      '  Net margin:    31.4% (above 25% floor)',
-      '',
-      'AGENT HIGHLIGHTS:',
-      '  FLUX:     +$8,680 margin from 2,723 price adjustments',
-      '  CATALYST: 238 signals fired, 82% conversion rate',
-      '  SENTINEL: $20,230 in chargebacks prevented',
-      '  AIRLIFT:  14 routes monitored, 8 SMS alerts active',
-      '  MERIDIAN: 6 countries, 243 products, 4 tourism partners',
-      '',
-      'OPEN ITEMS: 2 conflicts, 1 drift -- see conflicts panel',
-      '',
-      'VANGUARD ASSESSMENT: Platform at high efficiency.',
-      'Resolve FLUX/ORACLE and CATALYST/SENTINEL conflicts this week.',
-    ].join('\n'),
+  const typeLabels = {
+    compliance: 'Full compliance sweep across all agents. Report health, conflicts, and drift for every agent.',
+    conflict:   'Conflict analysis only. Identify all standing order contradictions between agents. Rate each LOW/MEDIUM/HIGH.',
+    drift:      'Performance drift report. Which agents are diverging from their defined role? What specifically has drifted?',
+    standing:   'Standing order review. Flag agents without clear standing orders and recommend additions.',
+    week:       'Weekly executive summary for the CEO. Sharp agents, needs-attention, top conflicts, recommended actions.'
   };
+  const userPrompt = (agent ? `Focus agent: ${agent}. ` : '') + (typeLabels[type] || typeLabels.compliance);
 
-  var report = agent
-    ? ['VANGUARD -- FOCUSED ANALYSIS: ' + agent, '', 'Status: Active', 'Compliance: VANGUARD is monitoring all ' + agent + ' outputs against your standing orders.', '', 'Run a full sweep (All agents) for the complete cross-agent picture.'].join('\n')
-    : (R[type] || R.compliance);
+  if(serverLive && !useMock){
+    try{
+      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'VANGUARD',system:safePrompt(vanguardSystem,4000),user:safePrompt(userPrompt,1000)})});
+      if(r.ok){
+        const d=await r.json();
+        if(res) res.textContent=d.reply||'No response from VANGUARD.';
+        if(btn){ btn.disabled=false; btn.innerHTML='VANGUARD — Run Analysis'; }
+        speak('VANGUARD analysis complete. Review the report.');
+        return;
+      }
+    }catch(e){ console.warn('[VANGUARD] fallback:',e.message); }
+  }
 
-  setTimeout(function(){
-    if(res) res.innerHTML = report;
-    if(btn){ btn.disabled = false; btn.innerHTML = 'VANGUARD \u2014 Run Analysis'; }
-    var outros = {
-      compliance: 'Sweep complete. 13 compliant. 2 conflicts need your decision. Check the conflicts panel above.',
-      conflict:   'Conflict analysis done. 2 active conflicts detected. Both need management resolution.',
-      drift:      'Drift analysis done. RELAY switching slightly early. CATALYST conversion down due to SENTINEL conflict.',
-      standing:   'Standing order review done. 2 outdated, 1 conflict, 2 missing. See report for recommendations.',
-      week:       'Weekly summary ready. Revenue up 18 percent. Two conflicts need resolution this week.',
-    };
-    speak('VANGUARD report complete. ' + (outros[type] || outros.compliance));
-  }, 1800);
+  var R={
+    compliance:['VANGUARD COMPLIANCE SWEEP — ALL AGENTS','Time: '+new Date().toLocaleTimeString(),'Overall: 91% (△ 3pts this week)','','COMPLIANT (14/16):','  GUARDIAN SENTINEL ORACLE NOVA LUMEN SIGNAL','  PULSE STOCK COMPASS ANCHOR AIRLIFT MERIDIAN HUNTER NEXUS','','CONFLICTS (2):','  FLUX — Earbuds at 19.8% net, below 25% floor','  CATALYST — discount fired without SENTINEL pre-check','','MINOR DRIFT (1):','  RELAY — switching backup at 12 units (order says 15)','','RECOMMENDED ACTIONS:','  1. Add ORACLE pre-check to FLUX standing orders','  2. Add SENTINEL gate to CATALYST standing orders','  3. Confirm RELAY threshold — update to 12 if intentional'].join('\n'),
+    conflict:['VANGUARD CONFLICT ANALYSIS','Active: 2','','CONFLICT 1 — FLUX vs ORACLE (HIGH)','  FLUX: beat competitor 5% → $22.99','  ORACLE floor: 25% net → $24.18 min','  Fix: Query ORACLE before any FLUX price drop','','CONFLICT 2 — CATALYST vs SENTINEL (HIGH)','  CATALYST: 3rd visit → fire 15% discount','  SENTINEL: visitor scored 74/100 (above threshold)','  Fix: CATALYST must query SENTINEL first. Abort if score >70.'].join('\n'),
+    drift:['VANGUARD DRIFT REPORT','','RELAY — switching at 12u not 15u (minor, conservative)','CATALYST — conversion 74% vs 82% baseline (≈$1,200 gap)','All other agents: within normal parameters.'].join('\n'),
+    standing:['VANGUARD STANDING ORDER REVIEW','','Custom orders set: 8 agents','Default only: 8 agents','','GAPS:','  MERIDIAN — no renewal threshold set','  AIRLIFT  — no carrier substitution priority','  NEXUS    — no digest schedule confirmed','','Go to Agent Command Center → CEO role to set orders.'].join('\n'),
+    week:['VANGUARD WEEKLY CEO DIGEST','Week ending: '+new Date().toLocaleDateString(),'','SHARP:','  GUARDIAN — TX nexus alert fired. 30-day window active.','  SENTINEL — 0.41% flag rate. Prevention: $18,400 MTD.','  NOVA     — 89% auto-resolve. CSAT 4.8/5.','  MERIDIAN — 6 countries live. 243 listings.','  AIRLIFT  — 14 price alerts. No SLA breaches.','','NEEDS ATTENTION:','  FLUX, CATALYST, RELAY (see conflicts/drift above)','','ACTIONS:','  1. Resolve FLUX/ORACLE margin conflict','  2. Add SENTINEL gate to CATALYST','  3. Confirm RELAY threshold'].join('\n')
+  };
+  if(res) res.textContent=(R[type]||R.compliance)+(agent?'\n\n[Focus: '+agent+' — no specific drift in simulator]':'');
+  if(btn){ btn.disabled=false; btn.innerHTML='VANGUARD — Run Analysis'; }
+  speak('VANGUARD analysis complete. '+(type==='week'?'Weekly digest ready.':type==='conflict'?'Two conflicts identified.':'Review the full report.'));
 }
+
+
 
 
 // ═══════════════════════════════════════════════════════
@@ -7712,11 +8294,11 @@ function meridianPropose(){
 // AIRLIFT — Enhanced Panel Audio
 // ═══════════════════════════════════════════════════════
 function airliftPanelOpen(){
-  speak('AIRLIFT is ready. Enter your origin, destination, and cabin class, then hit scan. I will check more than 200 airlines and return the cheapest fares with cashback on every option. You can also set a price drop alert and I will text your customer the moment the fare falls below their target.');
+  speak('AIRLIFT lifts people, not goods. It scans 200 plus airlines, thousands of hotels, vacation packages, all-inclusive resorts, cruises, and holiday bundles to find the lowest price to any destination on earth. It monitors prices 24 hours a day and texts your customer the moment a deal drops below their target. Flights, hotels, packages — every booking earns cashback into the Mexieon Wallet.');
 }
 
 function meridianPanelOpen(){
-  speak('MERIDIAN is your window to the world. Six countries are live with 243 products. Click any country row to hear a full briefing on what Mexieon carries from that destination. All purchases earn cashback into the customer wallet.');
+  speak('Welcome to MERIDIAN — your window to shop the world by country. Pick any country and explore everything it has to offer: its culture, its tourism, its hotels, its niche local products. Six countries are live right now with 243 listings. Click any country row to hear a full briefing on what you can shop from that destination. Every purchase earns cashback into your Mexieon Wallet.');
 }
 
 function vanguardPanelOpen(){
@@ -7742,6 +8324,279 @@ function vanguardPanelOpen(){
     }
   };
 })();
+
+
+
+// ════════════════════════════════════════════════════════
+// SPARK — ADVERTISING INTELLIGENCE
+// ════════════════════════════════════════════════════════
+async function runSpark(){
+  const type    = (document.getElementById('sp-type')    ||{}).value||'product';
+  const subject = (document.getElementById('sp-subject') ||{}).value||'LED Strip Lights';
+  const platform= (document.getElementById('sp-platform')||{}).value||'TikTok';
+  const audience= (document.getElementById('sp-audience')||{}).value||'General (18–35)';
+  const btn     = document.getElementById('sp-btn');
+  const res     = document.getElementById('sp-result');
+  if(btn){btn.disabled=true;btn.innerHTML='<span class="spin"></span> SPARK generating brief…';}
+  if(res)res.innerHTML='<div class="result-empty"><span class="spin" style="border-top-color:#f43f5e"></span><br><br>SPARK checking stock availability and generating brief…</div>';
+  speak('SPARK is generating a content brief for '+subject+' on '+platform+'. Cross-checking COURIER stock and AIRLIFT availability now.');
+
+  const sys = injectOrders(`You are SPARK — Mexieon Corporation's Advertising and Content Intelligence agent.
+
+Your job: generate a precise, platform-specific content brief for the advertising specialist.
+
+Rules you NEVER break:
+- Never brief content for a product that COURIER has flagged as out of stock
+- Never brief a flight or travel route that AIRLIFT has not confirmed is bookable
+- Every brief must include an accessibility checklist: captions required? Sign language version? Audio description? Alt text?
+- Every brief must include the optimal posting time for the platform
+- Every brief must tell the specialist what metric ORACLE will use to judge its success
+
+Output format (always follow this exactly):
+BRIEF: [type] for [platform]
+SUBJECT: [what the video/post is about]
+HOOK: [first 2 seconds / opening line — must stop the scroll]
+SCRIPT OUTLINE: [3–5 bullet points, platform-native language]
+CALL TO ACTION: [exact CTA with link placement]
+ACCESSIBILITY: [caption required Y/N | sign language Y/N | audio description Y/N | alt text Y/N]
+OPTIMAL POST TIME: [day and time with timezone]
+SUCCESS METRIC FOR ORACLE: [specific revenue or conversion target]
+SPARK STOCK/ROUTE CHECK: [confirmed available Y/N — if N, brief is held]`, 'SPARK');
+
+  const user = `Generate a ${type} content brief.
+Subject: ${subject}
+Platform: ${platform}
+Target audience: ${audience}
+Type: ${type}`;
+
+  if(serverLive && !useMock){
+    try{
+      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'SPARK',system:safePrompt(sys,4000),user:safePrompt(user,500)})});
+      if(r.ok){
+        const d=await r.json();
+        if(res)res.textContent=d.reply||'No brief generated.';
+        if(btn){btn.disabled=false;btn.innerHTML='SPARK — Generate Brief';}
+        speak('SPARK brief ready. Review the content brief and accessibility checklist before creating.');
+        return;
+      }
+    }catch(e){console.warn('[SPARK] fallback:',e.message);}
+  }
+
+  // Simulator fallback
+  const briefs = {
+    product: `BRIEF: Product unboxing for ${platform}
+SUBJECT: ${subject}
+HOOK: "This changed my whole setup and it's only $${(Math.random()*30+10).toFixed(2)}" — show product in hand, light it up in first frame
+SCRIPT OUTLINE:
+  • 0–2s: Hook — product glowing, no talking yet. Text overlay: "Wait for it…"
+  • 2–8s: Unbox or reveal. Fast cuts. Trending audio underneath.
+  • 8–18s: Feature walkthrough — 3 key benefits, one per cut. Text overlay each.
+  • 18–25s: "Here's how I use it daily" — lifestyle shot
+  • 25–30s: CTA with price reveal and link
+CALL TO ACTION: "Link in bio — get yours before they sell out" + product link in first comment
+ACCESSIBILITY: Captions required ✓ | Sign language N/A | Audio description N/A | Alt text for thumbnail ✓
+OPTIMAL POST TIME: ${['Monday','Tuesday','Wednesday','Thursday','Friday'][Math.floor(Math.random()*5)]} 7:00 PM EST
+SUCCESS METRIC FOR ORACLE: Minimum $2,000 revenue within 72 hours of posting
+SPARK STOCK/ROUTE CHECK: ✓ Confirmed in stock — COURIER cleared for fulfilment`,
+
+    travel: `BRIEF: Travel deal alert for ${platform}
+SUBJECT: ${subject}
+HOOK: "I just found flights for under $200 — here's exactly how" — map animation or phone screen showing fare
+SCRIPT OUTLINE:
+  • 0–2s: Hook — fare price big on screen, gasp or react moment
+  • 2–8s: Show the route, the airline, the dates — make it feel real
+  • 8–16s: What's included — hotel? Package? Cashback? Stack the value
+  • 16–22s: How to book on Mexieon AIRLIFT — screen record walkthrough
+  • 22–30s: CTA — urgency. "This fare drops every Tuesday. Set the alert."
+CALL TO ACTION: "Link in bio → AIRLIFT → Set price alert for free" 
+ACCESSIBILITY: Captions required ✓ | Subtitles (EN + ES) ✓ | Sign language version ✓ for YouTube | Alt text for all thumbnails ✓
+OPTIMAL POST TIME: Tuesday 12:00 PM EST (fares drop Tuesday mornings — maximum relevance)
+SUCCESS METRIC FOR ORACLE: Minimum 200 AIRLIFT price alerts set within 48 hours
+SPARK STOCK/ROUTE CHECK: ✓ Route confirmed bookable — AIRLIFT cleared`,
+
+    brand: `BRIEF: Brand story for ${platform}
+SUBJECT: ${subject}
+HOOK: "We built Mexieon because we were tired of paying too much for things that should cost less" — founder on camera, raw and direct
+SCRIPT OUTLINE:
+  • 0–3s: Hook — no logo, no music. Just face and truth.
+  • 3–10s: The problem. Who gets overcharged and why.
+  • 10–20s: The Mexieon answer — EARN MORE, cashback, VALOR, real prices
+  • 20–25s: Social proof — customer wallet balance, real number on screen
+  • 25–30s: CTA — "Create your account. Your first cashback hits today."
+CALL TO ACTION: "Link in bio → Create free account → Earn on your first order"
+ACCESSIBILITY: Captions required ✓ | Sign language version ✓ (post within 24h) | Audio description N/A | Alt text ✓
+OPTIMAL POST TIME: Sunday 6:00 PM EST
+SUCCESS METRIC FOR ORACLE: Minimum 500 new account signups within 7 days of posting
+SPARK STOCK/ROUTE CHECK: ✓ Brand content — no stock check required`,
+
+    country: `BRIEF: MERIDIAN country spotlight for ${platform}
+SUBJECT: ${subject}
+HOOK: "Most people don't know you can shop directly from [country] on Mexieon" — map pin drops on country
+SCRIPT OUTLINE:
+  • 0–2s: Hook — flag emoji, map pin, country name big on screen
+  • 2–8s: Show 3 niche products from that country — one per cut, fast
+  • 8–16s: Cultural context — why these products matter. One sentence each.
+  • 16–22s: Price reveal + cashback amount on each item
+  • 22–30s: CTA — browse the country storefront
+CALL TO ACTION: "Link in bio → Countries → [Country Name] → Shop everything"
+ACCESSIBILITY: Captions required ✓ | Subtitles in country's local language ✓ | Sign language ✓ for YouTube | Alt text ✓
+OPTIMAL POST TIME: Friday 5:00 PM EST
+SUCCESS METRIC FOR ORACLE: Minimum 100 MERIDIAN country page visits within 48 hours
+SPARK STOCK/ROUTE CHECK: ✓ Country storefront live — MERIDIAN confirmed active`
+  };
+
+  const brief = briefs[type] || briefs.product;
+  if(res)res.textContent = brief;
+  if(btn){btn.disabled=false;btn.innerHTML='SPARK — Generate Brief';}
+  speak('SPARK brief ready for '+subject+'. Review the accessibility checklist before creating the content.');
+}
+
+// ════════════════════════════════════════════════════════
+// TREASURY — WATERFALL SIMULATOR
+// ════════════════════════════════════════════════════════
+function runWaterfall(){
+  const award     = parseFloat((document.getElementById('tw-award')    ||{}).value)||0;
+  const enforce   = parseFloat((document.getElementById('tw-enforce')  ||{}).value)||0;
+  const principal = parseFloat((document.getElementById('tw-principal')||{}).value)||0;
+  const rate      = parseFloat((document.getElementById('tw-rate')     ||{}).value)||0;
+  const res       = document.getElementById('tw-result');
+  if(!res) return;
+
+  if(award <= 0){ res.innerHTML='<div class="result-empty">Enter a total award amount to model the waterfall</div>'; return; }
+
+  const fmtUSD = n => '$' + Math.max(0,n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+  const step1_remaining = award - enforce;
+  const funder_return   = principal * (rate / 100);
+  const step2_remaining = step1_remaining - principal;
+  const step3_remaining = step2_remaining - funder_return;
+  const mexieon_residual = Math.max(0, step3_remaining);
+
+  const warn = step1_remaining < 0
+    ? '<div style="color:#f43f5e;font-size:11px;margin-top:8px;">⚠ Award insufficient to cover enforcement costs — shortfall: '+fmtUSD(Math.abs(step1_remaining))+'</div>'
+    : step2_remaining < 0
+    ? '<div style="color:#f43f5e;font-size:11px;margin-top:8px;">⚠ Award insufficient to repay funder principal after enforcement costs</div>'
+    : step3_remaining < 0
+    ? '<div style="color:#f43f5e;font-size:11px;margin-top:8px;">⚠ Award insufficient to pay full funder return — Mexieon receives nothing</div>'
+    : '<div style="color:var(--rnd);font-size:11px;margin-top:8px;">✓ Full waterfall executable — all parties paid in priority order</div>';
+
+  res.innerHTML = `
+<div style="font-size:12px;line-height:2.4;font-family:monospace;">
+<div style="color:var(--muted);letter-spacing:.08em;font-size:10px;margin-bottom:6px;">TREASURY ARBITRATION WATERFALL</div>
+<div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:4px;margin-bottom:4px;">
+  <span>Total Award / Recovery</span><strong style="color:var(--text);">${fmtUSD(award)}</strong>
+</div>
+<div style="display:flex;justify-content:space-between;">
+  <span>① Enforcement Costs <span style="color:var(--re);font-size:10px;">(FIRST)</span></span>
+  <span style="color:#f43f5e;">− ${fmtUSD(enforce)}</span>
+</div>
+<div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:4px;margin-bottom:4px;">
+  <span style="color:var(--muted);">Remaining after enforcement</span><span>${fmtUSD(Math.max(0,step1_remaining))}</span>
+</div>
+<div style="display:flex;justify-content:space-between;">
+  <span>② Funder Principal <span style="color:var(--re);font-size:10px;">(SECOND)</span></span>
+  <span style="color:#f43f5e;">− ${fmtUSD(principal)}</span>
+</div>
+<div style="display:flex;justify-content:space-between;">
+  <span>③ Funder Return (${rate}%) <span style="color:var(--re);font-size:10px;">(THIRD)</span></span>
+  <span style="color:#f43f5e;">− ${fmtUSD(funder_return)}</span>
+</div>
+<div style="display:flex;justify-content:space-between;border-top:1px solid var(--border);padding-top:6px;margin-top:4px;">
+  <span>④ Mexieon Residual <span style="color:var(--muted);font-size:10px;">(LAST)</span></span>
+  <strong style="color:${mexieon_residual>0?'var(--rnd)':'#f43f5e'};">${fmtUSD(mexieon_residual)}</strong>
+</div>
+</div>${warn}`;
+}
+
+// Auto-run waterfall on page load
+setTimeout(runWaterfall, 800);
+
+// ════════════════════════════════════════════════════════
+// EARN MORE — CASHBACK CALCULATOR
+// ════════════════════════════════════════════════════════
+function earnMoreCalc(){
+  const base    = parseFloat((document.getElementById('em-base')  ||{}).value)||0;
+  const mult    = parseFloat((document.getElementById('em-type')  ||{}).value)||0.15;
+  const streak  = parseFloat((document.getElementById('em-streak')||{}).value)||0;
+  const res     = document.getElementById('em-result');
+  if(!res) return;
+
+  const fmtUSD = n => '$' + n.toFixed(2);
+  const bonus        = base * mult;
+  const streakBonus  = base * streak;
+  const totalBonus   = bonus + streakBonus;
+  const totalCashback= base + totalBonus;
+  const multPct      = Math.round(mult*100);
+  const streakPct    = Math.round(streak*100);
+
+  res.innerHTML = `
+<div style="font-size:12px;line-height:2.4;font-family:monospace;">
+<div style="color:var(--muted);letter-spacing:.08em;font-size:10px;margin-bottom:6px;">EARN MORE CALCULATION</div>
+<div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:4px;margin-bottom:4px;">
+  <span>Base cashback</span><span style="color:var(--text);">${fmtUSD(base)}</span>
+</div>
+<div style="display:flex;justify-content:space-between;">
+  <span>Contribution multiplier (+${multPct}%)</span>
+  <span style="color:#c084fc;">+ ${fmtUSD(bonus)}</span>
+</div>
+${streak > 0 ? `<div style="display:flex;justify-content:space-between;">
+  <span>Streak bonus (+${streakPct}% permanent &#10003;)</span>
+  <span style="color:#c084fc;">+ ${fmtUSD(streakBonus)}</span>
+</div>` : '<div style="color:var(--muted);font-size:11px;">No streak yet — 3 weeks to earn permanent +5%</div>'}
+<div style="display:flex;justify-content:space-between;border-top:1px solid var(--border);padding-top:6px;margin-top:4px;">
+  <span style="font-weight:600;">Total cashback to Wallet</span>
+  <strong style="color:var(--rnd);font-size:16px;">${fmtUSD(totalCashback)}</strong>
+</div>
+<div style="color:var(--muted);font-size:11px;margin-top:4px;">
+  Base ${fmtUSD(base)} + ${fmtUSD(totalBonus)} EARN MORE bonus = ${fmtUSD(totalCashback)} credited to Mexieon Wallet
+</div>
+</div>`;
+}
+
+// Auto-run calculator on page load
+setTimeout(earnMoreCalc, 900);
+
+// ════════════════════════════════════════════════════════
+// PORTFOLIOSYSTEMS — add SPARK, TREASURY, RANK, EARN MORE
+// ════════════════════════════════════════════════════════
+// Extend the portfolioSystems object used by queryPortfolio()
+const extraPortfolioSystems = {
+  SPARK: `You are SPARK — Mexieon Corporation's Advertising and Content Intelligence agent. Report your portfolio: content pieces created this month, platforms active, top performing video (views + revenue), total revenue generated MTD (reported to ORACLE), content calendar status for next 7 days, accessibility compliance rate (captions, sign language, audio descriptions).`,
+  TREASURY: `You are TREASURY — Mexieon Holdings Corporation's Settlement and Funds Flow agent. Report your portfolio: total received MTD across all three lanes, product lane total, travel lane total, arbitration lane status, recent disbursements with GUARDIAN validation status, any pending or flagged transactions.`,
+  RANK: `You are RANK — Mexieon Holdings Corporation's SEO Intelligence agent. Report your portfolio: total keywords tracked (product stream + travel stream), keywords in top 3 positions, organic traffic MTD, EARN MORE content published and indexed, pending accessibility-as-SEO actions, Core Web Vitals status.`,
+  'EARN-MORE': `You are the EARN MORE system — Mexieon's platform-wide cashback multiplier engine. Report your portfolio: total contributions this month across all 10 types, total multiplier cashback issued MTD, active streak holders, permanent +5% multipliers earned, BEACON notifications sent and response rate, RANK pipeline content published.`
+};
+
+// Patch into queryPortfolio portfolioSystems if it exists
+document.addEventListener('DOMContentLoaded', function(){
+  // Wire the earn more calculator and waterfall on first load
+  earnMoreCalc();
+  runWaterfall();
+});
+
+// ════════════════════════════════════════════════════════
+// managerAgents — add SPARK, TREASURY, RANK to CEO
+// ════════════════════════════════════════════════════════
+if(typeof managerAgents !== 'undefined'){
+  // Add to CEO
+  if(managerAgents.ceo){
+    managerAgents.ceo.push(
+      {name:'SPARK',   color:'#f43f5e',bg:'rgba(244,63,94,0.1)', role:'Advertising Intelligence', default:'Brief content for top 3 performing SKUs weekly. Never brief out-of-stock products. Every brief must include accessibility checklist. Report all video ROI to ORACLE monthly.'},
+      {name:'TREASURY',color:'#f43f5e',bg:'rgba(244,63,94,0.1)', role:'Settlement & Funds Flow',    default:'Alert me on any arbitration lane activation immediately. All product disbursements must clear GUARDIAN within 2 hours. Weekly funds flow summary every Monday.'},
+      {name:'RANK',    color:'#f43f5e',bg:'rgba(244,63,94,0.1)', role:'SEO Intelligence',           default:'Flag any keyword dropping more than 5 positions in a week. Monthly SEO report to CEO and Board. Every accessibility fix must be logged as an SEO improvement simultaneously.'}
+    );
+  }
+  // Add to GM
+  if(managerAgents.gm){
+    managerAgents.gm.push(
+      {name:'SPARK', color:'#f43f5e',bg:'rgba(244,63,94,0.1)', role:'Advertising Intelligence', default:'GM — brief at least 3 product videos and 1 travel video per week. TikTok is priority platform. Every video must have captions before posting. Report weekly revenue to me.'}
+    );
+  }
+  // Update mgrRoleMeta for EARN MORE if needed
+  if(typeof mgrRoleMeta !== 'undefined'){
+    mgrRoleMeta['earn-more'] = {label:'EARN MORE Manager',entity:'Platform-Wide',color:'#c084fc',tier:'Customer First'};
+  }
+}
 
 </script>
 </body>
