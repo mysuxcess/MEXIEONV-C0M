@@ -1,5 +1,11 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
+
+// Load .env if present (Node 20.12+ process.loadEnvFile — zero deps)
+try {
+  if (typeof process.loadEnvFile === 'function') process.loadEnvFile(path.join(__dirname, '.env'));
+} catch (e) { /* no .env yet — server runs without a model key */ }
 
 const authRoutes = require('./routes-auth');
 const cartRoutes = require('./routes-cart');
@@ -11,11 +17,10 @@ const emailRoutes = require('./routes-email');
 const adminOrdersRoutes = require('./routes-admin-orders');
 const novaRoutes = require('./routes-nova');
 const orchestrateRoutes = require('./routes-orchestrate');
+const agentRoutes = require('./routes-agent');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-
-const path = require('path');
 
 app.use(cors());
 app.use(express.json());
@@ -25,6 +30,9 @@ app.use(express.static(__dirname));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 app.get('/api/health', (req, res) => res.json({ ok: true, service: 'mexieon-backend' }));
+
+// Live agent runtime: /api/status + /api/agent (Gemini-backed)
+app.use('/api', agentRoutes);
 
 app.use('/api/auth', authRoutes);
 app.use('/api/cart', cartRoutes);
