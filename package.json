@@ -4,6 +4,7 @@
   "description": "Mexieon API - accounts, cart, RFQ, HUNTER persistence",
   "main": "server.js",
   "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=24" },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
