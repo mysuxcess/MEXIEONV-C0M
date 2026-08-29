@@ -1,6 +1,6 @@
 node_modules/
-mexieon.db
-mexieon.db-journal
-mexieon.db-wal
-mexieon.db-shm
 .env
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
