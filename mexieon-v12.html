@@ -4303,8 +4303,34 @@ const AGENT_PERSONAS = {
 const agentMemory = JSON.parse((function(){try{return localStorage.getItem('mx_agent_memory')||'{}';}catch(e){return '{}';}})());
 const learnedDirs = JSON.parse((function(){try{return localStorage.getItem('mx_learned')||'{}';}catch(e){return '{}';}})());
 function mgrKey(){ return (currentManager && currentManager.username) || 'guest'; }
-function saveMemory(){ try{ localStorage.setItem('mx_agent_memory', JSON.stringify(agentMemory)); }catch(e){} }
-function saveLearned(){ try{ localStorage.setItem('mx_learned', JSON.stringify(learnedDirs)); }catch(e){} }
+async function storeGet(key){
+  try{ const r=await fetch(BACKEND+'/api/store?key='+encodeURIComponent(key)); if(r.ok){ const d=await r.json(); return d.value; } }catch(e){}
+  return null;
+}
+async function storePut(key, value){
+  try{ await fetch(BACKEND+'/api/store',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({key,value})}); }catch(e){}
+}
+function ordersMap(){
+  const mk=mgrKey(); const map={}; const pre='mx_cmd_'+mk+'_';
+  for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k && k.indexOf(pre)===0){ map[k.slice(pre.length)]=localStorage.getItem(k); } }
+  return map;
+}
+function syncToKV(){
+  if(!serverLive) return;
+  storePut('mx:'+mgrKey(), { memory: agentMemory[mgrKey()]||{}, learn: learnedDirs[mgrKey()]||{}, orders: ordersMap() });
+}
+async function loadManagerState(){
+  if(!serverLive) return;
+  const s=await storeGet('mx:'+mgrKey());
+  if(!s) return;
+  if(s.memory){ agentMemory[mgrKey()]=s.memory; try{ localStorage.setItem('mx_agent_memory', JSON.stringify(agentMemory)); }catch(e){} }
+  if(s.learn){ learnedDirs[mgrKey()]=s.learn; try{ localStorage.setItem('mx_learned', JSON.stringify(learnedDirs)); }catch(e){} }
+  if(s.orders){ for(const a in s.orders){ try{ localStorage.setItem('mx_cmd_'+mgrKey()+'_'+a, s.orders[a]); }catch(e){} } renderAgentBlocks(); }
+}
+
+
+function saveMemory(){ try{ localStorage.setItem('mx_agent_memory', JSON.stringify(agentMemory)); }catch(e){} syncToKV(); }
+function saveLearned(){ try{ localStorage.setItem('mx_learned', JSON.stringify(learnedDirs)); }catch(e){} syncToKV(); }
 function learnedFor(n){ const mk=mgrKey(); return ((learnedDirs[mk]||{})[n]||[]); }
 function learnDirective(n,text){
   const t=(text||'').trim();
@@ -6291,11 +6317,11 @@ function toggleACB(name){
 }
 function saveAgentOrders(agent){
   const ta=document.getElementById('acb-ta-'+agent);
-  if(ta){localStorage.setItem('mx_cmd_'+mgrKey()+'_'+agent,ta.value);renderAgentBlocks();
+  if(ta){localStorage.setItem('mx_cmd_'+mgrKey()+'_'+agent,ta.value);renderAgentBlocks();syncToKV();
   document.getElementById('acb-body-'+agent).style.display='block';
   speak(`Standing orders saved for ${agent}.`);}
 }
-function resetAgentOrders(agent){localStorage.removeItem('mx_cmd_'+mgrKey()+'_'+agent);renderAgentBlocks();}
+function resetAgentOrders(agent){localStorage.removeItem('mx_cmd_'+mgrKey()+'_'+agent);renderAgentBlocks();syncToKV();}
 
 async function queryPortfolio(){
   const agent=document.getElementById('portfolio-agent').value;
@@ -7563,6 +7589,7 @@ function onManagerLogin(){
   renderRoleGrid();
   renderAgentBlocks();
   startHubPolling();
+  loadManagerState();
   speak(`Welcome back, ${m.display_name.split(' ')[0]}. You are now signed in to the Mexieon Manager Hub.`);
   if(!localStorage.getItem('mx_onboarded_'+mgrKey())){ setTimeout(obOpen, 700); }
 }
