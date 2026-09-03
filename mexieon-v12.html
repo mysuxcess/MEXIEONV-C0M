@@ -1814,6 +1814,21 @@ body,header,.sidebar,.card,.stat-box,.chat-wrap,
 <!-- ═══════════════════════════════════════════════ -->
 <!-- MANAGER HUB PANEL                             -->
 <!-- ═══════════════════════════════════════════════ -->
+<div id="onboardOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,.74);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:16px;max-width:540px;width:100%;padding:30px;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.55);backdrop-filter:blur(14px);">
+    <div style="font-size:11px;letter-spacing:.16em;color:var(--re);font-family:monospace;margin-bottom:14px;">MEXIEON &middot; MANAGER HUB</div>
+    <div id="ob-dots" style="display:flex;gap:7px;margin-bottom:16px;"></div>
+    <div id="ob-title" style="font-size:22px;font-weight:700;margin-bottom:12px;color:var(--text);"></div>
+    <div id="ob-body" style="font-size:13px;line-height:1.65;color:var(--muted);min-height:110px;"></div>
+    <div style="display:flex;gap:10px;margin-top:24px;align-items:center;">
+      <button id="ob-back" onclick="obNav(-1)" style="background:transparent;border:1px solid var(--border);color:var(--text);padding:9px 16px;border-radius:8px;cursor:pointer;font-size:13px;">Back</button>
+      <button id="ob-next" onclick="obNav(1)" style="background:var(--re);color:#000;border:none;padding:9px 22px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;">Next</button>
+      <span style="flex:1;"></span>
+      <button onclick="obClose(true)" style="background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:12px;text-decoration:underline;">Skip</button>
+    </div>
+  </div>
+</div>
+
 <div id="mgrHubPanel" style="display:none;">
   <div class="hub-overlay" onclick="toggleManagerHub()"></div>
   <div class="hub-container">
@@ -1833,6 +1848,7 @@ body,header,.sidebar,.card,.stat-box,.chat-wrap,
         <button class="hub-tab-btn" id="tab-escalations" onclick="switchHubTab('escalations')">🚨 Cases <span id="escBadge" style="display:none;" class="hub-badge">0</span></button>
         <button class="hub-tab-btn" id="tab-log" onclick="switchHubTab('log')">📋 Log</button>
         <button class="hub-logout-btn" onclick="managerLogout()">Sign Out</button>
+        <button onclick="obOpen()" title="Onboarding help" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;">?</button>
         <button onclick="toggleManagerHub()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;line-height:1;">×</button>
       </div>
     </div>
@@ -7509,6 +7525,26 @@ async function pinEnter(){
   }
 }
 
+const OB_STEPS=[
+  {t:'Welcome to your command center',b:"This is the Mexieon Manager Hub. You are one of the managers running the group — and everything you do here is scoped to your login, so your work and your agents stay yours."},
+  {t:'16 specialist agents, ready to work',b:'GUARDIAN (compliance), SENTINEL (fraud), ORACLE (profit), COMPASS (supplier vetting), FLUX (pricing), SIGNAL (marketing) and more. Each is a credentialed expert in its field. Click any agent to open it.'},
+  {t:'Talk to them like colleagues',b:'Agents hold real conversations — they remember what you told them earlier, and that memory survives a page reload.'},
+  {t:'Teach them your playbook',b:'Say things like "always prefer EU suppliers" or "never ship without insurance". Agents store these as permanent instructions and follow them from that point on.'},
+  {t:'Pin standing orders',b:'In the Agent Command Center you can also set a default directive per agent — the rules they must always respect. That is how you grow your agents into your own team.'}
+];
+let obStep=0;
+function obRender(){
+  const s=OB_STEPS[obStep];
+  document.getElementById('ob-title').textContent=s.t;
+  document.getElementById('ob-body').textContent=s.b;
+  document.getElementById('ob-dots').innerHTML=OB_STEPS.map(function(_,i){return '<span style="width:8px;height:8px;border-radius:50%;background:'+(i===obStep?'var(--re)':'var(--border)')+';"></span>';}).join('');
+  document.getElementById('ob-back').style.display=obStep===0?'none':'inline-block';
+  document.getElementById('ob-next').textContent=obStep===OB_STEPS.length-1?'Start working':'Next';
+}
+function obOpen(){ obStep=0; obRender(); document.getElementById('onboardOverlay').style.display='flex'; }
+function obClose(mark){ document.getElementById('onboardOverlay').style.display='none'; if(mark){ try{ localStorage.setItem('mx_onboarded_'+mgrKey(),'1'); }catch(e){} } }
+function obNav(d){ obStep=Math.min(OB_STEPS.length-1, Math.max(0, obStep+d)); obRender(); }
+
 function onManagerLogin(){
   const m=currentManager;
   const btn=document.getElementById('mgrHubBtn');
@@ -7528,6 +7564,7 @@ function onManagerLogin(){
   renderAgentBlocks();
   startHubPolling();
   speak(`Welcome back, ${m.display_name.split(' ')[0]}. You are now signed in to the Mexieon Manager Hub.`);
+  if(!localStorage.getItem('mx_onboarded_'+mgrKey())){ setTimeout(obOpen, 700); }
 }
 
 async function managerLogout(){
