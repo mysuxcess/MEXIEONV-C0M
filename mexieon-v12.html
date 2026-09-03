@@ -4162,7 +4162,8 @@ grid-2">
 // Keys live on the SERVER (.env) — never in the browser.
 // All AI calls go through /api/agent proxy endpoint.
 // ═══════════════════════════════════════════════════════
-const BACKEND = window.location.origin; // Same-origin proxy
+const MEXIEON_WORKER = 'https://mexieon-agent.myprinciple2u.workers.dev'; // 24/7 agent proxy (no-sleep)
+let BACKEND = window.location.origin; // same-origin first (tunnel/local/Render); Worker fallback below
 let serverLive = false;  // true once /api/status confirms server
 let useMock    = true;   // flips when server responds
 let chatBusy   = false;
@@ -4223,7 +4224,11 @@ function setStatus(){
 // ── Check server on load ──
 async function checkServer(){
   try{
-    const r = await fetch(BACKEND+'/api/status', {method:'GET'});
+    let r = await fetch(BACKEND+'/api/status', {method:'GET'});
+    if(!r.ok && MEXIEON_WORKER && BACKEND !== MEXIEON_WORKER){
+      const wr = await fetch(MEXIEON_WORKER+'/api/status', {method:'GET'});
+      if(wr.ok){ r = wr; BACKEND = MEXIEON_WORKER; }
+    }
     if(r.ok){
       const d = await r.json();
       serverLive = true;
