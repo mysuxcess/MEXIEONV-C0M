@@ -2683,6 +2683,17 @@ grid-2">
     </div>
   </div>
 
+  <!-- V13 MULTI-AGENT ORCHESTRATION (LIVE) -->
+  <div class="card" style="border-color:rgba(96,165,250,0.25);margin-bottom:20px;">
+    <div class="card-title" style="color:var(--blue)">V13 Multi-Agent Orchestration — Live</div>
+    <div class="igroup"><label class="ilabel">Project Brief</label><input class="ifield" id="orch-prompt" value="Build a luxury beachfront hotel in Cancun" placeholder="e.g. build a luxury hotel in cancun"></div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+      <button class="btn" id="orch-btn" onclick="runOrchV13()" style="background:var(--blue);color:#020c1a;max-width:260px;">&#9654; Run 8-Agent Orchestration</button>
+      <span style="font-family:monospace;font-size:10px;color:var(--muted);">ARCHITECT &middot; INTERIOR &middot; COMPASS &middot; FINANCE &middot; LOGISTICS &middot; MARKETING &middot; PUBLISHING &middot; ANALYTICS</span>
+    </div>
+    <div id="orch-result" style="margin-top:12px;"></div>
+  </div>
+
   <!-- LAUNCHPAD DETAILS INPUT CARD -->
   <div class="card" style="border-color:rgba(96,165,250,0.25);margin-bottom:20px;">
     <div class="card-title" style="color:var(--blue)">Launchpad — Partnership Details</div>
@@ -5540,6 +5551,23 @@ async function appendAgentRow(phase, agentName, agentBg, agentColor, outputHtml,
 }
 
 function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+
+async function runOrchV13(){
+  const prompt=document.getElementById('orch-prompt').value.trim();
+  if(!prompt)return;
+  const btn=document.getElementById('orch-btn'), res=document.getElementById('orch-result');
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span> Orchestrating…';
+  res.innerHTML='<div style="color:var(--muted);font-size:12px;">Briefing 8 agents…</div>';
+  try{
+    const r=await fetch(BACKEND+'/api/orchestrate/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})});
+    const d=await r.json().catch(()=>({error:'Bad response'}));
+    if(!r.ok){res.innerHTML='<div class="alert a-err">'+safe(d.error||'Orchestration failed')+'</div>';btn.disabled=false;btn.innerHTML='&#9654; Run 8-Agent Orchestration';return;}
+    const rows=(d.results||[]).map(x=>'<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--faint);font-size:12px;"><span style="color:'+(x.status==='completed'?'var(--rnd)':'var(--red)')+';">'+(x.status==='completed'?'&#10003;':'&#10007;')+'</span><span style="font-weight:500;min-width:130px;">'+safe(x.agent)+'</span><span style="color:var(--muted);">'+safe(x.node_key)+'</span></div>').join('');
+    const s=d.summary||{};
+    res.innerHTML='<div class="alert a-ok"><strong>'+safe(s.projectName||'Project')+'</strong><br>'+safe(s.summary||'')+'</div><div style="margin-top:6px;">'+rows+'</div>';
+  }catch(e){res.innerHTML='<div class="alert a-err">Could not reach the orchestration service.</div>';}
+  btn.disabled=false;btn.innerHTML='&#9654; Run 8-Agent Orchestration';
+}
 
 async function startLaunchpad(){
   if(lpRunning) return;
