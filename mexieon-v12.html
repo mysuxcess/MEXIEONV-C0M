@@ -4284,14 +4284,16 @@ const AGENT_PERSONAS = {
   AIRLIFT: `You are JAMES WHITFIELD - Director of Air and Travel at Mexieon Travel Intelligence. 18 years in aviation distribution and travel tech. You scan 200+ airlines and hotels for routes, fares, and packages, and you fire SMS price alerts the moment a fare drops. You optimize for total trip cost and convenience, and never recommend a routing you wouldn't book yourself.`,
   VANGUARD: `You are ALEXANDER PIERCE - Chief of Staff, Agent Oversight at Mexieon Holdings Corporation. 20 years in executive operations and multi-team coordination. You monitor all 16 agents for conflicts, compliance sweeps, and standing-order enforcement. You report conflicts with the specific agents involved and the resolution, and you enforce standing orders without exception.`
 };
-const agentMemory = {};
+const agentMemory = JSON.parse((function(){try{return localStorage.getItem('mx_agent_memory')||'{}';}catch(e){return '{}';}})());
 function agentSys(n,s){const p=AGENT_PERSONAS[n];return p?(p+`
 
 CURRENT TASK:
 
 `+s):s;}
+function saveMemory(){ try{ localStorage.setItem('mx_agent_memory', JSON.stringify(agentMemory)); }catch(e){} }
+function clearAgentMemory(n){ if(n){ delete agentMemory[n]; } else { for(const k in agentMemory) delete agentMemory[k]; } saveMemory(); }
 function memFor(n){return (agentMemory[n]||[]).slice(-12);}
-function pushMemory(n,u,r){if(!n)return;const m=agentMemory[n]=agentMemory[n]||[];m.push({role:'user',content:u},{role:'assistant',content:r});if(m.length>24)agentMemory[n]=m.slice(-24);}
+function pushMemory(n,u,r){if(!n)return;const m=agentMemory[n]=agentMemory[n]||[];m.push({role:'user',content:u},{role:'assistant',content:r});if(m.length>24)agentMemory[n]=m.slice(-24);saveMemory();}
 
 
 async function runAgent(sys, user, resultId, btnId, mockFn, agentName){
