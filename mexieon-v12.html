@@ -7307,7 +7307,8 @@ async function hubInit(){
 async function loadManagerProfiles(){
   try{
     const r=await fetch(BACKEND+'/api/managers');
-    if(r.ok){const d=await r.json();allManagers=d.managers||[];renderManagerGrid();}
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d=await r.json();allManagers=d.managers||[];renderManagerGrid();
   }catch(e){
     allManagers=[
       {id:1,username:'ceo',display_name:'Chief Executive Officer',role:'CEO / President',entity:'Holdings Corporation',entity_color:'#a78bfa',avatar:'👑'},
@@ -7374,6 +7375,7 @@ async function pinEnter(){
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({username: hubSelectedMgr.username, pin: hubPinStr})
     });
+    if(r.status === 404){ throw new Error('auth-route-missing'); } // agent-only proxy -> demo login
     const d = await r.json();
     if(r.ok && d.sessionId){
       currentManager = d.manager;
