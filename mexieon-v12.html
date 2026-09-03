@@ -4285,15 +4285,31 @@ const AGENT_PERSONAS = {
   VANGUARD: `You are ALEXANDER PIERCE - Chief of Staff, Agent Oversight at Mexieon Holdings Corporation. 20 years in executive operations and multi-team coordination. You monitor all 16 agents for conflicts, compliance sweeps, and standing-order enforcement. You report conflicts with the specific agents involved and the resolution, and you enforce standing orders without exception.`
 };
 const agentMemory = JSON.parse((function(){try{return localStorage.getItem('mx_agent_memory')||'{}';}catch(e){return '{}';}})());
-function agentSys(n,s){const p=AGENT_PERSONAS[n];return p?(p+`
-
-CURRENT TASK:
-
-`+s):s;}
+const learnedDirs = JSON.parse((function(){try{return localStorage.getItem('mx_learned')||'{}';}catch(e){return '{}';}})());
+function mgrKey(){ return (currentManager && currentManager.username) || 'guest'; }
 function saveMemory(){ try{ localStorage.setItem('mx_agent_memory', JSON.stringify(agentMemory)); }catch(e){} }
-function clearAgentMemory(n){ if(n){ delete agentMemory[n]; } else { for(const k in agentMemory) delete agentMemory[k]; } saveMemory(); }
-function memFor(n){return (agentMemory[n]||[]).slice(-12);}
-function pushMemory(n,u,r){if(!n)return;const m=agentMemory[n]=agentMemory[n]||[];m.push({role:'user',content:u},{role:'assistant',content:r});if(m.length>24)agentMemory[n]=m.slice(-24);saveMemory();}
+function saveLearned(){ try{ localStorage.setItem('mx_learned', JSON.stringify(learnedDirs)); }catch(e){} }
+function learnedFor(n){ const mk=mgrKey(); return ((learnedDirs[mk]||{})[n]||[]); }
+function learnDirective(n,text){
+  const t=(text||'').trim();
+  if(!t)return;
+  if(!/^(always|never|remember|from now on|going forward|teach|note|don't|do not|make sure|prioriti[sz]e)/i.test(t))return;
+  const mk=mgrKey();
+  const list=(learnedDirs[mk]=learnedDirs[mk]||{})[n]=((learnedDirs[mk]||{})[n]||[]);
+  list.push(t);
+  if(list.length>20)list.splice(0,list.length-20);
+  saveLearned();
+}
+function clearAgentMemory(n){ const mk=mgrKey(); if(n){ delete (agentMemory[mk]||{})[n]; delete (learnedDirs[mk]||{})[n]; } else { delete agentMemory[mk]; delete learnedDirs[mk]; } saveMemory(); saveLearned(); }
+function memFor(n){ const mk=mgrKey(); return (((agentMemory[mk]||{})[n])||[]).slice(-12); }
+function pushMemory(n,u,r){if(!n)return;const mk=mgrKey();const mm=agentMemory[mk]=agentMemory[mk]||{};const m=mm[n]=mm[n]||[];m.push({role:'user',content:u},{role:'assistant',content:r});if(m.length>24)mm[n]=m.slice(-24);learnDirective(n,u);saveMemory();}
+function agentSys(n,s){
+  const p=AGENT_PERSONAS[n];
+  const learned=learnedFor(n);
+  let base=s;
+  if(learned.length){ base=s+'\n\n--- WHAT YOUR MANAGER HAS TAUGHT YOU ---\n'+learned.map(function(d,i){return (i+1)+'. '+d;}).join('\n')+'\n--- END TAUGHT ---'; }
+  return p ? (p+'\n\nCURRENT TASK:\n'+base) : base;
+}
 
 
 async function runAgent(sys, user, resultId, btnId, mockFn, agentName){
@@ -6090,7 +6106,7 @@ function clearVaultKey(id){ localStorage.removeItem('mx_key_'+id); if(id==='anth
 // ═══════════════════════════════════════════════════
 // ── Standing-order helper: returns saved orders or default ──────────────────
 function getStandingOrders(agentName) {
-  const key = 'mx_cmd_' + agentName;
+  const key = 'mx_cmd_' + mgrKey() + '_' + agentName;
   return localStorage.getItem(key) || null; // null = no override
 }
 
@@ -6225,8 +6241,8 @@ function renderAgentBlocks(){
   const roleLabel=(mgrRoleMeta[activeMgr]?.label||activeMgr.toUpperCase())+' standing orders';
   container.innerHTML=`<div style="font-family:monospace;font-size:9px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">${roleLabel} — ${agents.length} agent${agents.length!==1?'s':''}</div>`
   +agents.map(a=>{
-    const saved=localStorage.getItem('mx_cmd_'+a.name)||a.default;
-    const isCustom=!!localStorage.getItem('mx_cmd_'+a.name);
+    const saved=localStorage.getItem('mx_cmd_'+mgrKey()+'_'+a.name)||a.default;
+    const isCustom=!!localStorage.getItem('mx_cmd_'+mgrKey()+'_'+a.name);
     return `<div class="agent-cmd-block">
       <div class="acb-hdr" id="acb-hdr-${a.name}" onclick="toggleACB('${a.name}')">
         <div class="acb-avatar" style="background:${a.bg};color:${a.color};">${a.name.slice(0,3)}</div>
@@ -6259,11 +6275,11 @@ function toggleACB(name){
 }
 function saveAgentOrders(agent){
   const ta=document.getElementById('acb-ta-'+agent);
-  if(ta){localStorage.setItem('mx_cmd_'+agent,ta.value);renderAgentBlocks();
+  if(ta){localStorage.setItem('mx_cmd_'+mgrKey()+'_'+agent,ta.value);renderAgentBlocks();
   document.getElementById('acb-body-'+agent).style.display='block';
   speak(`Standing orders saved for ${agent}.`);}
 }
-function resetAgentOrders(agent){localStorage.removeItem('mx_cmd_'+agent);renderAgentBlocks();}
+function resetAgentOrders(agent){localStorage.removeItem('mx_cmd_'+mgrKey()+'_'+agent);renderAgentBlocks();}
 
 async function queryPortfolio(){
   const agent=document.getElementById('portfolio-agent').value;
