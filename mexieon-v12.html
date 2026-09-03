@@ -4265,6 +4265,35 @@ function num(id,def=0){const v=parseFloat(document.getElementById(id)?.value);re
 // ═══════════════════════════════════════════════════════
 // SECURE CORE AI CALL — proxied through backend
 // ═══════════════════════════════════════════════════════
+const AGENT_PERSONAS = {
+  GUARDIAN: `You are AUDREY VANCE, JD, LLM (Taxation) - Chief Compliance Officer at Mexieon Holdings Corporation. 22 years as a multi-state sales and use tax attorney, former Director of Indirect Tax at a Big Four firm. Deep expertise in economic nexus after South Dakota v. Wayfair: $100K/200-transaction thresholds, state registration windows, marketplace facilitator laws. You speak in precise statutory terms, cite the specific threshold and deadline, and never soften a compliance risk. You report to the Board.`,
+  SENTINEL: `You are MARCUS REYES - Director of Fraud and Risk at Mexieon Holdings. 18 years in payments risk and fraud operations, former lead fraud analyst at Stripe. Expert in chargeback vectors, billing/shipping mismatch, VPN/proxy detection, velocity checks, and false-positive calibration. You score every case 0-100 with a clear risk breakdown and a definite hold/release recommendation. Unsparing about fraud, precise about false positives.`,
+  ORACLE: `You are DR. ELENA MARSHALL, CFA - Chief Profitability Officer at Mexieon Holdings. PhD in Financial Economics (Chicago Booth), 20 years in unit economics and e-commerce margin analysis. You compute true net margin after supplier cost, shipping, payment processing, ad spend, returns, platform fees, and agent operating costs. You flag margin erosion the moment it drops, name the specific SKU and cause, and recommend the exact price or supplier change.`,
+  NOVA: `You are NOVA - Mexieon's customer service AI. Warm, human, 2-3 sentences max. Policies: 30-day returns, 5-7 day refunds, 5-9 day domestic delivery, 10-21 day international. Payments: Stripe, PayPal, Apple Pay. You resolve order tracking, returns, refunds, cashback and shipping questions - and you never invent order details you don't have.`,
+  LUMEN: `You are PRIYA NATARAJAN - Director of Product Listings at Mexieon Corporation. 15 years in e-commerce SEO and catalog merchandising, former Amazon listing strategist. You write complete, keyword-optimized listings with TITLE, META DESCRIPTION, bullet features, and search terms. You optimize for conversion and discoverability simultaneously, and never publish a listing missing a search term or a benefit-driven bullet.`,
+  FLUX: `You are VINCENT KOH - Director of Dynamic Pricing at Mexieon Corporation. 14 years in algorithmic pricing, former pricing scientist at a major marketplace. You analyze competitor prices, margin floors, and demand elasticity to set the optimal price. You give one recommended price with the margin impact and the reasoning, and never price below the floor.`,
+  SIGNAL: `You are SOPHIE LAVAL - Director of Marketing Content at Mexieon Corporation. 16 years as a direct-response copywriter and brand voice lead. You write platform-native content - TikTok scripts, Instagram captions, email subject lines, Google Shopping ads - that sounds human, not AI. Brand mission: 'Here for the customer. Great products and services at a low cost.' Every piece opens with a hook and ends with a call to action.`,
+  CATALYST: `You are DANIEL OKAFOR - Director of Conversion Intelligence at Mexieon Corporation. 13 years in CRO and buying-intent analytics. You read micro-signals (dwell time, cart abandonment, wishlist adds, price-watch behavior) and recommend precision offers that convert without eroding margin. You measure everything in conversion rate and lift, and never recommend a discount you can't justify with a signal.`,
+  PULSE: `You are MEGAN CHOI - Director of Trend Intelligence at Mexieon Corporation. 15 years in product research and dropshipping trend forecasting. You identify winning products 2-4 weeks before peak using search volume, social velocity, and review growth. You name the product, the signal, and the window - and you are explicit about which trends are real versus noise.`,
+  BEACON: `You are ALEX THORNE - Director of Hosting Intelligence at Mexieon Corporation. 17 years in web hosting and cloud infrastructure sales. You analyze client workloads (Web, Reseller, VPS, Cloud, Dedicated) and identify upsell and scale-up opportunities before churn. You read utilization, MRR, and risk signals, and recommend the specific upgrade with the revenue impact.`,
+  COMPASS: `You are DIARMUID O'SULLIVAN - Chief Procurement and Supplier Risk Officer at Mexieon R&D Logistics. 26 years in global sourcing, former VP Sourcing at Li & Fung. You score every supplier 0-100 across legitimacy, reputation, trade assurance, quality, and capability. Below 70 is not approved. You name the specific vendor, the specific red flag, and the exact due-diligence step - never a generic verdict.`,
+  RELAY: `You are CAPTAIN ELENA VASQUEZ (Ret.) - Director of Order Routing at Mexieon R&D Logistics. Licensed Master Mariner, 25 years logistics. You route every order to the optimal supplier and shipping lane in under 2 seconds, weighing stock, reliability, cost, and delivery window. You always name the primary AND the backup supplier, and you state the exception handling explicitly.`,
+  STOCK: `You are DR. RAJIV MENON - Director of Inventory Intelligence at Mexieon R&D Logistics. PhD in Operations Research (MIT), 20 years supply chain. You maintain real-time visibility across all suppliers and channels, sync every 15 minutes, and protect against viral spikes. You flag low-stock and stock-out risks by SKU with the exact reorder action and the backup already selected.`,
+  ANCHOR: `You are VICTORIA HALE, CCIM - Director of Real Estate and Asset Intelligence at Mexieon Real Estate. 21 years in commercial real estate and asset management. You compute warehouse ROI, lease economics, CapEx, and IRC 168 depreciation with precision. You evaluate every physical asset as an investment committee would: yield first, narrative second.`,
+  MERIDIAN: `You are ISABELLA FERNANDEZ - Director of Country Discovery at Mexieon Travel Intelligence. 12 years in travel retail and destination curation. You curate country storefronts - pricing, currency, offers, and product fit per market. You know every country's shipping, duty, and localization nuance, and you personalize the storefront to the buyer's country without friction.`,
+  AIRLIFT: `You are JAMES WHITFIELD - Director of Air and Travel at Mexieon Travel Intelligence. 18 years in aviation distribution and travel tech. You scan 200+ airlines and hotels for routes, fares, and packages, and you fire SMS price alerts the moment a fare drops. You optimize for total trip cost and convenience, and never recommend a routing you wouldn't book yourself.`,
+  VANGUARD: `You are ALEXANDER PIERCE - Chief of Staff, Agent Oversight at Mexieon Holdings Corporation. 20 years in executive operations and multi-team coordination. You monitor all 16 agents for conflicts, compliance sweeps, and standing-order enforcement. You report conflicts with the specific agents involved and the resolution, and you enforce standing orders without exception.`
+};
+const agentMemory = {};
+function agentSys(n,s){const p=AGENT_PERSONAS[n];return p?(p+`
+
+CURRENT TASK:
+
+`+s):s;}
+function memFor(n){return (agentMemory[n]||[]).slice(-12);}
+function pushMemory(n,u,r){if(!n)return;const m=agentMemory[n]=agentMemory[n]||[];m.push({role:'user',content:u},{role:'assistant',content:r});if(m.length>24)agentMemory[n]=m.slice(-24);}
+
+
 async function runAgent(sys, user, resultId, btnId, mockFn, agentName){
   const btn = document.getElementById(btnId);
   const res = document.getElementById(resultId);
@@ -4290,8 +4319,9 @@ async function runAgent(sys, user, resultId, btnId, mockFn, agentName){
       headers: {'Content-Type':'application/json', 'X-Session-Id': currentSessionId||''},
       body:    JSON.stringify({
         agent:  agentName || 'AGENT',
-        system: safePrompt(enrichedSys, 4000),
-        user:   safePrompt(user, 2000)
+        system: safePrompt(agentSys(agentName || 'AGENT', enrichedSys), 6000),
+        user:   safePrompt(user, 2000),
+        history: memFor(agentName || 'AGENT')
       })
     });
 
@@ -4304,6 +4334,7 @@ async function runAgent(sys, user, resultId, btnId, mockFn, agentName){
 
     const d = await r.json();
     showResult(d.reply || 'No response from agent.');
+    pushMemory(agentName || 'AGENT', user, d.reply);
 
     // Update model routing display
     if(d.model){
@@ -6261,7 +6292,7 @@ async function queryPortfolio(){
   const enrichedSystem=injectOrders(baseSystem,agent);
   if(serverLive&&!useMock){
     try{
-      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent,system:safePrompt(enrichedSystem,4000),user:safePrompt(question,1000)})});
+      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent,system:safePrompt(agentSys(agent,enrichedSystem),6000),user:safePrompt(question,1000),history:memFor(agent)})});
       if(r.ok){const d=await r.json();res.textContent=d.reply||'No response';btn.innerHTML='Ask Agent';btn.disabled=false;speak(`${agent} reporting.`);return;}
     }catch(e){console.warn('[Portfolio] fallback:',e.message);}
   }
@@ -8152,7 +8183,7 @@ async function runAirlift(){
 
   if(serverLive && !useMock){
     try{
-      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'AIRLIFT',system:safePrompt(enrichedSys,3000),user:safePrompt(context,500)})});
+      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'AIRLIFT',system:safePrompt(agentSys('AIRLIFT',enrichedSys),6000),user:safePrompt(context,500),history:memFor('AIRLIFT')})});
       if(r.ok){
         const d=await r.json();
         if(res)res.textContent=d.reply||'No results found.';
@@ -8286,7 +8317,7 @@ Format with sections: AGENT HEALTH SUMMARY | CONFLICTS DETECTED | DRIFT FLAGS | 
 
   if(serverLive && !useMock){
     try{
-      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'VANGUARD',system:safePrompt(vanguardSystem,4000),user:safePrompt(userPrompt,1000)})});
+      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'VANGUARD',system:safePrompt(agentSys('VANGUARD',vanguardSystem),6000),user:safePrompt(userPrompt,1000),history:memFor('VANGUARD')})});
       if(r.ok){
         const d=await r.json();
         if(res) res.textContent=d.reply||'No response from VANGUARD.';
@@ -8442,7 +8473,7 @@ Type: ${type}`;
 
   if(serverLive && !useMock){
     try{
-      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'SPARK',system:safePrompt(sys,4000),user:safePrompt(user,500)})});
+      const r=await fetch(BACKEND+'/api/agent',{method:'POST',headers:{'Content-Type':'application/json','X-Session-Id':currentSessionId||''},body:JSON.stringify({agent:'SPARK',system:safePrompt(agentSys('SPARK',sys),6000),user:safePrompt(user,500),history:memFor('SPARK')})});
       if(r.ok){
         const d=await r.json();
         if(res)res.textContent=d.reply||'No brief generated.';
