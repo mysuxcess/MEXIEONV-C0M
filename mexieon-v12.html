@@ -2913,6 +2913,7 @@ grid-2">
         <div class="card-title" style="color:#e879f9">Compose Outreach</div>
         <div class="igroup"><label class="ilabel">Company Name</label><input class="ifield" id="out-company" placeholder="e.g. TechFlow Accessories Ltd"></div>
         <div class="igroup"><label class="ilabel">Contact Email</label><input class="ifield" id="out-email" placeholder="contact@company.com"></div>
+        <div class="igroup"><label class="ilabel">Company Sender Email (from)</label><input class="ifield" id="out-from-email" placeholder="commerce@mexieon.com" onchange="localStorage.setItem('mx_company_email', this.value.trim())"></div>
         <div class="igroup"><label class="ilabel">Contact Name</label><input class="ifield" id="out-contact" placeholder="John Smith"></div>
         <div class="igroup"><label class="ilabel">Product Category Interest</label><select class="sfield" id="out-cat">
           <option>Consumer Electronics</option><option>Home & Garden</option>
@@ -6338,7 +6339,9 @@ function publishApproved(){speak('Check the Publish to Store panel.');goTo('mgr-
 // ═══════════════════════════════════════════════════
 // SUPPLIER OUTREACH
 // ═══════════════════════════════════════════════════
-let outreachLog=[];
+let outreachLog = JSON.parse((function(){try{return localStorage.getItem('mx_outreach_log')||'[]';}catch(e){return '[]';}})());
+function saveOutreachLog(){ try{ localStorage.setItem('mx_outreach_log', JSON.stringify(outreachLog.slice(0,50))); }catch(e){} }
+(function(){const f=document.getElementById('out-from-email'); if(f){const s=localStorage.getItem('mx_company_email'); if(s)f.value=s;}})();
 let currentDraft={};
 function draftOutreach(){
   const company=document.getElementById('out-company').value.trim()||'Company';
@@ -6361,14 +6364,46 @@ function draftOutreach(){
 }
 function redraftOutreach(){document.getElementById('out-email-card').style.display='none';draftOutreach();}
 function clearOutreachDraft(){document.getElementById('out-email-card').style.display='none';currentDraft={};}
-function sendOutreach(){
+async function sendOutreach(){
   if(!currentDraft.company)return;
-  outreachLog.unshift({id:Date.now(),company:currentDraft.company,email:document.getElementById('out-email').value||'(not set)',cat:currentDraft.cat,status:'sent',sentAt:new Date().toLocaleString(),draft:currentDraft});
+  const toEmail = document.getElementById('out-email').value.trim();
+  const fromEmail = (document.getElementById('out-from-email')?.value.trim()) || localStorage.getItem('mx_company_email') || 'commerce@mexieon.com';
+  const sgKey = localStorage.getItem('mx_key_sendgrid');
+
+  outreachLog.unshift({id:Date.now(),company:currentDraft.company,email:toEmail||'(not set)',from:fromEmail,cat:currentDraft.cat,status:'sent',sentAt:new Date().toLocaleString(),draft:currentDraft});
+  saveOutreachLog();
   renderOutreachTracker();
   document.getElementById('out-email-card').style.display='none';
   document.getElementById('out-response-card').style.display='block';
-  const sgKey=localStorage.getItem('mx_key_sendgrid');
-  speak(sgKey?`Email sent to ${currentDraft.company} via SendGrid.`:`Outreach to ${currentDraft.company} logged. Add SendGrid key in API Vault to send real emails.`);
+
+  if(!sgKey){
+    speak(`Outreach to ${currentDraft.company} logged. Add a SendGrid key in the API Vault to send real emails.`);
+    return;
+  }
+  if(!toEmail){
+    speak(`No contact email entered - outreach logged but nothing sent. Add the supplier's email and re-send.`);
+    return;
+  }
+
+  try{
+    const r = await fetch(BACKEND+'/api/send-email',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({apiKey:sgKey, from:fromEmail, to:toEmail, subject:currentDraft.subject, body:currentDraft.body})
+    });
+    const d = await r.json().catch(()=>({error:'Could not reach the email service.'}));
+    if(r.ok && d.ok){
+      outreachLog[0].delivery='sent';
+      saveOutreachLog(); renderOutreachTracker();
+      speak(`Email sent to ${currentDraft.company} at ${toEmail} via SendGrid.`);
+    } else {
+      outreachLog[0].delivery='failed';
+      saveOutreachLog(); renderOutreachTracker();
+      speak(`Email failed: ${d.error || 'unknown error'}`);
+    }
+  }catch(e){
+    speak(`Could not reach the email service: ${e.message}`);
+  }
 }
 function renderOutreachTracker(){
   const t=document.getElementById('outreach-tracker');if(!t)return;
@@ -6398,6 +6433,7 @@ function simulateResponse(type){
   if(!outreachLog.length){alert('Send an outreach first.');return;}
   const company=outreachLog[0].company;
   outreachLog[0].status=type==='positive'?'responded_positive':type==='negative'?'responded_negative':'responded_questions';
+  saveOutreachLog();
   renderOutreachTracker();
   const content=document.getElementById('out-response-content');
   const vetTrigger=document.getElementById('out-vet-trigger');
@@ -6414,7 +6450,7 @@ function simulateResponse(type){
 }
 function triggerVettingFromOutreach(){
   const company=outreachLog[0]?.company||'Company';
-  outreachLog[0].status='vetting';renderOutreachTracker();
+  outreachLog[0].status='vetting';saveOutreachLog();renderOutreachTracker();
   const el=document.getElementById('lp-company');if(el)el.value=company;
   speak(`Initiating COMPASS vetting for ${company}.`);
   setTimeout(()=>goTo('launchpad'),400);
