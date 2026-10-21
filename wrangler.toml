@@ -2,5 +2,9 @@ name = "mexieon-agent"
 main = "worker.js"
 compatibility_date = "2026-08-01"
 
+[[kv_namespaces]]
+binding = "MEXIEON_KV"
+id = "6dfc86aae7104ebb9277a04e931e8974"
+
 [vars]
 GEMINI_MODEL = "gemini-3.6-flash"
